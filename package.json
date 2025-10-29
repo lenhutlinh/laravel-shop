@@ -2,7 +2,7 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "echo 'Assets already built'"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
