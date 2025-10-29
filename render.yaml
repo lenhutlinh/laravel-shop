@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: laravel-shop
+    env: php
+    region: singapore
+    plan: free
+    buildCommand: |
+      composer install --no-dev --optimize-autoloader --no-interaction
+      mkdir -p storage/framework/{sessions,views,cache}
+      chmod -R 775 storage bootstrap/cache
+    startCommand: php artisan serve --host=0.0.0.0 --port=$PORT
+    envVars:
+      - key: APP_NAME
+        value: Laravel
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_KEY
+        generateValue: true
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: SESSION_DRIVER
+        value: file
+      - key: CACHE_DRIVER
+        value: file
+      - key: QUEUE_CONNECTION
+        value: sync
+
+databases:
+  - name: laravel-shop-db
+    databaseName: laravel_shop
+    user: laravel
+    plan: free
+    region: singapore
+
