@@ -122,7 +122,7 @@ class ChatController extends Controller
         $user_id = $request->user_id;
         $shop_id = $request->shop_id;
         $sender = 2; // 1 là shop, 2 là user
-        $created_at = now();
+        $created_at = now(); 
         $data = array();
         $data['user_id'] = $user_id;
         $data['shop_id'] = $shop_id;

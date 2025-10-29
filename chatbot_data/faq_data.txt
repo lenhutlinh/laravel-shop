@@ -1,0 +1,181 @@
+============================================
+CÂU HỎI THƯỜNG GẶP (FAQ) - VIES ECOMMERCE
+Trích xuất từ resources/views/support.blade.php
+============================================
+
+=== PHẦN 1: TÀI KHOẢN & BẢO MẬT ===
+
+Q1: Làm sao để đăng ký tài khoản trên VieS?
+A1: Bạn có thể đăng ký bằng email hoặc số điện thoại. Vào Trang Đăng Ký → nhập email/số điện thoại → làm theo hướng dẫn và kích hoạt tài khoản.
+
+Q2: Quên mật khẩu, tôi phải làm sao?
+A2: Vào trang Đăng Nhập → chọn 'Quên mật khẩu' → nhập email/số điện thoại để nhận link hoặc mã đặt lại mật khẩu. Nếu vẫn gặp sự cố, liên hệ CSKH.
+
+Q3: Làm sao để thay đổi mật khẩu tài khoản?
+A3: Đăng nhập → Vào "Tài khoản của tôi" → Chọn "Đổi mật khẩu" → Nhập mật khẩu cũ và mật khẩu mới → Xác nhận. Mật khẩu nên có ít nhất 8 ký tự, bao gồm chữ cái và số.
+
+Q4: Tài khoản của tôi bị khóa, phải làm sao?
+A4: Tài khoản có thể bị khóa do nhập sai mật khẩu nhiều lần hoặc vi phạm chính sách. Liên hệ CSKH qua email support@vies.vn hoặc hotline 1900-1234 để được hỗ trợ mở khóa.
+
+Q5: Làm sao để cập nhật thông tin cá nhân?
+A5: Đăng nhập → Vào "Tài khoản của tôi" → Chọn "Thông tin cá nhân" → Chỉnh sửa họ tên, email, số điện thoại, địa chỉ → Lưu thay đổi.
+
+=== PHẦN 2: THANH TOÁN ===
+
+Q6: Hệ thống chấp nhận những phương thức thanh toán nào?
+A6: VieS hỗ trợ COD (thanh toán khi nhận hàng), chuyển khoản ngân hàng, thẻ ATM/Internet Banking, thẻ tín dụng (Visa/Mastercard) và ví điện tử (MoMo, VNPay). Vui lòng kiểm tra trang thanh toán để biết các phương thức cụ thể.
+
+Q7: Thanh toán COD có an toàn không?
+A7: Có. COD (Cash On Delivery) cho phép bạn thanh toán trực tiếp khi nhận hàng. Bạn kiểm tra hàng trước khi thanh toán cho shipper.
+
+Q8: Thanh toán online có được bảo mật không?
+A8: Có. Tất cả giao dịch thanh toán online trên VieS đều được mã hóa SSL, bảo mật thông tin thẻ và tài khoản ngân hàng tuyệt đối.
+
+Q9: Tôi đã thanh toán nhưng đơn hàng chưa được xác nhận?
+A9: Thông thường đơn hàng được xác nhận trong vòng 1-2 giờ sau khi thanh toán thành công. Nếu quá 24h chưa thấy cập nhật, vui lòng liên hệ CSKH với mã đơn hàng.
+
+Q10: Thanh toán qua MoMo/VNPay có mất phí không?
+A10: Không. VieS không tính phí thanh toán qua ví điện tử. Tuy nhiên, ngân hàng của bạn có thể áp dụng phí giao dịch riêng.
+
+=== PHẦN 3: ĐƠN HÀNG & GIAO HÀNG ===
+
+Q11: Sản phẩm đã giao nhưng tôi chưa nhận — phải làm sao?
+A11: Kiểm tra trạng thái đơn trong tài khoản. Nếu ghi là 'Giao thành công' nhưng bạn chưa nhận, liên hệ Hotline 1900-1234 hoặc Chat để VieS xác minh với đơn vị vận chuyển.
+
+Q12: Làm sao để theo dõi đơn hàng?
+A12: Đăng nhập → Vào "Đơn mua" → Xem danh sách đơn hàng → Nhấn vào đơn để xem chi tiết trạng thái và mã vận đơn.
+
+Q13: Bao lâu tôi nhận được hàng?
+A13: Thời gian giao hàng phụ thuộc vào khoảng cách:
+- Nội thành: 1-3 ngày
+- Ngoại thành: 3-7 ngày
+- Vùng xa: 5-10 ngày
+Thời gian có thể thay đổi tùy theo tình trạng vận chuyển và thời tiết.
+
+Q14: Tôi có thể thay đổi địa chỉ giao hàng sau khi đặt không?
+A14: Nếu đơn hàng chưa được xác nhận, bạn có thể liên hệ shop hoặc CSKH để đổi địa chỉ. Nếu đơn đã xác nhận, vui lòng liên hệ ngay để kịp xử lý.
+
+Q15: Làm sao để hủy đơn hàng?
+A15: Vào "Đơn mua" → Chọn đơn cần hủy → Nhấn "Hủy đơn hàng" → Chọn lý do. Lưu ý: Chỉ hủy được khi đơn ở trạng thái "Chờ xác nhận".
+
+=== PHẦN 4: ĐỔI TRẢ & HOÀN TIỀN ===
+
+Q16: Làm sao để đổi/trả hàng?
+A16: Vào "Đơn mua" → Chọn đơn → Nhấn "Yêu cầu đổi/trả" → Mô tả lý do + đính kèm ảnh → Gửi yêu cầu. Điều kiện đổi trả tùy shop và sản phẩm, thường trong vòng 7-15 ngày.
+
+Q17: Điều kiện đổi trả sản phẩm là gì?
+A17: 
+- Sản phẩm còn nguyên vẹn, chưa qua sử dụng
+- Còn đầy đủ hộp, phụ kiện, tem mác
+- Có hóa đơn mua hàng
+- Trong thời gian quy định (7-15 ngày tùy shop)
+
+Q18: Bao lâu tôi nhận được tiền hoàn?
+A18: Sau khi yêu cầu được duyệt, thời gian hoàn tiền thường 3–10 ngày làm việc tùy ngân hàng hoặc phương thức thanh toán.
+
+Q19: Sản phẩm bị lỗi, tôi có được hoàn tiền không?
+A19: Có. Nếu sản phẩm bị lỗi từ nhà sản xuất hoặc shop, bạn được hoàn tiền 100% hoặc đổi sản phẩm mới. Vui lòng cung cấp ảnh/video chứng minh.
+
+Q20: Tôi nhận nhầm sản phẩm, phải làm sao?
+A20: Liên hệ ngay shop hoặc CSKH với ảnh sản phẩm nhận được. VieS sẽ hỗ trợ đổi sản phẩm đúng hoặc hoàn tiền, phí ship do shop chịu.
+
+=== PHẦN 5: MÃ GIẢM GIÁ & KHUYẾN MÃI ===
+
+Q21: Mã giảm giá không áp dụng được?
+A21: Kiểm tra điều kiện mã:
+- Hạn sử dụng còn hiệu lực chưa
+- Giá trị đơn hàng đủ điều kiện chưa
+- Mã áp dụng cho sản phẩm/shop nào
+Nếu vẫn lỗi, chụp màn hình và gửi CSKH.
+
+Q22: Làm sao để có mã giảm giá?
+A22: Bạn có thể nhận mã giảm giá qua:
+- Email từ VieS (đăng ký nhận tin)
+- Trang chủ, banner khuyến mãi
+- Chương trình khách hàng thân thiết
+- Fanpage/Social media của VieS
+- Mã VIP cho khách hàng mua nhiều
+
+Q23: Tôi có thể dùng nhiều mã giảm giá cùng lúc không?
+A23: Không. Mỗi đơn hàng chỉ áp dụng được 1 mã giảm giá. Bạn nên chọn mã có giá trị ưu đãi cao nhất.
+
+Q24: Mã giảm giá VIP là gì?
+A24: Mã giảm giá VIP (ví dụ: NHUTLINH2025, VIPCUSTOMER) dành cho khách hàng thân thiết, có giá trị giảm cao hơn (15-20%) với điều kiện đơn hàng từ 500k-1 triệu.
+
+Q25: Mã WELCOME2025 dùng như thế nào?
+A25: Mã WELCOME2025 dành cho khách hàng mới, giảm 100.000đ cho đơn hàng từ 300.000đ. Nhập mã tại trang thanh toán và nhấn "Áp dụng".
+
+=== PHẦN 6: SHOP & NGƯỜI BÁN ===
+
+Q26: Tôi muốn khiếu nại shop/đơn hàng thì sao?
+A26: Mở ticket trong trang "Đơn mua" → Chọn "Khiếu nại" → Mô tả chi tiết + đính kèm ảnh. CSKH sẽ xử lý và phản hồi trong 24-48h.
+
+Q27: Làm sao để đánh giá shop/sản phẩm?
+A27: Sau khi nhận hàng, vào "Đơn mua" → Chọn đơn đã nhận → Nhấn "Đánh giá" → Chọn số sao (1-5) → Viết nhận xét → Tải ảnh (nếu có) → Gửi.
+
+Q28: Làm sao để chat với shop?
+A28: Vào trang sản phẩm hoặc trang shop → Nhấn "Chat ngay" → Gõ tin nhắn. Hoặc vào "Tin nhắn" trong tài khoản để xem tất cả cuộc trò chuyện.
+
+Q29: Shop không phản hồi tin nhắn, phải làm sao?
+A29: Nếu shop không phản hồi sau 24h, vui lòng liên hệ CSKH để được hỗ trợ. VieS sẽ nhắc nhở hoặc xử lý shop vi phạm.
+
+Q30: Làm sao để mở shop bán hàng trên VieS?
+A30: Vào trang "Đăng ký bán hàng" → Điền thông tin shop → Tải giấy tờ (nếu có) → Gửi đơn đăng ký → Chờ duyệt 1-3 ngày. Sau khi được duyệt, bạn có thể đăng sản phẩm.
+
+=== PHẦN 7: HỖ TRỢ KHÁCH HÀNG ===
+
+Q31: Liên hệ CSKH qua kênh nào?
+A31: 
+- Hotline: 1900-1234 (8:00-22:00 hàng ngày)
+- Email: support@vies.vn
+- Chat trực tuyến: Nhấn icon chat góc phải màn hình
+- Trang hỗ trợ: Menu "Hỗ trợ"
+
+Q32: Thời gian CSKH phản hồi là bao lâu?
+A32: 
+- Chat trực tuyến: Trong vài phút (giờ hành chính)
+- Hotline: Ngay lập tức (8:00-22:00)
+- Email: Trong vòng 24h
+- Ticket khiếu nại: 24-48h
+
+Q33: Tôi cần hỗ trợ kỹ thuật, liên hệ ai?
+A33: Vui lòng gửi email đến support@vies.vn với tiêu đề "[Kỹ thuật]" kèm mô tả chi tiết vấn đề + ảnh chụp màn hình. Đội ngũ kỹ thuật sẽ hỗ trợ trong 24h.
+
+Q34: VieS có hỗ trợ 24/7 không?
+A34: Hotline hoạt động từ 8:00-22:00 hàng ngày. Email và ticket hỗ trợ 24/7 (phản hồi trong giờ hành chính). Chat trực tuyến 8:00-22:00.
+
+Q35: Tôi muốn góp ý về dịch vụ, gửi đâu?
+A35: Gửi email đến support@vies.vn với tiêu đề "[Góp ý]" hoặc liên hệ hotline. VieS luôn lắng nghe và cải thiện dịch vụ dựa trên phản hồi khách hàng.
+
+=== PHẦN 8: BẢO MẬT & AN TOÀN ===
+
+Q36: Thông tin cá nhân của tôi có được bảo mật không?
+A36: Có. VieS cam kết bảo mật tuyệt đối thông tin cá nhân theo chính sách bảo mật và pháp luật Việt Nam. Thông tin chỉ dùng cho mục đích giao dịch.
+
+Q37: Tôi có thể xóa tài khoản không?
+A37: Có. Liên hệ CSKH qua email support@vies.vn với yêu cầu xóa tài khoản. Lưu ý: Sau khi xóa, toàn bộ dữ liệu sẽ bị mất và không thể khôi phục.
+
+Q38: Làm sao để phát hiện shop giả mạo?
+A38: 
+- Kiểm tra huy hiệu "Shop chính hãng" hoặc "Shop uy tín"
+- Xem đánh giá và số lượng sản phẩm đã bán
+- Tránh shop mới lập, không có đánh giá
+- Kiểm tra giá quá rẻ so với thị trường
+
+Q39: Tôi bị lừa đảo trên VieS, phải làm sao?
+A39: Liên hệ ngay CSKH qua hotline 1900-1234 hoặc email support@vies.vn với đầy đủ bằng chứng (ảnh chụp, tin nhắn...). VieS sẽ xác minh và xử lý nghiêm.
+
+Q40: VieS có chính sách bảo vệ người mua không?
+A40: Có. VieS có chính sách "Bảo vệ người mua" đảm bảo:
+- Hoàn tiền nếu không nhận được hàng
+- Hoàn tiền nếu sản phẩm không đúng mô tả
+- Hỗ trợ giải quyết tranh chấp
+- Đền bù thiệt hại nếu do lỗi VieS
+
+============================================
+Tổng số: 40 câu hỏi thường gặp
+Trích xuất từ: resources/views/support.blade.php
+Schema.org FAQPage markup included
+Ngày cập nhật: 2025
+============================================
+

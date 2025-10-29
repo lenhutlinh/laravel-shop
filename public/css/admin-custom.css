@@ -1,0 +1,226 @@
+/* Custom Admin Styles - Force Override with Maximum Priority */
+
+/* Ensure entire sidebar has consistent dark theme */
+html body .navbar-nav.sidebar.sidebar-dark.accordion {
+    background-color: #2c3e50 !important;
+    background: #2c3e50 !important;
+}
+
+html body .sidebar {
+    background-color: #2c3e50 !important;
+    background: #2c3e50 !important;
+}
+
+html body .sidebar-dark {
+    background-color: #2c3e50 !important;
+    background: #2c3e50 !important;
+}
+
+/* Override sidebar collapse styles with maximum specificity - Dark theme like dashboard */
+html body .sidebar .nav-item .collapse .collapse-inner {
+    background-color: #2c3e50 !important;
+    background: #2c3e50 !important;
+}
+
+html body .sidebar .nav-item .collapse .collapse-inner .collapse-item,
+html body .sidebar .nav-item .collapsing .collapse-inner .collapse-item {
+    color: #ecf0f1 !important;
+    background-color: transparent !important;
+    background: transparent !important;
+    font-weight: 500 !important;
+}
+
+html body .sidebar .nav-item .collapse .collapse-inner .collapse-item:hover,
+html body .sidebar .nav-item .collapsing .collapse-inner .collapse-item:hover {
+    color: #ffffff !important;
+    background-color: #34495e !important;
+    background: #34495e !important;
+}
+
+html body .sidebar .nav-item .collapse .collapse-inner .collapse-item.active,
+html body .sidebar .nav-item .collapsing .collapse-inner .collapse-item.active {
+    color: #ffffff !important;
+    background-color: #4e73df !important;
+    background: #4e73df !important;
+    font-weight: 700 !important;
+}
+
+/* Force override any white backgrounds with maximum specificity */
+html body .bg-white {
+    background-color: #2c3e50 !important;
+    background: #2c3e50 !important;
+}
+
+html body .collapse-inner {
+    background-color: #2c3e50 !important;
+    background: #2c3e50 !important;
+}
+
+/* Additional specific overrides with maximum priority */
+html body .sidebar .nav-item .collapse .collapse-inner.bg-white {
+    background-color: #2c3e50 !important;
+    background: #2c3e50 !important;
+}
+
+html body .sidebar .nav-item .collapse .collapse-inner .collapse-item.bg-white {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+/* Ultra-specific overrides */
+html body div.collapse.show div.collapse-inner {
+    background-color: #2c3e50 !important;
+    background: #2c3e50 !important;
+}
+
+html body div.collapse.show div.collapse-inner a.collapse-item {
+    color: #ecf0f1 !important;
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+html body div.collapse.show div.collapse-inner a.collapse-item.active {
+    color: #ffffff !important;
+    background-color: #4e73df !important;
+    background: #4e73df !important;
+}
+
+/* Ensure all sidebar elements have consistent dark background */
+html body .sidebar .nav-item {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+html body .sidebar .nav-link {
+    color: #ecf0f1 !important;
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+html body .sidebar .nav-link:hover {
+    color: #ffffff !important;
+    background-color: #34495e !important;
+    background: #34495e !important;
+}
+
+html body .sidebar .nav-item.active .nav-link {
+    color: #ffffff !important;
+    background-color: #4e73df !important;
+    background: #4e73df !important;
+}
+
+/* Fix dropdown z-index and positioning issues */
+html body .sidebar .nav-item .collapse {
+    z-index: 1000 !important;
+    position: relative !important;
+}
+
+html body .sidebar .nav-item .collapse .collapse-inner {
+    z-index: 1001 !important;
+    position: relative !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 5px !important;
+    margin: 0.25rem 0 !important;
+}
+
+html body .sidebar .nav-item .collapse.show {
+    z-index: 1000 !important;
+    position: relative !important;
+}
+
+/* Ensure dropdown items don't get covered */
+html body .sidebar .nav-item .collapse .collapse-inner .collapse-item {
+    position: relative !important;
+    z-index: 1002 !important;
+    margin: 0.1rem 0 !important;
+}
+
+/* Fix any overflow issues */
+html body .sidebar {
+    overflow: visible !important;
+}
+
+html body .sidebar .nav-item {
+    overflow: visible !important;
+}
+
+/* Custom styles to make notification dropdowns smaller */
+.nav-item.dropdown.no-arrow.mx-1 {
+    height: 45px !important;
+    max-height: 45px !important;
+}
+
+.notification-link, .message-link {
+    font-size: 1rem !important;
+    padding: 0.4rem 0.6rem !important;
+    height: 50px !important;
+    max-height: 50px !important;
+    line-height: 1.2 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.notification-link .fa-bell, .message-link .fa-envelope {
+    font-size: 1.2rem !important;
+    margin: 0 !important;
+}
+
+.notification-link .badge-counter, .message-link .badge-counter {
+    font-size: 0.7rem !important;
+    padding: 0.2rem 0.4rem !important;
+    min-width: 1.2rem !important;
+    height: 1.2rem !important;
+    line-height: 0.8 !important;
+    position: absolute !important;
+    top: 3px !important;
+    right: 3px !important;
+}
+
+/* Make dropdown content wider */
+.dropdown-list {
+    min-width: 450px !important;
+    max-width: 500px !important;
+    width: 480px !important;
+}
+
+.dropdown-list .dropdown-item {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.8rem !important;
+}
+
+.dropdown-list .dropdown-item .icon-circle {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+}
+
+.dropdown-list .dropdown-item .icon-circle i {
+    font-size: 0.6rem !important;
+}
+
+.dropdown-list .dropdown-item .dropdown-list-image {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+}
+
+.dropdown-list .dropdown-item .dropdown-list-image img {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+}
+
+.dropdown-list .dropdown-item .status-indicator {
+    width: 0.4rem !important;
+    height: 0.4rem !important;
+}
+
+/* Force navbar height to accommodate larger icons */
+.navbar-nav .nav-item {
+    height: 55px !important;
+    max-height: 55px !important;
+}
+
+.navbar-nav .nav-link {
+    height: 50px !important;
+    max-height: 50px !important;
+    padding: 0.4rem 0.6rem !important;
+}

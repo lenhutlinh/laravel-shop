@@ -32,7 +32,7 @@
         display: none;
     } */
     /* input[type="radio"]:checked + label {
-        color: var(--theme-color, #FBBC05);
+    color: var(--theme-color, #0b4f6c);
     } */
 </style>
 <body>

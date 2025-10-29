@@ -1,0 +1,343 @@
+============================================
+BỘ DỮ LIỆU HUẤN LUYỆN CHATBOT - VIES ECOMMERCE
+Tạo tự động từ hệ thống Laravel thương mại điện tử VieS
+============================================
+
+=== HỘI THOẠI MUA SẮM & SẢN PHẨM ===
+
+1. Hỏi về sản phẩm
+Người dùng: Làm sao để tìm sản phẩm trên VieS?
+Chatbot: Dạ, bạn có thể tìm sản phẩm bằng nhiều cách:
+- Sử dụng thanh tìm kiếm ở đầu trang và nhập từ khóa (tên sản phẩm, danh mục)
+- Chọn danh mục sản phẩm từ menu (Điện thoại, Thời trang, Đồ gia dụng, Laptop, Sách)
+- Lọc theo giá: từ thấp đến cao hoặc cao đến thấp
+- Sắp xếp theo: Mới nhất, Bán chạy, Phổ biến
+Bạn đang tìm loại sản phẩm nào ạ?
+
+2. Hỏi về giá và khuyến mãi
+Người dùng: Làm sao để biết sản phẩm có giảm giá không?
+Chatbot: Dạ, để xem sản phẩm giảm giá bạn có thể:
+- Kiểm tra biểu tượng giảm giá trên trang sản phẩm
+- Xem mã giảm giá có sẵn tại trang thanh toán
+- Nhập mã coupon nếu bạn có (ví dụ: NHUTLINH2025, WELCOME2025, VIPCUSTOMER)
+VieS thường xuyên có các chương trình khuyến mãi dành cho khách hàng VIP và khách hàng mới ạ.
+
+3. Hỏi về thêm vào giỏ hàng
+Người dùng: Tôi thêm sản phẩm vào giỏ hàng như thế nào?
+Chatbot: Dạ, để thêm sản phẩm vào giỏ hàng:
+1. Vào trang chi tiết sản phẩm
+2. Chọn phân loại hàng (màu sắc, kích thước nếu có)
+3. Chọn số lượng mong muốn
+4. Nhấn nút "Thêm vào giỏ hàng"
+5. Hệ thống sẽ kiểm tra số lượng tồn kho tự động
+Lưu ý: Nếu số lượng vượt quá tồn kho, hệ thống sẽ báo lỗi ngay ạ.
+
+4. Hỏi về đặt hàng
+Người dùng: Quy trình đặt hàng trên VieS như thế nào?
+Chatbot: Dạ, quy trình đặt hàng rất đơn giản:
+1. Thêm sản phẩm vào giỏ hàng
+2. Vào giỏ hàng, kiểm tra sản phẩm
+3. Nhấn "Thanh toán"
+4. Nhập địa chỉ giao hàng
+5. Chọn phương thức thanh toán (COD, chuyển khoản, thẻ, ví điện tử)
+6. Áp dụng mã giảm giá (nếu có)
+7. Xác nhận đơn hàng
+Sau khi đặt hàng, bạn sẽ nhận được thông báo qua email/SMS ạ.
+
+5. Hỏi về mã giảm giá
+Người dùng: Tôi có mã giảm giá WELCOME2025, dùng như thế nào?
+Chatbot: Dạ, mã WELCOME2025 là mã chào mừng năm mới 2025. Để sử dụng:
+1. Thêm sản phẩm vào giỏ hàng
+2. Tại trang thanh toán, tìm ô "Nhập mã giảm giá"
+3. Nhập WELCOME2025
+4. Nhấn "Áp dụng"
+Điều kiện: Đơn hàng tối thiểu 300.000đ, giảm 100.000đ. Lưu ý kiểm tra hạn sử dụng nhé ạ!
+
+6. Hỏi về tình trạng đơn hàng
+Người dùng: Làm sao để kiểm tra đơn hàng của tôi?
+Chatbot: Dạ, để kiểm tra đơn hàng:
+1. Đăng nhập tài khoản VieS
+2. Vào "Tài khoản của tôi"
+3. Chọn "Đơn mua"
+4. Xem danh sách đơn hàng và trạng thái
+Trạng thái đơn hàng bao gồm: Chờ xác nhận, Đang chuẩn bị, Đang giao, Đã giao, Đã hủy ạ.
+
+7. Hỏi về hủy đơn
+Người dùng: Tôi muốn hủy đơn hàng, làm sao?
+Chatbot: Dạ, để hủy đơn hàng:
+1. Vào "Đơn mua" trong tài khoản
+2. Tìm đơn hàng cần hủy
+3. Nhấn nút "Hủy đơn hàng"
+4. Chọn lý do hủy
+Lưu ý: Bạn chỉ có thể hủy khi đơn hàng ở trạng thái "Chờ xác nhận". Nếu đơn đã được xác nhận, vui lòng liên hệ shop hoặc CSKH ạ.
+
+8. Hỏi về phương thức thanh toán
+Người dùng: VieS hỗ trợ những phương thức thanh toán nào?
+Chatbot: Dạ, VieS hỗ trợ đa dạng phương thức thanh toán:
+- COD (Thanh toán khi nhận hàng)
+- Chuyển khoản ngân hàng
+- Thẻ ATM/Internet Banking
+- Thẻ tín dụng (Visa/Mastercard)
+- Ví điện tử: MoMo, VNPay
+- Thanh toán trực tuyến
+Tất cả đều được mã hóa bảo mật cao, an toàn tuyệt đối ạ.
+
+9. Hỏi về giao hàng
+Người dùng: Bao lâu tôi nhận được hàng?
+Chatbot: Dạ, thời gian giao hàng phụ thuộc vào:
+- Khoảng cách giữa shop và địa chỉ nhận hàng
+- Phương thức vận chuyển
+- Khu vực giao hàng (nội thành/ngoại thành)
+Thông thường:
+- Nội thành: 1-3 ngày
+- Ngoại thành: 3-7 ngày
+- Vùng xa: 5-10 ngày
+Bạn có thể theo dõi vận đơn trong phần "Đơn mua" ạ.
+
+10. Hỏi về đổi trả
+Người dùng: Chính sách đổi trả hàng như thế nào?
+Chatbot: Dạ, chính sách đổi trả của VieS:
+1. Thời gian: Trong vòng 7-15 ngày (tùy shop)
+2. Điều kiện:
+   - Sản phẩm còn nguyên vẹn, chưa qua sử dụng
+   - Còn đầy đủ hộp, phụ kiện, tem mác
+   - Có hóa đơn mua hàng
+3. Quy trình:
+   - Vào "Đơn mua" → Chọn đơn cần đổi/trả
+   - Nhấn "Yêu cầu đổi/trả hàng"
+   - Mô tả lý do + đính kèm ảnh
+   - Chờ shop xác nhận
+Lưu ý: Mỗi shop có chính sách riêng, vui lòng kiểm tra kỹ ạ.
+
+=== HỘI THOẠI TÀI KHOẢN & BẢO MẬT ===
+
+11. Đăng ký tài khoản
+Người dùng: Làm sao để đăng ký tài khoản VieS?
+Chatbot: Dạ, đăng ký tài khoản rất đơn giản:
+1. Nhấn nút "Đăng ký" ở góc trên phải
+2. Nhập email hoặc số điện thoại
+3. Nhập thông tin: họ tên, mật khẩu
+4. Xác nhận qua email/SMS
+5. Hoàn tất đăng ký
+Sau khi đăng ký, bạn có thể đăng nhập và bắt đầu mua sắm ngay ạ!
+
+12. Quên mật khẩu
+Người dùng: Tôi quên mật khẩu, phải làm sao?
+Chatbot: Dạ, đừng lo lắng, bạn làm theo các bước sau:
+1. Vào trang đăng nhập
+2. Nhấn "Quên mật khẩu"
+3. Nhập email/số điện thoại đã đăng ký
+4. Kiểm tra email/SMS nhận link đặt lại mật khẩu
+5. Nhấn vào link và tạo mật khẩu mới
+6. Đăng nhập lại với mật khẩu mới
+Nếu vẫn gặp vấn đề, vui lòng liên hệ CSKH: support@vies.vn hoặc hotline 1900-1234 ạ.
+
+13. Cập nhật thông tin tài khoản
+Người dùng: Làm sao để thay đổi thông tin cá nhân?
+Chatbot: Dạ, để cập nhật thông tin:
+1. Đăng nhập tài khoản
+2. Vào "Tài khoản của tôi"
+3. Chọn "Thông tin cá nhân"
+4. Chỉnh sửa thông tin (họ tên, email, số điện thoại, địa chỉ)
+5. Nhấn "Lưu thay đổi"
+Bạn có thể cập nhật bất cứ lúc nào ạ.
+
+14. Đổi mật khẩu
+Người dùng: Tôi muốn đổi mật khẩu, làm thế nào?
+Chatbot: Dạ, để đổi mật khẩu:
+1. Đăng nhập tài khoản
+2. Vào "Tài khoản của tôi"
+3. Chọn "Đổi mật khẩu"
+4. Nhập mật khẩu cũ
+5. Nhập mật khẩu mới (tối thiểu 8 ký tự)
+6. Xác nhận mật khẩu mới
+7. Nhấn "Cập nhật"
+Lưu ý: Mật khẩu nên kết hợp chữ, số và ký tự đặc biệt để bảo mật tốt hơn ạ.
+
+=== HỘI THOẠI VỀ SHOP & NGƯỜI BÁN ===
+
+15. Mở shop
+Người dùng: Làm sao để mở shop bán hàng trên VieS?
+Chatbot: Dạ, để mở shop trên VieS:
+1. Truy cập trang "Đăng ký bán hàng"
+2. Điền thông tin shop: tên shop, email, số điện thoại
+3. Tải lên giấy phép kinh doanh (nếu có)
+4. Nhập thông tin ngân hàng để nhận tiền
+5. Gửi đơn đăng ký
+6. Chờ VieS xét duyệt (1-3 ngày làm việc)
+Sau khi được duyệt, bạn có thể bắt đầu đăng sản phẩm và bán hàng ạ!
+
+16. Quản lý sản phẩm
+Người dùng: Làm sao để thêm sản phẩm vào shop?
+Chatbot: Dạ, để thêm sản phẩm:
+1. Đăng nhập tài khoản shop
+2. Vào "Quản lý sản phẩm"
+3. Nhấn "Thêm sản phẩm mới"
+4. Điền thông tin:
+   - Tên sản phẩm
+   - Danh mục (Điện thoại, Thời trang, Đồ gia dụng, Laptop, Sách)
+   - Giá bán
+   - Mô tả chi tiết
+   - Hình ảnh sản phẩm
+   - Phân loại hàng (màu sắc, kích thước)
+   - Số lượng tồn kho
+5. Nhấn "Lưu và đăng bán"
+Sản phẩm sẽ hiển thị ngay trên VieS ạ!
+
+17. Quản lý đơn hàng (Shop)
+Người dùng: Shop quản lý đơn hàng như thế nào?
+Chatbot: Dạ, shop có thể quản lý đơn hàng bằng cách:
+1. Đăng nhập tài khoản shop
+2. Vào "Quản lý đơn hàng"
+3. Xem danh sách đơn hàng mới
+4. Xử lý đơn:
+   - Xác nhận đơn hàng
+   - Chuẩn bị hàng
+   - Cập nhật trạng thái "Đang giao"
+   - Đánh dấu "Đã giao" khi hoàn tất
+5. Có thể hủy đơn nếu không đủ hàng
+VieS sẽ gửi thông báo tự động cho khách hàng mỗi khi trạng thái thay đổi ạ.
+
+18. Hoa hồng & thanh toán (Shop)
+Người dùng: Shop nhận tiền như thế nào trên VieS?
+Chatbot: Dạ, quy trình thanh toán cho shop:
+1. Khách hàng đặt hàng và thanh toán
+2. VieS giữ tiền trong tài khoản tạm
+3. Shop giao hàng thành công
+4. Sau khi khách nhận hàng (3-7 ngày)
+5. VieS chuyển tiền vào tài khoản shop
+6. Trừ phí hoa hồng (tùy theo danh mục sản phẩm)
+Shop có thể xem báo cáo doanh thu và hoa hồng trong phần "Quản lý tài chính" ạ.
+
+=== HỘI THOẠI HỖ TRỢ & KHIẾU NẠI ===
+
+19. Liên hệ hỗ trợ
+Người dùng: Tôi cần hỗ trợ, liên hệ qua đâu?
+Chatbot: Dạ, VieS có nhiều kênh hỗ trợ:
+- Hotline: 1900-1234 (8:00-22:00 hàng ngày)
+- Email: support@vies.vn
+- Chat trực tuyến: Nhấn vào biểu tượng chat góc phải màn hình
+- Trang hỗ trợ: Truy cập menu "Hỗ trợ"
+Đội ngũ CSKH sẽ phản hồi nhanh chóng trong giờ làm việc ạ.
+
+20. Khiếu nại đơn hàng
+Người dùng: Tôi nhận hàng bị lỗi, khiếu nại thế nào?
+Chatbot: Dạ, rất xin lỗi vì sự bất tiện. Để khiếu nại:
+1. Vào "Đơn mua"
+2. Chọn đơn hàng có vấn đề
+3. Nhấn "Khiếu nại/Hoàn tiền"
+4. Mô tả chi tiết vấn đề
+5. Đính kèm ảnh/video minh chứng
+6. Gửi khiếu nại
+CSKH sẽ xử lý trong 24-48h và liên hệ trực tiếp với bạn ạ.
+
+=== HỘI THOẠI VỀ TÍNH NĂNG ĐỘC BIỆT ===
+
+21. Mã giảm giá VIP
+Người dùng: Làm sao để có mã giảm giá VIP?
+Chatbot: Dạ, VieS có các loại mã giảm giá:
+- Mã công khai: WELCOME2025 (giảm 100k cho đơn từ 300k)
+- Mã VIP: NHUTLINH2025 (giảm 15% cho đơn từ 500k, tối đa 200k)
+- Mã khách hàng thân thiết: VIPCUSTOMER (giảm 20% cho đơn từ 1 triệu, tối đa 500k)
+Để nhận mã VIP:
+- Mua sắm thường xuyên
+- Tham gia chương trình khách hàng thân thiết
+- Theo dõi fanpage và email từ VieS
+Mã sẽ được gửi qua email/SMS ạ.
+
+22. Đánh giá sản phẩm
+Người dùng: Làm sao để đánh giá sản phẩm đã mua?
+Chatbot: Dạ, để đánh giá sản phẩm:
+1. Vào "Đơn mua"
+2. Chọn đơn hàng đã nhận
+3. Nhấn "Đánh giá"
+4. Chọn số sao (1-5 sao)
+5. Viết nhận xét
+6. Tải ảnh/video sản phẩm (nếu muốn)
+7. Gửi đánh giá
+Đánh giá của bạn giúp người mua khác và shop cải thiện dịch vụ ạ!
+
+23. Chat với shop
+Người dùng: Tôi muốn hỏi shop trực tiếp, làm sao?
+Chatbot: Dạ, để chat với shop:
+1. Vào trang sản phẩm hoặc trang shop
+2. Nhấn nút "Chat ngay"
+3. Gõ câu hỏi của bạn
+4. Chờ shop phản hồi
+Hoặc vào "Tin nhắn" trong tài khoản để xem tất cả cuộc trò chuyện với các shop ạ.
+
+24. Tìm kiếm nâng cao
+Người dùng: Làm sao để tìm sản phẩm theo giá?
+Chatbot: Dạ, để tìm theo giá:
+1. Nhập từ khóa vào thanh tìm kiếm
+2. Tại trang kết quả, chọn "Lọc"
+3. Chọn khoảng giá:
+   - Dưới 100k
+   - 100k - 500k
+   - 500k - 1 triệu
+   - Trên 1 triệu
+   - Hoặc nhập khoảng giá tùy chỉnh
+4. Nhấn "Áp dụng"
+Kết quả sẽ hiển thị các sản phẩm trong khoảng giá bạn chọn ạ.
+
+25. Yêu thích sản phẩm
+Người dùng: Làm sao để lưu sản phẩm yêu thích?
+Chatbot: Dạ, để lưu sản phẩm yêu thích:
+1. Vào trang sản phẩm
+2. Nhấn vào icon trái tim ở góc phải
+3. Sản phẩm sẽ được lưu vào "Yêu thích"
+Bạn có thể xem danh sách sản phẩm yêu thích trong "Tài khoản của tôi" → "Sản phẩm yêu thích" ạ.
+
+=== CÂU HỎI VỀ DANH MỤC SẢN PHẨM ===
+
+26. Danh mục Điện thoại
+Người dùng: VieS có bán điện thoại không?
+Chatbot: Dạ có ạ! VieS có danh mục "Điện thoại" với nhiều sản phẩm:
+- Điện thoại di động các hãng: Samsung, iPhone, Xiaomi, Oppo, Vivo...
+- Phụ kiện: Ốp lưng, sạc, tai nghe, cáp...
+- Điện thoại mới và cũ
+Bạn vào danh mục "Điện thoại" để xem chi tiết và chọn lọc theo giá, thương hiệu nhé ạ!
+
+27. Danh mục Thời trang
+Người dùng: Tôi muốn mua quần áo, có không?
+Chatbot: Dạ có ạ! Danh mục "Thời trang" trên VieS rất đa dạng:
+- Quần áo nam, nữ, trẻ em
+- Giày dép
+- Túi xách, phụ kiện
+- Đồng hồ
+- Trang sức
+Bạn có thể lọc theo size, màu sắc, giá cả và thương hiệu ạ.
+
+28. Danh mục Laptop
+Người dùng: VieS có bán laptop không?
+Chatbot: Dạ có ạ! Danh mục "Laptop" với nhiều lựa chọn:
+- Laptop văn phòng, gaming, đồ họa
+- Các hãng: Dell, HP, Asus, Acer, Lenovo, Macbook...
+- Phụ kiện: Chuột, bàn phím, balo, túi...
+Bạn có thể lọc theo cấu hình, giá, thương hiệu để tìm laptop phù hợp ạ.
+
+29. Danh mục Sách
+Người dùng: Tôi muốn mua sách, có không?
+Chatbot: Dạ có ạ! Danh mục "Sách" với nhiều thể loại:
+- Sách văn học, tiểu thuyết
+- Sách kinh tế, khởi nghiệp
+- Sách kỹ năng sống
+- Sách giáo khoa, tham khảo
+- Truyện tranh, manga
+Bạn tìm kiếm theo tên sách hoặc tác giả nhé ạ!
+
+30. Danh mục Đồ gia dụng
+Người dùng: VieS có bán đồ gia dụng không?
+Chatbot: Dạ có ạ! Danh mục "Đồ gia dụng" rất phong phú:
+- Đồ nhà bếp: Nồi, chảo, dao, thớt...
+- Đồ điện gia dụng: Máy xay, nồi cơm điện, bình đun...
+- Đồ trang trí: Tranh, đèn, gối, thảm...
+- Đồ vệ sinh: Chổi, lau nhà, giặt là...
+Bạn vào danh mục để xem chi tiết nhé ạ!
+
+============================================
+TỔNG SỐ: 30 MẪU HỘI THOẠI
+Được tạo tự động từ: Routes, Models, Controllers, Views
+Ngày tạo: 2025
+============================================
+

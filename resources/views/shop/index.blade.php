@@ -48,7 +48,7 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Trang Người Bán</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                                class="fas fa-download fa-sm text-white-50"></i> Xuất Báo cáo</a>
                     </div>
 
                     <!-- Content Row -->
@@ -136,6 +136,25 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Card Thực Nhận -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-danger shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                Thực Nhận (Sau Hoa Hồng)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{number_format($actual_earning, 0, ',', '.')}}đ</div>
+                                            <small class="text-muted">Trừ {{number_format($total_commission, 0, ',', '.')}}đ hoa hồng (4%)</small>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-hand-holding-usd fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Content Row -->
@@ -187,7 +206,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Your Website 2025</span>
                     </div>
                 </div>
             </footer>

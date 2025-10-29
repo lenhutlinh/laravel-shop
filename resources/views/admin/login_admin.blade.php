@@ -62,8 +62,13 @@
                                                 placeholder="Nhập Email" required name="email">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Mật khẩu" required name="password">
+                                            <div class="input-group">
+                                                <input type="password" class="form-control form-control-user"
+                                                    id="admin_password" placeholder="Mật khẩu" required name="password">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-outline-secondary" type="button" id="toggle_admin_password">Hiển thị</button>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -109,6 +114,23 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+    <script>
+        (function(){
+            var btn = document.getElementById('toggle_admin_password');
+            var input = document.getElementById('admin_password');
+            if(btn && input){
+                btn.addEventListener('click', function(){
+                    if(input.type === 'password'){
+                        input.type = 'text';
+                        btn.textContent = 'Ẩn';
+                    }else{
+                        input.type = 'password';
+                        btn.textContent = 'Hiển thị';
+                    }
+                });
+            }
+        })();
+    </script>
 
 </body>
 

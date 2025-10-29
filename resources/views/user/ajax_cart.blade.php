@@ -248,3 +248,38 @@ $("#cart-form").validate({
     });
     
 </script>
+<script>
+   $(document).ready(function() {
+    $('#apply_coupon_cart').click(function() {
+        var coupon_code = $('.choose_coupon_cart').val() || $('#input_coupon_cart').val();
+        var total_price = $(this).data('total_price');
+
+        if (!coupon_code) {
+            swal("Thông báo", "Bạn chưa chọn hoặc nhập mã!", "warning");
+            return;
+        }
+
+        $.ajax({
+            url: "{{ route('choose_coupon') }}", // Đường dẫn giống checkout
+            method: "GET",
+            data: {
+                coupon_code: coupon_code,
+                total_price: total_price,
+            },
+            success: function(response) {
+                if (response.status) {
+                    $('.cart-table-right-bot-price-new').html(response.total_after_discount.toLocaleString() + 'đ');
+                    $('.cart-table-right-coupon-choice').html('<b>Đã áp dụng:</b> ' + coupon_code);
+                    swal("Thành công", "Đã áp dụng mã giảm giá", "success");
+                } else {
+                    swal("Thất bại", response.message, "error");
+                }
+            },
+            error: function() {
+                swal("Lỗi", "Không thể áp dụng mã. Vui lòng thử lại.", "error");
+            }
+        });
+    });
+});
+
+</script>

@@ -96,6 +96,19 @@
                             <h5 class="m-0 font-weight-bold text-primary">Sản phẩm trong đơn hàng</h5>
                         </div>
                         <div class="card-body">
+                            <form action="{{ route('update_order_status') }}" method="POST" class="mb-3">
+                                @csrf
+                                <input type="hidden" name="order_id" value="{{$order_id}}"/>
+                                <div class="form-inline">
+                                    <label class="mr-2 font-weight-bold">Tình trạng đơn hàng:</label>
+                                    <select name="order_status" class="form-control mr-2">
+                                        <option value="3" {{ ($order_status==3)?'selected':'' }}>Vận chuyển</option>
+                                        <option value="4" {{ ($order_status==4)?'selected':'' }}>Đang giao</option>
+                                        <option value="5" {{ ($order_status==5)?'selected':'' }}>Hoàn thành</option>
+                                    </select>
+                                    <button type="submit" class="btn btn-primary">Cập nhật</button>
+                                </div>
+                            </form>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -114,7 +127,7 @@
                                         <tr>
                                               <!-- hình ảnh hàng -->
                                             <td>
-                                                <img src="{{asset('storage/'.$item->previewImage)}}" style="height:100px; widght:auto;"/>
+                                                <img src="{{asset('storage/'.$item->previewImage)}}" style="height:100px; width:auto;"/>
                                             </td>
                                             <!-- Tên hàng -->
                                             <td>{{$item->product_name }}</td>
@@ -155,7 +168,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Your Website 2025</span>
                     </div>
                 </div>
             </footer>
@@ -214,8 +227,21 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <!-- include Ajax  library -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-   
-</script>
+
+    <!-- Show flash messages (success / error) using SweetAlert -->
+    <script>
+        (function(){
+            $(function(){
+                var flash = {!! json_encode(['message' => session('message'), 'error' => session('error')]) !!};
+                if(flash.message){
+                    swal("Thành công", flash.message, "success");
+                } else if(flash.error){
+                    swal("Lỗi", flash.error, "error");
+                }
+            });
+        })();
+    </script>
+
 </body>
 
 </html>

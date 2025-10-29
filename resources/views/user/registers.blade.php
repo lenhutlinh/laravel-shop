@@ -26,21 +26,65 @@
     <link rel="stylesheet" href="{{asset('css/swiper-bundle.min.css')}}">
     <title>Đăng Ký</title>
     <style>
-		label.error{
-			color: red;
-            font-size: 14px;
-            display: block;
-            font-weight: 400;
-		}
-        .error {
-            color: #5a5c69;
-            /* font-size: 7rem; */
-            font-size: 16px;
-            line-height: 1;
-            position: relative;
-            width: 100%;
-        }
-	</style>
+    /* Style chung cho form */
+    body {
+        font-family: Roboto, sans-serif;
+    }
+
+    /* Style cho nhãn báo lỗi chung */
+    label.error {
+        color: red;
+        font-size: 14px;
+        display: block;
+        margin-top: 5px;
+        font-weight: 400;
+    }
+
+    /* Class error mặc định của jQuery validate */
+    .error {
+        color: red;
+        font-size: 14px;
+        line-height: 1.4;
+        width: 100%;
+    }
+
+    /* Checkbox input fix: không bị kéo dài khi lỗi */
+    .form-check-input {
+        width: 18px;
+        height: 18px;
+        margin-top: 2px;
+    }
+
+    .form-check-input:focus {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Label của checkbox */
+    .form-check-label {
+        margin-left: 6px;
+        font-size: 15px;
+    }
+
+    /* Chỗ hiển thị lỗi riêng của checkbox */
+    #agree-error-container {
+        font-size: 14px;
+        color: red;
+        margin-top: 5px;
+    }
+
+    /* Nút đăng ký */
+    .btn-register {
+        width: 100%;
+        background-color: var(--theme-color);
+        font-size: larger;
+        color: #fff;
+    }
+
+    .btn-register:hover {
+        opacity: 0.9;
+    }
+</style>
 </head>
 <body>
     
@@ -92,14 +136,15 @@
                           <input
                             class="form-check-input me-2"
                             type="checkbox"
-                            value=""
+                            name="agree"   
                             id="form2Example3cg"
+                            value="1"
                           />
                           <label class="form-check-label" for="form2Example3g">
                             Tôi đồng ý với điều khoản của <a href="#!" class="text-body"><u>Dịch vụ</u></a>
                           </label>
                         </div>
-                        
+                        <div id="agree-error-container" class="text-danger text-center mb-3"></div>
                         <div class="d-flex justify-content-center">
                           <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-white " style="width: 100%;background-color: var(--theme-color); font-size: larger;"  >ĐĂNG KÝ</button>
                         </div>
@@ -120,63 +165,90 @@
     <!-- include jQuery validate library -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <script>
+        // Custom rule kiểm tra mật khẩu mạnh
+    jQuery.validator.addMethod("strongPassword", function(value, element) {
+    return this.optional(element) || 
+            /[A-Z]/.test(value) &&     // có ít nhất 1 chữ hoa
+            /[a-z]/.test(value) &&     // có ít nhất 1 chữ thường
+            /[0-9]/.test(value) &&     // có ít nhất 1 chữ số
+            /[^A-Za-z0-9]/.test(value) && // có ít nhất 1 ký tự đặc biệt
+            value.length >= 8;         // tối thiểu 8 ký tự
+    }, "Mật khẩu phải có ít nhất 8 ký tự, gồm chữ hoa, chữ thường, số và ký tự đặc biệt");
+
+      jQuery.validator.addMethod("gmail", function(value, element) {
+      return this.optional(element) || /^[a-zA-Z0-9._%+-]+@gmail\.com$/i.test(value);
+      }, "Vui lòng nhập email Gmail hợp lệ (ví dụ: abc@gmail.com)");
     $("#form_login_user").validate({
-        rules: {
-            "firstname": {
-                required: true,
-                maxlength: 20,
-                minlength: 2,
-            },
-            "lastname": {
-                required: true,
-                maxlength: 20,
-                minlength: 2,
-            },
-            "email": {
-                required: true,
-                email: true,
-            },
-            "password": {
-                required: true,
-                minlength: 6,
-            },
-            "password_confirm": {
-                required: true,
-                equalTo: "#exampleInputPassword"
-            },
+    rules: {
+        "firstname": {
+            required: true,
+            maxlength: 20,
+            minlength: 2,
         },
-        messages: {
-            "firstname": {
-                required: "Vui lòng nhập tên người dùng",
-                maxlength: "Họ người dùng không được vượt quá 20 ký tự",
-                minlength: "Họ người dùng phải có ít nhất 2 ký tự",
-            },
-            "lastname": {
-                required: "Vui lòng nhập họ người dùng",
-                maxlength: "Tên của người dùng không được vượt quá 20 ký tự",
-                minlength: "Tên của người dùng phải có ít nhất 2 ký tự",
-            },
-            "email": {
-                required: "Vui lòng nhập email người dùng",
-                email: "Vui lòng nhập đúng định dạng email",
-            },
-            "password": {
-                required: "Vui lòng nhập mật khẩu",
-                minlength: "Mật khẩu phải có ít nhất 6 ký tự",
-            },
-            "password_confirm": {
-                required: "Vui lòng xác nhận lại mật khẩu",
-                equalTo: "Mật khẩu xác nhận không khớp",
-            },
+        "lastname": {
+            required: true,
+            maxlength: 20,
+            minlength: 2,
         },
-        submitHandler: function(form) {
-            $(form).submit();
+        "email": {
+            required: true,
+            email: true,
+            gmail: true
+        },
+        "password": {
+            required: true,
+            strongPassword: true
+        },
+
+        "password_confirm": {
+            required: true,
+            equalTo: "#exampleInputPassword"
+        },
+        "agree": {   // checkbox
+            required: true
         }
-    
-    });
+    },
+    messages: {
+        "firstname": {
+            required: "Vui lòng nhập họ người dùng",
+            maxlength: "Họ người dùng không được vượt quá 20 ký tự",
+            minlength: "Họ người dùng phải có ít nhất 2 ký tự",
+        },
+        "lastname": {
+            required: "Vui lòng nhập tên người dùng",
+            maxlength: "Tên của người dùng không được vượt quá 20 ký tự",
+            minlength: "Tên của người dùng phải có ít nhất 2 ký tự",
+        },
+        "email": {
+            required: "Vui lòng nhập email người dùng",
+            email: "Vui lòng nhập đúng định dạng email",
+            gmail: "Chỉ chấp nhận địa chỉ Gmail (kết thúc bằng @gmail.com)"
+        },
+        "password": {
+            required: "Vui lòng nhập mật khẩu",
+            strongPassword: "Mật khẩu phải có ít nhất 8 ký tự, gồm chữ hoa, chữ thường, số và ký tự đặc biệt"
+        },
+        "password_confirm": {
+            required: "Vui lòng xác nhận lại mật khẩu",
+            equalTo: "Mật khẩu xác nhận không khớp",
+        },
+        "agree": {
+            required: "Bạn phải đồng ý với điều khoản dịch vụ trước khi đăng ký"
+        }
+    },
+    // 👇 phải đặt ở ngoài messages
+    errorPlacement: function(error, element) {
+        if (element.attr("name") == "agree") {
+            // 🚨 Đẩy thông báo ra sau checkbox label
+            error.appendTo("#agree-error-container");  
+        } else {
+            error.insertAfter(element);
+        }
+    },
+    submitHandler: function(form) {
+        form.submit();
+    }
+});
     </script>
 </body>
 </html>
-
-
-

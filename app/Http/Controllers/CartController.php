@@ -185,11 +185,18 @@ class CartController extends Controller
             ->where('shop_id', $shop_id)
             ->select('shop_id', 'cart.product_price', 'cart.quantity')
             ->get();
+        
         $count_price = 0;
         foreach($product_cart as $key => $cart){
-            $count_price += $cart->product_price * $cart->quantity;
+            // Convert string to float for calculation
+            $price = floatval($cart->product_price);
+            $quantity = intval($cart->quantity);
+            $count_price += $price * $quantity;
         }
-        $count_price = number_format($count_price, 0, ',', '.');
+        
+        // Format the price with Vietnamese currency format
+        $count_price = number_format($count_price, 0, ',', '.') . '₫';
+        
         return response()->json([
             'status' => true,
             'count_price' => $count_price,

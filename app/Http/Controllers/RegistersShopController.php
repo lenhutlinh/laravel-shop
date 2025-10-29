@@ -46,6 +46,18 @@ class RegistersShopController extends Controller
             $shop_img = $request->file('shopImg')->store('logo_shop','public');
             $shop->shopImg = $shop_img;
         }
+        
+        // Lưu địa chỉ và tọa độ
+        if($request->shop_full_address) {
+            $shop->address = $request->shop_full_address;
+        }
+        if($request->shop_latitude) {
+            $shop->latitude = $request->shop_latitude;
+        }
+        if($request->shop_longitude) {
+            $shop->longitude = $request->shop_longitude;
+        }
+        
         $shop->role_id =1;
         $shop->status = 0; // chờ duyệt 1 là đã duyệt 2 là bị khóa
         $shop->save();

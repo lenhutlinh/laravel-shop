@@ -1,0 +1,153 @@
+/* Search Suggestions - Clean & Simple */
+
+/* Ensure search container has proper positioning */
+.nav-bar-bottom-center-search {
+    position: relative !important;
+    width: 100%;
+}
+
+/* Make sure suggestions match input width exactly */
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    min-height: 45px;
+    box-sizing: border-box;
+}
+
+.search-suggestions.show {
+    display: block;
+}
+
+.suggestion-header {
+    padding: 10px 15px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #eee;
+    font-size: 0.875rem;
+    color: #666;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 35px;
+    box-sizing: border-box;
+}
+
+.suggestion-header i {
+    color: #007bff;
+    font-size: 12px;
+}
+
+.suggestion-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 45px;
+    box-sizing: border-box;
+}
+
+.suggestion-item:hover {
+    background-color: #f8f9fa;
+}
+
+.suggestion-item.selected {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item i {
+    color: #999;
+    font-size: 12px;
+    width: 16px;
+    text-align: center;
+}
+
+.suggestion-item span {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #000;
+}
+
+.suggestion-item .suggestion-type {
+    font-size: 11px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: auto;
+}
+
+/* Simple Animation */
+.search-suggestions {
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .search-suggestions {
+        max-height: 250px;
+        min-height: 40px;
+    }
+    
+    .suggestion-item {
+        padding: 10px 12px;
+        min-height: 40px;
+    }
+    
+    .suggestion-item span {
+        font-size: 1rem;
+    }
+    
+    .suggestion-header {
+        padding: 8px 12px;
+        min-height: 30px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Loading state */
+.suggestion-loading {
+    padding: 15px;
+    text-align: center;
+    color: #666;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.suggestion-loading i {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+

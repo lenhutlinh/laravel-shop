@@ -27,7 +27,7 @@ class SearchController extends Controller
 {
     public function search_products(){
         $keyword = request()->keyword;
-        $products = Products::where('productName', 'like', '%' . $keyword . '%')
+        $products = Products::where('productName', 'like', $keyword . '%')
             ->leftjoin('order_detail', 'order_detail.product_id', '=', 'products.id')
             ->select('products.id', 'products.productName', 'products.price', 'products.previewImage',DB::raw('SUM(order_detail.product_quantity) as sales_quantity'))
             ->groupBy('products.id','products.price', 'products.productName', 'products.previewImage')
@@ -64,7 +64,7 @@ class SearchController extends Controller
             ->select('products.id', 'products.productName', 'products.price', 'products.previewImage',DB::raw('SUM(order_detail.product_quantity) as sales_quantity'))
             ->groupBy('products.id','products.price', 'products.productName', 'products.previewImage')
             ->where('products.status', 1)
-            ->where('productName', 'like', '%' . $keyword . '%')
+            ->where('productName', 'like', $keyword . '%')
             ->orderBy('price', 'asc')
             ->paginate(30);
         $html = view('user.ajax_search',compact('products','price_from','price_to','keyword'))->render();

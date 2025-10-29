@@ -49,4 +49,16 @@ return [
         'time' => 4,
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Rehash On Login
+    |--------------------------------------------------------------------------
+    |
+    | This option controls whether Laravel should automatically rehash
+    | passwords during authentication if the work factor has changed.
+    |
+    */
+
+    'rehash_on_login' => env('REHASH_ON_LOGIN', true),
+
 ];

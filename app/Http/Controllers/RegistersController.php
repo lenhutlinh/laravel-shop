@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Console\View\Components\Alert;
 use Session;
-session_start();
 
 class RegistersController extends Controller
 {
@@ -62,36 +61,76 @@ class RegistersController extends Controller
         }
         return view('user.login');
     }
-    public function login_user(Request $request){
+    public function login_user(Request $request)
+    {
         $product_id = Session::get('product_id');
-        $email= $request->email;
-        $password=$request->password;
-        $result= DB::table('users')->where('email',$email)->first();      
+        $email = $request->email;
+        $password = $request->password;
+
+        $result = DB::table('users')->where('email', $email)->first();
+
         if ($result == null) {
-            return redirect()->route('login')->with('error','Sai tài khoản hoặc mật khẩu');
+            return redirect()->route('login')->with('error', 'Sai tài khoản hoặc mật khẩu');
         }
-        if($result->status == 2 ) {
-            return redirect()->route('login')->with('error','Tài khoản đã bị khóa');
+
+        // 1️⃣ Kiểm tra trạng thái khóa
+        if ($result->status == 2) {
+            return redirect()->route('login')->with('error', 'Tài khoản đã bị khóa vĩnh viễn');
         }
-        if ($result->status == 0) {
-            return redirect()->route('login')->with('error','Tài khoản đang chờ duyệt');
+
+        // 2️⃣ Kiểm tra nếu bị khóa tạm thời
+        if (!empty($result->locked_until) && strtotime($result->locked_until) > time()) {
+            $remaining = ceil((strtotime($result->locked_until) - time()) / 60);
+            return redirect()->route('login')->with('error', "Tài khoản bị khóa tạm thời. Vui lòng thử lại sau {$remaining} phút.");
         }
-        if(Hash::check($password, $result->password )){
-            Session:: put('user_id',$result->id);
-            Session:: put('user_name',$result->firstname . ' ' . $result->lastname);
-            Session:: put('user_email',$result->email);
-            Session:: put('user_img',$result->userImg);
-            $count_cart = DB::table('cart')->where('user_id',$result->id)->count();
-            Session::put('count_cart',$count_cart);
-            if($product_id){
-                return redirect()->route('detail_product',$product_id);
-            }else{
+
+        // 3️⃣ Kiểm tra mật khẩu
+        if (Hash::check($password, $result->password)) {
+            // ✅ Đăng nhập thành công → reset lại số lần sai và thời gian khóa
+            DB::table('users')->where('id', $result->id)->update([
+                'login_attempts' => 0,
+                'locked_until' => null
+            ]);
+
+            // Tạo session
+            Session::put('user_id', $result->id);
+            Session::put('user_name', $result->firstname . ' ' . $result->lastname);
+            Session::put('user_email', $result->email);
+            Session::put('user_img', $result->userImg);
+            $count_cart = DB::table('cart')->where('user_id', $result->id)->count();
+            Session::put('count_cart', $count_cart);
+
+            // ✅ Điều hướng
+            if ($product_id) {
+                return redirect()->route('detail_product', $product_id);
+            } else {
                 return redirect()->route('index');
+            }
+
+        } else {
+            // ❌ Sai mật khẩu → tăng biến đếm
+            $newAttempts = $result->login_attempts + 1;
+            $updateData = ['login_attempts' => $newAttempts];
+
+            if ($newAttempts == 3) {
+                // ⏳ Khóa tạm 5 phút
+                $updateData['locked_until'] = now()->addMinutes(5);
+                DB::table('users')->where('id', $result->id)->update($updateData);
+                return redirect()->route('login')->with('error', 'Bạn đã nhập sai 3 lần. Tài khoản bị khóa tạm thời trong 5 phút.');
             } 
-        }else{
-            return redirect()->route('login')->with('error','Sai tài khoản hoặc mật khẩu');
+            elseif ($newAttempts >= 5) {
+                // 🔒 Khóa vĩnh viễn
+                $updateData['status'] = 2; // 2 = khóa vĩnh viễn
+                DB::table('users')->where('id', $result->id)->update($updateData);
+                return redirect()->route('login')->with('error', 'Tài khoản đã bị khóa vĩnh viễn do nhập sai quá 5 lần.');
+            } 
+            else {
+                DB::table('users')->where('id', $result->id)->update($updateData);
+                return redirect()->route('login')->with('error', 'Sai mật khẩu. Bạn còn ' . (3 - $newAttempts) . ' lần thử trước khi bị khóa tạm thời.');
+            }
         }
     }
+
     public function logout_user(){
         Session::forget('user_id');
         Session::forget('user_name');

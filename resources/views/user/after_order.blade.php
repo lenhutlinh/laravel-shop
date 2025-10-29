@@ -40,10 +40,28 @@
                 </div>
                 <div class="thanks">
                     <p>
-                        Cảm ơn bạn đã tin tưởng và mua hàng tại <span class="shopname">Kenji </span>
+                        Cảm ơn bạn đã tin tưởng và mua hàng tại <span class="shopname">VieS </span>
                     </p>
                 </div>
             </div>
+            
+            @if(session('success'))
+                <div class="alert alert-success text-center">
+                    <i class="fas fa-check-circle"></i> {{ session('success') }}
+                </div>
+            @endif
+            
+            @if(session('error'))
+                <div class="alert alert-danger text-center">
+                    <i class="fas fa-exclamation-circle"></i> {{ session('error') }}
+                </div>
+            @endif
+            
+            @if(session('info'))
+                <div class="alert alert-info text-center">
+                    <i class="fas fa-info-circle"></i> {{ session('info') }}
+                </div>
+            @endif
 
             <div class="footer_payment">
                 <div class="colum-continue">

@@ -1,0 +1,405 @@
+============================================
+CHÍNH SÁCH & ĐIỀU KHOẢN - VIES ECOMMERCE
+Trích xuất từ resources/views/about.blade.php và hệ thống
+============================================
+
+=== GIỚI THIỆU VỀ VIES ===
+
+VieS - Nền tảng thương mại điện tử uy tín, chất lượng, mang đến trải nghiệm mua sắm trực tuyến an toàn và tiện lợi cho hàng triệu khách hàng.
+
+SỨ MỆNH:
+Giúp người mua tiếp cận sản phẩm chất lượng với giá hợp lý; hỗ trợ người bán xây dựng thương hiệu và phát triển kinh doanh trực tuyến.
+
+GIÁ TRỊ CỐT LÕI:
+- An toàn & Minh bạch: Bảo vệ quyền lợi người mua và người bán
+- Chất lượng & Đa dạng: Sản phẩm phong phú, kiểm duyệt kỹ lưỡng
+- Hỗ trợ người bán: Công cụ quản lý, báo cáo, marketing
+
+DỊCH VỤ NỔI BẬT:
+- Giao hàng nhanh
+- Thanh toán an toàn
+- Hệ thống hoàn trả
+- Chăm sóc khách hàng 24/7
+
+TẠI SAO CHỌN VIES?
+1. Hàng chính hãng: Sản phẩm được kiểm duyệt kỹ lưỡng trước khi đăng bán
+2. Bảo mật thanh toán: Hỗ trợ nhiều phương thức thanh toán an toàn
+3. Hỗ trợ người bán: Công cụ quản lý shop, báo cáo doanh số, quảng cáo tiếp thị
+
+ĐỘI NGŨ QUẢN LÝ:
+- Lê Nhựt Linh - Founder & CEO
+- Châu Hoàng Việt - CTO
+- Nguyễn Vũ Kha - Head of Product
+
+============================================
+
+=== CHÍNH SÁCH MUA HÀNG ===
+
+1. ĐIỀU KIỆN ĐẶT HÀNG
+- Khách hàng phải đăng ký tài khoản và đăng nhập để mua hàng
+- Cung cấp đầy đủ thông tin: họ tên, số điện thoại, địa chỉ giao hàng
+- Xác nhận thông tin đơn hàng trước khi thanh toán
+- Chịu trách nhiệm về thông tin cung cấp
+
+2. GIÁ SẢN PHẨM
+- Giá sản phẩm đã bao gồm VAT
+- Giá có thể thay đổi theo chương trình khuyến mãi
+- Giá hiển thị chính xác tại thời điểm đặt hàng
+- Phí vận chuyển tính riêng dựa trên khoảng cách và trọng lượng
+
+3. XÁC NHẬN ĐƠN HÀNG
+- Đơn hàng được xác nhận qua email/SMS
+- Shop có quyền từ chối đơn hàng nếu:
+  + Sản phẩm hết hàng
+  + Thông tin không chính xác
+  + Nghi ngờ gian lận
+- Khách hàng được thông báo kịp thời khi đơn bị từ chối
+
+4. HỦY ĐƠN HÀNG
+- Khách hàng có thể hủy khi đơn ở trạng thái "Chờ xác nhận"
+- Sau khi shop xác nhận, cần liên hệ shop/CSKH để hủy
+- Nếu đã thanh toán online, hoàn tiền trong 3-10 ngày
+- Shop có quyền hủy nếu không thể giao hàng
+
+============================================
+
+=== CHÍNH SÁCH THANH TOÁN ===
+
+1. PHƯƠNG THỨC THANH TOÁN
+VieS hỗ trợ các phương thức:
+a) COD (Cash On Delivery)
+   - Thanh toán tiền mặt khi nhận hàng
+   - Kiểm tra hàng trước khi thanh toán
+   - Phù hợp cho khách hàng không có thẻ ngân hàng
+
+b) Chuyển khoản ngân hàng
+   - Chuyển khoản trực tiếp vào tài khoản shop
+   - Cung cấp thông tin chuyển khoản sau khi đặt hàng
+   - Đơn hàng được xác nhận sau khi nhận tiền
+
+c) Thanh toán online
+   - Thẻ ATM/Internet Banking
+   - Thẻ tín dụng (Visa/Mastercard/JCB)
+   - Ví điện tử: MoMo, VNPay
+   - Bảo mật SSL 256-bit
+
+2. BẢO MẬT THANH TOÁN
+- Thông tin thẻ được mã hóa hoàn toàn
+- VieS không lưu trữ thông tin thẻ
+- Giao dịch qua cổng thanh toán quốc tế uy tín
+- Xác thực OTP/3D Secure
+
+3. HOÁ ĐƠN
+- Hóa đơn điện tử gửi qua email
+- Hóa đơn VAT theo yêu cầu (cung cấp thông tin công ty)
+- Lưu trữ hóa đơn trong tài khoản VieS
+
+4. HOÀN TIỀN
+- Hoàn tiền qua tài khoản ngân hàng/ví điện tử
+- Thời gian: 3-10 ngày làm việc
+- Hoàn 100% giá trị đơn hàng (nếu đủ điều kiện)
+- Phí vận chuyển không được hoàn (trừ lỗi từ shop)
+
+============================================
+
+=== CHÍNH SÁCH VẬN CHUYỂN ===
+
+1. PHẠM VI GIAO HÀNG
+- Giao hàng toàn quốc 63 tỉnh thành
+- Ưu tiên các khu vực nội thành, thành phố lớn
+- Vùng sâu vùng xa có thể tốn thêm thời gian
+
+2. THỜI GIAN GIAO HÀNG
+a) Nội thành Hà Nội, HCM:
+   - Giao hàng: 1-3 ngày làm việc
+   - Giao hàng nhanh: Trong ngày (phí phát sinh)
+
+b) Ngoại thành và các tỉnh:
+   - Giao hàng: 3-7 ngày làm việc
+   - Tùy khoảng cách và tình trạng vận chuyển
+
+c) Vùng xa, miền núi:
+   - Giao hàng: 5-10 ngày làm việc
+   - Có thể chậm hơn do điều kiện địa lý
+
+3. PHÍ VẬN CHUYỂN
+- Tính dựa trên:
+  + Khoảng cách giữa shop và địa chỉ nhận hàng
+  + Trọng lượng và kích thước sản phẩm
+  + Phương thức vận chuyển (tiêu chuẩn/nhanh)
+- Miễn phí ship cho đơn hàng theo quy định của shop
+- Phí ship hiển thị rõ ràng trước khi thanh toán
+
+4. THEO DÕI ĐƠN HÀNG
+- Mã vận đơn gửi qua email/SMS
+- Theo dõi realtime trong tài khoản VieS
+- Thông báo mỗi khi trạng thái thay đổi
+
+5. GIAO HÀNG KHÔNG THÀNH CÔNG
+- Shipper gọi điện 3 lần trước khi hoàn hàng
+- Lưu kho 3 ngày, sau đó hoàn về shop
+- Khách chịu phí ship nếu từ chối nhận hàng không lý do
+
+============================================
+
+=== CHÍNH SÁCH ĐỔI TRẢ & BẢO HÀNH ===
+
+1. ĐIỀU KIỆN ĐỔI TRẢ
+a) Thời gian:
+   - Trong vòng 7 ngày với sản phẩm thời trang, sách
+   - Trong vòng 15 ngày với điện tử, điện lạnh
+   - Tùy chính sách của từng shop
+
+b) Điều kiện sản phẩm:
+   - Còn nguyên vẹn, chưa qua sử dụng
+   - Còn đầy đủ hộp, phụ kiện, tem mác, hóa đơn
+   - Không bị trầy xước, hư hỏng
+   - Không thuộc danh sách sản phẩm không đổi trả
+
+c) Sản phẩm KHÔNG được đổi trả:
+   - Sản phẩm đã qua sử dụng
+   - Đồ lót, mỹ phẩm, thực phẩm
+   - Sản phẩm khuyến mãi (trừ lỗi từ shop)
+   - Sản phẩm đặt làm theo yêu cầu
+
+2. QUY TRÌNH ĐỔI TRẢ
+Bước 1: Tạo yêu cầu đổi trả
+- Vào "Đơn mua" → Chọn đơn cần đổi/trả
+- Nhấn "Yêu cầu đổi/trả hàng"
+- Chọn lý do: Sai sản phẩm, lỗi, không vừa, không như mô tả...
+- Đính kèm ảnh/video minh chứng
+- Gửi yêu cầu
+
+Bước 2: Shop xác nhận
+- Shop xem xét trong vòng 24-48h
+- Chấp nhận hoặc từ chối kèm lý do
+- Nếu chấp nhận, hướng dẫn gửi hàng về
+
+Bước 3: Gửi hàng về shop
+- Đóng gói cẩn thận như khi nhận
+- Gửi qua đơn vị vận chuyển
+- Cung cấp mã vận đơn cho shop
+
+Bước 4: Kiểm tra và xử lý
+- Shop nhận và kiểm tra hàng
+- Đổi sản phẩm mới hoặc hoàn tiền
+- Thời gian xử lý: 3-7 ngày
+
+3. PHÍ ĐỔI TRẢ
+- Lỗi từ shop/sản phẩm lỗi: Shop chịu phí ship 2 chiều
+- Lỗi từ khách (đổi ý, không vừa): Khách chịu phí ship 2 chiều
+- Sai sản phẩm: Shop chịu phí và bồi thường
+
+4. BẢO HÀNH
+- Bảo hành theo chính sách nhà sản xuất
+- Tem bảo hành, phiếu bảo hành kèm sản phẩm
+- Bảo hành tại trung tâm bảo hành chính hãng
+- VieS hỗ trợ kết nối với trung tâm bảo hành
+
+============================================
+
+=== CHÍNH SÁCH BẢO MẬT THÔNG TIN ===
+
+1. THU THẬP THÔNG TIN
+VieS thu thập các thông tin:
+- Họ tên, email, số điện thoại
+- Địa chỉ giao hàng
+- Thông tin thanh toán (được mã hóa)
+- Lịch sử mua sắm, sản phẩm yêu thích
+- Địa chỉ IP, cookie
+
+2. MỤC ĐÍCH SỬ DỤNG
+- Xử lý đơn hàng và giao hàng
+- Hỗ trợ khách hàng
+- Gửi thông tin khuyến mãi (nếu đồng ý)
+- Cải thiện dịch vụ
+- Phân tích hành vi người dùng
+
+3. BẢO VỆ THÔNG TIN
+- Mã hóa SSL 256-bit
+- Lưu trữ trên server an toàn
+- Không chia sẻ với bên thứ 3 (trừ đối tác vận chuyển, thanh toán)
+- Nhân viên ký cam kết bảo mật
+
+4. QUYỀN CỦA KHÁCH HÀNG
+- Xem, chỉnh sửa thông tin cá nhân
+- Yêu cầu xóa tài khoản
+- Từ chối nhận email marketing
+- Khiếu nại nếu thông tin bị lộ
+
+============================================
+
+=== CHÍNH SÁCH DÀNH CHO NGƯỜI BÁN (SHOP) ===
+
+1. ĐĂNG KÝ MỞ SHOP
+- Cung cấp thông tin: Tên shop, email, SĐT, địa chỉ
+- Giấy phép kinh doanh (nếu là doanh nghiệp)
+- CMND/CCCD của chủ shop
+- Thông tin tài khoản ngân hàng
+- Chờ VieS xét duyệt 1-3 ngày làm việc
+
+2. PHÍ VÀ HOA HỒNG
+a) Phí đăng ký: MIỄN PHÍ
+
+b) Hoa hồng giao dịch (tùy danh mục):
+   - Điện thoại, Laptop: 3%
+   - Thời trang: 5%
+   - Đồ gia dụng: 4%
+   - Sách: 7%
+   - Danh mục khác: 5%
+
+c) Phí dịch vụ:
+   - Quảng cáo, top search: Phí riêng
+   - Gian hàng VIP: Phí riêng
+   - Công cụ Marketing: Phí riêng
+
+3. THANH TOÁN CHO SHOP
+- Chu kỳ thanh toán: 2 lần/tháng (ngày 15 và 30)
+- Điều kiện: Đơn hàng đã giao thành công và khách đã nhận (3-7 ngày)
+- Trừ hoa hồng VieS
+- Chuyển khoản vào tài khoản đã đăng ký
+- Báo cáo doanh thu chi tiết
+
+4. QUẢN LÝ SẢN PHẨM
+- Upload sản phẩm không giới hạn
+- Tối đa 10 ảnh/sản phẩm
+- Mô tả chi tiết, đầy đủ thông tin
+- Không bán hàng cấm, hàng giả, hàng nhái
+- VieS có quyền gỡ sản phẩm vi phạm
+
+5. QUẢN LÝ ĐƠN HÀNG
+- Xác nhận đơn trong 24h
+- Chuẩn bị hàng trong 1-2 ngày
+- Cập nhật trạng thái đơn hàng
+- Hủy đơn phải có lý do chính đáng
+- Tỷ lệ hủy đơn cao bị cảnh cáo/khóa shop
+
+6. CHĂM SÓC KHÁCH HÀNG
+- Phản hồi tin nhắn trong 24h
+- Xử lý đổi trả theo chính sách
+- Giải quyết khiếu nại nhanh chóng
+- Đánh giá 4 sao trở lên
+
+7. VI PHẠM VÀ XỬ LÝ
+a) Hành vi bị cấm:
+   - Bán hàng giả, hàng nhái
+   - Gian lận giá, mô tả sai
+   - Tự đánh giá, mua đánh giá
+   - Spam, quấy rối khách hàng
+   - Hủy đơn liên tục
+
+b) Hình thức xử lý:
+   - Cảnh cáo lần 1
+   - Tạm khóa shop 7-30 ngày (lần 2)
+   - Khóa vĩnh viễn (lần 3 hoặc vi phạm nghiêm trọng)
+   - Bồi thường thiệt hại
+
+============================================
+
+=== CHÍNH SÁCH KHIẾU NẠI & TRANH CHẤP ===
+
+1. QUYỀN KHIẾU NẠI
+Khách hàng có quyền khiếu nại khi:
+- Sản phẩm không đúng mô tả
+- Sản phẩm bị lỗi, hư hỏng
+- Giao hàng trễ quá 10 ngày
+- Shop không phản hồi, không xử lý đổi trả
+- Bị lừa đảo, gian lận
+
+2. QUY TRÌNH KHIẾU NẠI
+Bước 1: Gửi khiếu nại
+- Vào "Đơn mua" → Chọn "Khiếu nại"
+- Mô tả chi tiết vấn đề
+- Đính kèm bằng chứng (ảnh, video, tin nhắn)
+- Gửi khiếu nại
+
+Bước 2: VieS tiếp nhận
+- CSKH xem xét trong 24h
+- Liên hệ cả shop và khách để làm rõ
+- Yêu cầu bổ sung thông tin nếu cần
+
+Bước 3: Giải quyết
+- Hòa giải giữa shop và khách
+- Đưa ra phương án xử lý:
+  + Đổi sản phẩm
+  + Hoàn tiền 100%
+  + Bồi thường thêm (nếu có)
+- Thời gian: 3-7 ngày làm việc
+
+Bước 4: Kết luận
+- Thông báo kết quả cho cả 2 bên
+- Thực hiện phương án đã thỏa thuận
+- Đóng ticket khiếu nại
+
+3. BỒI THƯỜNG
+VieS bồi thường khi:
+- Sản phẩm lỗi từ shop: Hoàn tiền + phí ship
+- Shop giao hàng giả: Hoàn 200% giá trị
+- VieS sai sót: Đền bù theo thỏa thuận
+- Mất hàng do vận chuyển: Hoàn 100% giá trị
+
+============================================
+
+=== ĐIỀU KHOẢN SỬ DỤNG ===
+
+1. CHẤP NHẬN ĐIỀU KHOẢN
+- Sử dụng VieS đồng nghĩa chấp nhận điều khoản
+- Điều khoản có thể thay đổi, thông báo trước 7 ngày
+- Tiếp tục sử dụng = chấp nhận điều khoản mới
+
+2. QUYỀN VÀ TRÁCH NHIỆM KHÁCH HÀNG
+Quyền:
+- Mua sắm an toàn, bảo mật
+- Được bảo vệ quyền lợi
+- Khiếu nại, đổi trả
+- Hủy tài khoản bất cứ lúc nào
+
+Trách nhiệm:
+- Cung cấp thông tin chính xác
+- Bảo mật tài khoản, mật khẩu
+- Không lạm dụng dịch vụ
+- Thanh toán đúng hạn
+- Tuân thủ pháp luật
+
+3. QUYỀN VÀ TRÁCH NHIỆM VIES
+Quyền:
+- Từ chối/hủy đơn hàng bất thường
+- Khóa tài khoản vi phạm
+- Thay đổi chính sách, giá cả
+- Gỡ sản phẩm vi phạm
+
+Trách nhiệm:
+- Bảo mật thông tin khách hàng
+- Xử lý đơn hàng chính xác
+- Hỗ trợ khách hàng tận tình
+- Giải quyết tranh chấp công bằng
+
+4. GIỚI HẠN TRÁCH NHIỆM
+VieS KHÔNG chịu trách nhiệm:
+- Sản phẩm lỗi từ nhà sản xuất (có bảo hành)
+- Chất lượng sản phẩm do shop chịu trách nhiệm
+- Tranh chấp trực tiếp giữa shop và khách
+- Mất mát do lỗi khách hàng (địa chỉ sai...)
+- Sự cố bất khả kháng (thiên tai, dịch bệnh...)
+
+5. LUẬT ÁP DỤNG
+- Tuân thủ pháp luật Việt Nam
+- Tranh chấp giải quyết tại Tòa án Việt Nam
+- Ưu tiên hòa giải trước khi kiện tụng
+
+============================================
+
+=== LIÊN HỆ ===
+
+CÔNG TY TNHH VIES VIỆT NAM
+Địa chỉ: [Địa chỉ văn phòng]
+Hotline: 1900-1234 (8:00-22:00 hàng ngày)
+Email: support@vies.vn
+Website: https://vies.vn
+Fanpage: facebook.com/vies.vn
+
+============================================
+Cập nhật lần cuối: 2025
+Phiên bản: 1.0
+============================================
+

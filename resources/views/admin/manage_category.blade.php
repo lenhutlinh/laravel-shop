@@ -26,7 +26,102 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <input type = "hidden" name = "_token" value = '<?php echo csrf_token(); ?>'>
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+    <style>
+        /* Sidebar Dark Theme */
+        .sidebar {
+            background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%) !important;
+        }
+        
+        .sidebar-brand {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%) !important;
+            border-radius: 10px;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-brand:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(78, 115, 223, 0.3);
+        }
+        
+        .sidebar-brand-text {
+            color: #ffffff !important;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .sidebar-brand-icon {
+            color: #ffffff !important;
+        }
+        
+        .sidebar-heading {
+            color: #bdc3c7 !important;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-link {
+            color: #ecf0f1 !important;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 2px 8px;
+        }
+        
+        .nav-link:hover {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%) !important;
+            color: #ffffff !important;
+            transform: translateX(5px);
+        }
+        
+        .nav-link.active {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%) !important;
+            color: #ffffff !important;
+        }
+        
+        .nav-link i {
+            color: #bdc3c7 !important;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover i,
+        .nav-link.active i {
+            color: #ffffff !important;
+        }
+        
+        .sidebar-divider {
+            border-color: #34495e !important;
+            margin: 1rem 0;
+        }
+        
+        /* Dark theme for dropdown content */
+        .sidebar .collapse-inner {
+            background: #2c3e50 !important;
+            border-radius: 8px !important;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .sidebar .collapse-item {
+            color: #ecf0f1 !important;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+            margin: 2px 8px;
+        }
+        
+        .sidebar .collapse-item:hover {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%) !important;
+            color: #ffffff !important;
+            transform: translateX(5px);
+        }
+        
+        .sidebar .collapse-item.active {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%) !important;
+            color: #ffffff !important;
+        }
+    </style>
 
 </head>
 
@@ -53,8 +148,12 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Danh sách danh mục sản phẩm</h1>
-                    
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Danh sách danh mục sản phẩm</h1>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCategoryModal">
+                            <i class="fas fa-plus"></i> Thêm Danh mục chính
+                        </button>
+                    </div>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -90,24 +189,21 @@
                                                 {{$item->categoryName }}
                                             </td>
                                             <td>
-                                                <img src="{{asset('storage/'.$item->categoryIcon)}}" style="height:100px; widght:auto;"/>
+                                                <img src="{{asset('storage/'.$item->categoryIcon)}}" style="height:100px; width:auto;"/>
                                             </td>
                                             <td>{{$item->count }} </td>
                                            
                                             
                                             <td style="justify-content: center; align-items: flex-start; text-align: center;">
-                                                <a href="{{route('manage_category_edit',$item->id)}}" class="table-left-product-tools">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                                    </svg>
+                                                <a href="{{route('manage_category_edit',$item->id)}}" class="btn btn-sm btn-warning mr-1" title="Sửa">
+                                                    <i class="fas fa-edit"></i>
                                                 </a>
-                                                <a href="{{route('manage_subcategory',$item->id)}}" class="table-left-product-tools">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-                                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
-                                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-                                                    </svg>
+                                                <a href="{{route('manage_subcategory',$item->id)}}" class="btn btn-sm btn-info mr-1" title="Xem danh mục phụ">
+                                                    <i class="fas fa-eye"></i>
                                                 </a>
+                                                <button type="button" class="btn btn-sm btn-danger delete-category" data-id="{{$item->id}}" title="Xóa">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
                                             </td>
                                             
                                         </tr>
@@ -127,7 +223,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Your Website 2025</span>
                     </div>
                 </div>
             </footer>
@@ -143,6 +239,42 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+
+    <!-- Add Category Modal -->
+    <div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCategoryModalLabel">Thêm Danh mục chính</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form id="addCategoryForm" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="categoryName">Tên danh mục <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Mô tả danh mục</label>
+                            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Nhập mô tả cho danh mục (tùy chọn)"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="categoryIcon">Logo danh mục <span class="text-danger">*</span></label>
+                            <input type="file" class="form-control-file" id="categoryIcon" name="categoryIcon" accept="image/*" required>
+                            <small class="form-text text-muted">Chọn file ảnh (JPG, PNG, GIF)</small>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
+                        <button class="btn btn-primary" type="submit">Thêm danh mục</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -187,91 +319,93 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
     $(document).ready(function(){
-        $('.accept_shop').click(function(){
-            var id = $(this).data('id_shop');
+        // Add Category Form
+        $('#addCategoryForm').on('submit', function(e){
+            e.preventDefault();
+            
+            var formData = new FormData(this);
             var _token = $('input[name="_token"]').val();
-            console.log(id);
-            swal("Xác nhận duyệt đăng ký cửa hàng?", {
-                buttons: {
-                    cancel: "Không",
-                    catch: {
-                    text: "Xác Nhận",
-                    value: "catch",
-                    },
+            
+            $.ajax({
+                url: '{{route("add_category")}}',
+                method: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(data){
+                    if(data.status == true){
+                        swal("Thành công!", "Đã thêm danh mục mới", "success");
+                        $('#addCategoryModal').modal('hide');
+                        $('#addCategoryForm')[0].reset();
+                        location.reload();
+                    } else {
+                        swal("Thất bại!", data.message || "Có lỗi xảy ra", "error");
+                    }
                 },
-            })
-            .then((value) => {
-                switch (value) {
-                    case "catch":
-                    $.ajax({
-                        url: '{{route('accept_shop')}}',
-                        method: 'POST',
-                        data:{
-                            id: id,
-                            _token: _token,
-                        },
-                        success: function(data){
-                            $status = data.status;
-                            if($status == true){
-                                location.reload();
-                            }
-                            else{
-                                swal("Thất bại!", "error");
-                            }
-                        },
-                        error: function(data){
-                            var errors = data.responseJSON;
-                            console.log(errors);
-                        }
-                    });
-                    break;
-                    default:
-                      
+                error: function(data){
+                    var errors = data.responseJSON;
+                    if(errors.errors){
+                        var errorMessage = '';
+                        $.each(errors.errors, function(key, value){
+                            errorMessage += value[0] + '\n';
+                        });
+                        swal("Lỗi validation!", errorMessage, "error");
+                    } else {
+                        swal("Thất bại!", "Có lỗi xảy ra khi thêm danh mục", "error");
+                    }
                 }
             });
         });
-    });
-    $(document).ready(function(){
-        $('.stop_shop').click(function(){
-            var id = $(this).data('id_product');
+
+        // Delete Category
+        $(document).on('click', '.delete-category', function(e){
+            e.preventDefault();
+            var id = $(this).data('id');
             var _token = $('input[name="_token"]').val();
-            console.log(id);
-            swal("Xác nhận khóa cửa hàng?", {
+            
+            console.log('Delete category clicked, ID:', id);
+            
+            swal({
+                title: "Xác nhận xóa danh mục?",
+                text: "Bạn có chắc chắn muốn xóa danh mục này? Tất cả danh mục phụ và sản phẩm thuộc về danh mục này cũng sẽ bị xóa vĩnh viễn!",
+                icon: "warning",
                 buttons: {
                     cancel: "Không",
-                    catch: {
-                    text: " Xác Nhận",
-                    value: "catch",
-                    },
+                    confirm: {
+                        text: "Xác nhận xóa",
+                        value: true
+                    }
                 },
+                dangerMode: true,
             })
-            .then((value) => {
-                switch (value) {
-                    case "catch":
+            .then((willDelete) => {
+                if (willDelete) {
+                    console.log('Proceeding with delete for ID:', id);
+                    
                     $.ajax({
-                        url: '{{route('stop_shop')}}',
+                        url: '{{route("delete_category")}}',
                         method: 'POST',
                         data:{
                             id: id,
                             _token: _token,
                         },
                         success: function(data){
-                            $status = data.status;
-                            if($status == true){
+                            console.log('Delete response:', data);
+                            if(data.status == true){
+                                swal("Thành công!", "Đã xóa danh mục", "success");
                                 location.reload();
-                            }
-                            else{
-                                swal("Thất bại!", "error");
+                            } else {
+                                swal("Thất bại!", data.message || "Có lỗi xảy ra", "error");
                             }
                         },
-                        error: function(data){
-                            var errors = data.responseJSON;
-                            console.log(errors);
+                        error: function(xhr, status, error){
+                            console.log('Delete error:', xhr.responseText);
+                            var errors = xhr.responseJSON;
+                            swal("Thất bại!", errors.message || "Có lỗi xảy ra khi xóa danh mục", "error");
                         }
                     });
-                    break;
-                    default:
-                      
+                } else {
+                    swal("Đã hủy", "Danh mục không bị xóa", "info");
                 }
             });
         });

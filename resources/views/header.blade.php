@@ -7,13 +7,13 @@
                         </a>
                     </div>
                     <div class="nav-bar-top-left-select colum-3">
-                        <a href="#" class="nav-bar-top-left-select-a">
+                        <a href="{{ route('support') }}" class="nav-bar-top-left-select-a">
                             Chăm sóc khách hàng
                         </a>
                     </div>
                     <div class="nav-bar-top-left-select colum-3">
-                        <a href="#" class="nav-bar-top-left-select-a">
-                            Về Kenji
+                        <a href="{{ route('about') }}" class="nav-bar-top-left-select-a">
+                            Về VieS
                         </a>
                     </div>
                 </div>
@@ -90,9 +90,9 @@
                         <div class="nav-bar-bottom-center-search colum-9-5">
                             <div class="colum-9">
                                 @if(isset($keyword))
-                                <input type="text" name="keyword" class="input-search" placeholder=" Tìm kiếm trên Kenji..." value="{{$keyword}}">
+                                <input type="text" name="keyword" class="input-search" placeholder=" Tìm kiếm trên VieS..." value="{{$keyword}}">
                                 @else
-                                <input type="text" name="keyword" class="input-search" placeholder=" Tìm kiếm trên Kenji...">
+                                <input type="text" name="keyword" class="input-search" placeholder=" Tìm kiếm trên VieS...">
 
                                 @endif
                             </div>

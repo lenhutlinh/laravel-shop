@@ -233,3 +233,69 @@ $("#form-detail").validate({
         });
     });
 </script>
+
+<script>
+    // Rating Filter Functionality
+    $(document).ready(function(){
+        // Handle filter button clicks
+        $('.filter-btn').on('click', function(){
+            var selectedRating = $(this).data('rating');
+            
+            // Update active button
+            $('.filter-btn').removeClass('active');
+            $(this).addClass('active');
+            
+            // Filter ratings
+            if(selectedRating === 'all') {
+                $('.rating-item').show();
+            } else {
+                $('.rating-item').hide();
+                $('.rating-item[data-rating="' + selectedRating + '"]').show();
+            }
+            
+            // Update count display
+            var visibleCount = $('.rating-item:visible').length;
+            updateFilterCounts(selectedRating, visibleCount);
+        });
+        
+        // Function to update filter counts
+        function updateFilterCounts(selectedRating, visibleCount) {
+            if(selectedRating === 'all') {
+                $('.filter-btn[data-rating="all"] .count').text(visibleCount);
+            } else {
+                $('.filter-btn[data-rating="' + selectedRating + '"] .count').text(visibleCount);
+            }
+        }
+        
+        // Initialize with all ratings visible
+        var totalRatings = $('.rating-item').length;
+        $('.filter-btn[data-rating="all"] .count').text(totalRatings);
+    });
+    
+    // Image Modal Functions
+    function openImageModal(imageSrc) {
+        document.getElementById('modalImage').src = imageSrc;
+        document.getElementById('imageModal').style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    function closeImageModal() {
+        document.getElementById('imageModal').style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+    
+    // Close modal when clicking outside the image
+    window.onclick = function(event) {
+        var modal = document.getElementById('imageModal');
+        if (event.target == modal) {
+            closeImageModal();
+        }
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeImageModal();
+        }
+    });
+</script>

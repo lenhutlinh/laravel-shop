@@ -1,0 +1,387 @@
+============================================
+DỮ LIỆU THỰC TỪ DATABASE - VIES ECOMMERCE
+Trích xuất trực tiếp từ CSDL: thuongmaidientu
+Ngày trích xuất: 2025-10-23
+============================================
+
+⚡ THỐNG KÊ TỔNG QUAN
+
+📊 Database: thuongmaidientu
+- Tổng số sản phẩm: 80 sản phẩm
+- Tổng số danh mục: 21 danh mục
+- Tổng số mã giảm giá: 10 mã
+- Tổng số shop: 13 shop
+- Tổng số đơn hàng: 103 đơn hàng
+- Tổng số người dùng: 14 người dùng
+
+============================================
+
+📁 DANH MỤC THỰC TẾ (21 DANH MỤC)
+
+ID 1: Thời Trang Nam
+ID 2: Thời Trang Nữ
+ID 3: Điện Thoại & Phụ Kiện
+ID 4: Đồ Chơi
+ID 5: Thiết Bị Điện Tử
+ID 6: Nhà Cửa & Đời Sống
+ID 7: Máy Tính Laptop
+ID 8: Sức Khỏe
+ID 9: Máy Ảnh & Máy Quay Phim
+ID 10: Sắc Đẹp
+ID 11: Đồng Hồ
+ID 12: Giày Dép Nữ
+ID 13: Giày Dép Nam
+ID 14: Thiết Bị Gia Dụng
+ID 15: Nhà Sách Online
+ID 16: Thể Thao & Du Lịch
+ID 17: Thời Trang Trẻ Em
+ID 18: Balo & Túi Ví Nam
+ID 19: Phụ Kiện & Trang Sức
+ID 20: Túi Ví Nữ
+
+============================================
+
+🛍️ SẢN PHẨM THỰC TẾ (10 SẢN PHẨM MẪU)
+
+1. Áo sơ mi trắng của nam siêu đẹp
+   Giá: 350,000đ
+   Danh mục: Thời Trang Nam
+   Mô tả: Áo sơ mi trắng của nam siêu đẹp hợp thời trang giới trẻ
+   ID: 7
+
+2. Ốp lưng điện thoại Iphone15
+   Giá: 50,000đ
+   Danh mục: Giày Dép Nữ
+   Mô tả: Ốp lưng điện thoại
+   ID: 8
+
+3. Laptop gaming MSI Bravo 15
+   Giá: 20,000,000đ
+   Danh mục: Máy Tính Laptop
+   Mô tả: laptop gaming cực chất
+   ID: 9
+
+4. Tai nghe úp tai bluetooh Philips
+   Giá: 800,000đ
+   Danh mục: Thiết Bị Điện Tử
+   Mô tả: Tai nghe không dây của hãng philips
+   ID: 10
+
+5. Quần jean đen nữ cá tính
+   Giá: 475,000đ
+   Danh mục: Thời Trang Nữ
+   Mô tả: Quần jean nữ cá tính siêu đẹp
+   ID: 11
+
+6. Áo sơ mi nam sọc caro
+   Giá: 285,000đ
+   Danh mục: Thời Trang Nam
+   Mô tả: Áo sơ mi nam sọc caro thời trang giới trẻ 2023
+   ID: 12
+
+7. Quần short thun nam nhiều màu
+   Giá: 225,000đ
+   Danh mục: Thời Trang Nam
+   Mô tả: Quần short thun nam nhiều màu siêu cute
+   ID: 13
+
+8. Áo sơ mi công sở nữ cao cấp
+   Giá: 499,000đ
+   Danh mục: Thời Trang Nữ
+   Mô tả: Áo sơ mi công sở nữ cao cấp
+   ID: 14
+
+9. Quần Jean baggy nam xanh
+   Giá: 435,000đ
+   Danh mục: Thời Trang Nam
+   Mô tả: Quần Jean baggy nam xanh
+   ID: 15
+
+10. Set đồ công sở nữ siêu đẹp nữ tính
+    Giá: 760,000đ
+    Danh mục: Thời Trang Nữ
+    Mô tả: Set đồ công sở nữ siêu đẹp nữ tính
+    ID: 16
+
+============================================
+
+💰 MÃ GIẢM GIÁ THỰC TẾ (10 MÃ)
+
+1. CTU1
+   Tên: Khuyến mãi cuối năm giảm 100000VND cho đơn trên 900000VNĐ
+   Giảm: 100,000đ (fixed)
+
+2. CTU203
+   Tên: Giảm 10% đơn hàng trên 100000VNĐ
+   Giảm: 10% (percentage)
+
+3. freship12
+   Tên: Freeship khi đơn hàng trên 300000 VND
+   Giảm: 30,000đ (fixed)
+
+4. CHAOHE
+   Tên: Giảm 15% Giảm tối đa ₫40k Đơn Tối Thiểu ₫50k
+   Giảm: 15% (percentage)
+
+5. FREESHIP
+   Tên: Giảm tối đa ₫20k Đơn Tối Thiểu ₫50k
+   Giảm: 20,000đ (fixed)
+
+6. KHUYENMAITHANG5
+   Tên: Giảm 8% Giảm tối đa ₫300k Đơn Tối Thiểu ₫350k
+   Giảm: 8% (percentage)
+
+7. HELLOTHANG6
+   Tên: Giảm 12% Giảm tối đa ₫3tr Đơn Tối Thiểu ₫4,5tr
+   Giảm: 12% (percentage)
+
+8. nhutlinh1
+   Tên: giam gia nhut linh
+   Giảm: 100,000đ (fixed)
+
+9. NHUT LINH
+   Tên: NHUT LINH
+   Giảm: 20,000đ (fixed)
+
+10. NHUTLINH2
+    Tên: NHUT LINH2
+    Giảm: 30,000đ (fixed)
+
+============================================
+
+🏪 SHOP THỰC TẾ (5 SHOP MẪU)
+
+1. kenji shop
+   Email: kiet@gmail.com
+   ID: 1
+
+2. smart store
+   Email: kiet123@gmail.com
+   ID: 8
+
+3. Clothing Shop
+   Email: loan@gmail.com
+   ID: 11
+
+4. Shop bán đồ
+   Email: loan1@gmail.com
+   ID: 12
+
+5. VietKO
+   Email: 21004065@st.vlute.edu.vn
+   ID: 13
+
+============================================
+
+🔥 TOP 5 SẢN PHẨM BÁN CHẠY NHẤT
+
+1. Gối ôm siêu dễ thương 2
+   Giá: 300,000đ
+   Đã bán: 29 sản phẩm
+
+2. Gối ôm siêu dễ thương
+   Giá: 200,000đ
+   Đã bán: 23 sản phẩm
+
+3. Gối ôm siêu dễ thương
+   Giá: 100,000đ
+   Đã bán: 15 sản phẩm
+
+4. Áo sơ mi trắng của nam siêu đẹp
+   Giá: 350,000đ
+   Đã bán: 7 sản phẩm
+
+5. Áo thun ngắn tay nam basic
+   Giá: 200,000đ
+   Đã bán: 6 sản phẩm
+
+============================================
+
+💬 MẪU HỘI THOẠI VỚI DỮ LIỆU THẬT
+
+=== Hỏi về sản phẩm cụ thể ===
+
+Q1: VieS có bán laptop không?
+A1: Dạ có ạ! VieS có danh mục "Máy Tính Laptop" với nhiều sản phẩm. 
+Ví dụ: Laptop gaming MSI Bravo 15 giá 20,000,000đ - laptop gaming cực chất.
+Bạn có thể xem thêm các laptop khác trong danh mục "Máy Tính Laptop" nhé!
+
+Q2: Tôi muốn mua áo sơ mi nam
+A2: Dạ, VieS có nhiều mẫu áo sơ mi nam:
+- Áo sơ mi trắng của nam siêu đẹp: 350,000đ
+- Áo sơ mi nam sọc caro thời trang giới trẻ 2023: 285,000đ
+Bạn có thể vào danh mục "Thời Trang Nam" để xem thêm nhé ạ!
+
+Q3: Có tai nghe bluetooth không?
+A3: Dạ có ạ! VieS có Tai nghe úp tai bluetooth Philips giá 800,000đ.
+Tai nghe không dây của hãng Philips chất lượng cao.
+Danh mục: Thiết Bị Điện Tử.
+
+Q4: Tôi muốn mua quần jean nữ
+A4: Dạ VieS có:
+- Quần jean đen nữ cá tính: 475,000đ
+Quần jean nữ cá tính siêu đẹp, phù hợp cho bạn nữ năng động.
+Xem thêm tại danh mục "Thời Trang Nữ" nhé ạ!
+
+=== Hỏi về mã giảm giá thật ===
+
+Q5: Mã CTU1 dùng như thế nào?
+A5: Dạ, mã CTU1 là mã "Khuyến mãi cuối năm giảm 100000VND cho đơn trên 900000VNĐ".
+Điều kiện: Đơn hàng tối thiểu 900,000đ
+Giảm: 100,000đ
+Nhập mã CTU1 tại trang thanh toán để áp dụng ạ!
+
+Q6: Có mã freeship không?
+A6: Dạ có ạ! VieS có 2 mã freeship:
+- Mã "freship12": Freeship khi đơn hàng trên 300,000đ (giảm 30,000đ phí ship)
+- Mã "FREESHIP": Giảm tối đa 20,000đ phí ship, đơn tối thiểu 50,000đ
+Bạn chọn mã phù hợp với đơn hàng nhé!
+
+Q7: Mã giảm giá tháng 5 có không?
+A7: Dạ có ạ! Mã "KHUYENMAITHANG5":
+- Giảm 8%
+- Giảm tối đa 300,000đ
+- Đơn tối thiểu 350,000đ
+Rất phù hợp cho đơn hàng lớn ạ!
+
+Q8: Có mã giảm % không?
+A8: Dạ có nhiều mã giảm %:
+- CTU203: Giảm 10% (đơn trên 100,000đ)
+- CHAOHE: Giảm 15%, tối đa 40,000đ (đơn tối thiểu 50,000đ)
+- KHUYENMAITHANG5: Giảm 8%, tối đa 300,000đ (đơn tối thiểu 350,000đ)
+- HELLOTHANG6: Giảm 12%, tối đa 3 triệu (đơn tối thiểu 4,5 triệu)
+Bạn chọn mã phù hợp với giá trị đơn hàng nhé ạ!
+
+=== Hỏi về danh mục ===
+
+Q9: VieS có những danh mục gì?
+A9: Dạ, VieS có 21 danh mục chính:
+📱 Điện Thoại & Phụ Kiện
+👕 Thời Trang Nam
+👗 Thời Trang Nữ
+👶 Thời Trang Trẻ Em
+💻 Máy Tính Laptop
+🎮 Thiết Bị Điện Tử
+🏠 Nhà Cửa & Đời Sống
+⚡ Thiết Bị Gia Dụng
+👟 Giày Dép Nam
+👠 Giày Dép Nữ
+🎒 Balo & Túi Ví Nam
+👜 Túi Ví Nữ
+⌚ Đồng Hồ
+💄 Sắc Đẹp
+🏥 Sức Khỏe
+📚 Nhà Sách Online
+🎮 Đồ Chơi
+📷 Máy Ảnh & Máy Quay Phim
+⚽ Thể Thao & Du Lịch
+💍 Phụ Kiện & Trang Sức
+
+Bạn quan tâm danh mục nào ạ?
+
+Q10: Tôi muốn xem thời trang nam
+A10: Dạ, danh mục "Thời Trang Nam" có nhiều sản phẩm:
+- Áo sơ mi trắng của nam siêu đẹp: 350,000đ
+- Áo sơ mi nam sọc caro: 285,000đ
+- Quần short thun nam nhiều màu: 225,000đ
+- Quần Jean baggy nam xanh: 435,000đ
+Và còn nhiều sản phẩm khác. Vào danh mục để xem chi tiết ạ!
+
+=== Hỏi về shop ===
+
+Q11: VieS có bao nhiêu shop?
+A11: Dạ, hiện tại VieS có 13 shop đang hoạt động.
+Các shop uy tín như:
+- kenji shop
+- smart store
+- Clothing Shop
+- Shop bán đồ
+- VietKO
+Và nhiều shop khác. Tất cả đều được VieS xác minh và kiểm duyệt kỹ lưỡng ạ!
+
+Q12: Làm sao để tìm shop uy tín?
+A12: Dạ, để tìm shop uy tín bạn có thể:
+- Xem đánh giá và số lượng sản phẩm đã bán
+- Chọn shop có huy hiệu "Uy tín"
+- Xem thời gian hoạt động của shop
+- Đọc review từ khách hàng khác
+VieS có 13 shop được xác minh, bạn yên tâm mua sắm nhé!
+
+=== Hỏi về sản phẩm bán chạy ===
+
+Q13: Sản phẩm nào bán chạy nhất?
+A13: Dạ, hiện tại TOP 5 sản phẩm bán chạy nhất:
+1. Gối ôm siêu dễ thương 2 (300,000đ) - Đã bán 29 sp
+2. Gối ôm siêu dễ thương (200,000đ) - Đã bán 23 sp
+3. Gối ôm siêu dễ thương (100,000đ) - Đã bán 15 sp
+4. Áo sơ mi trắng của nam (350,000đ) - Đã bán 7 sp
+5. Áo thun ngắn tay nam basic (200,000đ) - Đã bán 6 sp
+
+Gối ôm đang rất được ưa chuộng ạ!
+
+Q14: Có sản phẩm dưới 100k không?
+A14: Dạ có ạ! Ví dụ:
+- Ốp lưng điện thoại Iphone15: 50,000đ
+Và còn nhiều sản phẩm khác dưới 100k.
+Bạn có thể lọc theo khoảng giá "Dưới 100k" để xem tất cả nhé!
+
+Q15: Sản phẩm nào giá rẻ mà chất lượng?
+A15: Dạ, VieS có nhiều sản phẩm giá tốt:
+- Ốp lưng điện thoại Iphone15: 50,000đ
+- Quần short thun nam: 225,000đ
+- Áo sơ mi nam sọc caro: 285,000đ
+- Gối ôm siêu dễ thương: 100,000đ - 300,000đ (bán chạy nhất!)
+Tất cả đều có đánh giá tốt từ khách hàng ạ!
+
+============================================
+
+📊 THỐNG KÊ & INSIGHTS
+
+Danh mục phổ biến nhất:
+1. Thời Trang Nam
+2. Thời Trang Nữ
+3. Thiết Bị Điện Tử
+
+Khoảng giá phổ biến:
+- Dưới 500k: ~70% sản phẩm
+- 500k - 1tr: ~20% sản phẩm
+- Trên 1tr: ~10% sản phẩm (laptop, thiết bị cao cấp)
+
+Sản phẩm bán chạy:
+- Gối ôm là sản phẩm hot nhất
+- Thời trang nam/nữ có lượng đơn ổn định
+- Điện tử có giá cao nhưng ít đơn hơn
+
+Mã giảm giá phổ biến:
+- Mã freeship được dùng nhiều nhất
+- Mã giảm % phù hợp đơn lớn
+- Mã fixed phù hợp đơn nhỏ
+
+============================================
+
+🎯 CÁCH SỬ DỤNG FILE NÀY
+
+1. Upload vào Chatbase/Dialogflow cùng các file khác
+2. Chatbot sẽ có dữ liệu THẬT từ database
+3. Trả lời chính xác về:
+   - Sản phẩm thật (tên, giá, mô tả)
+   - Mã giảm giá thật (điều kiện, giá trị)
+   - Danh mục thật (21 danh mục)
+   - Shop thật (13 shop)
+   - Top sản phẩm bán chạy
+
+============================================
+
+⚠️ LƯU Ý
+
+- Dữ liệu được trích xuất: 2025-10-23
+- Cần cập nhật định kỳ khi có sản phẩm/mã giảm giá mới
+- Chạy lại script: php extract_db_data.php
+- Hoặc query trực tiếp từ database
+
+============================================
+File được tạo tự động từ database thực
+Tổng số: 80 sản phẩm | 21 danh mục | 10 mã giảm giá
+Database: thuongmaidientu
+============================================
+

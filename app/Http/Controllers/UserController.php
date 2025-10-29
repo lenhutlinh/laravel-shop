@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Console\View\Components\Alert;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\Coupon;
 use Session;
 
 class UserController extends Controller
@@ -35,8 +36,8 @@ class UserController extends Controller
             ->where('shop.status', '=', 1)
             ->select('products.id', 'products.productName', 'products.price', 'products.previewImage',DB::raw('SUM(order_detail.product_quantity) as sales_quantity'))
             ->groupBy('products.id','products.price', 'products.productName', 'products.previewImage')
-            ->orderBy('id', 'desc')-> paginate(54);
-        // dd($category);
+            ->orderBy('products.id', 'desc')-> paginate(54);
+      
         return view('index', compact('products','category'));
     }
     public function detail_product($product_id)
@@ -87,9 +88,31 @@ class UserController extends Controller
         Session::put('product_id', $product_id);
         $category = DB::table('categories')->where('id', $products->category_id)->first();
         $subcategory = DB::table('subcategories')->where('id', $products->subcategory_id)->first();
+        
+        // Get product ratings
+        $ratings = DB::table('ratings')
+            ->join('users', 'users.id', '=', 'ratings.user_id')
+            ->where('ratings.product_id', $product_id)
+            ->select('ratings.*', 'users.firstname', 'users.lastname', 'users.userImg')
+            ->orderBy('ratings.created_at', 'desc')
+            ->get();
+        
+        // Calculate average rating
+        $averageRating = $ratings->avg('rating');
+        $totalRatings = $ratings->count();
+        
+        // Calculate rating distribution
+        $ratingCounts = [
+            5 => $ratings->where('rating', 5)->count(),
+            4 => $ratings->where('rating', 4)->count(),
+            3 => $ratings->where('rating', 3)->count(),
+            2 => $ratings->where('rating', 2)->count(),
+            1 => $ratings->where('rating', 1)->count(),
+        ];
+        
         // dd($sum_avaialbe);
 
-        return view('detail_product', compact('products', 'products_images', 'shop', 'var_option', 'combination_string', 'sum_avaialbe', 'product_count', 'created_at','product_sale','category','subcategory'));
+        return view('detail_product', compact('products', 'products_images', 'shop', 'var_option', 'combination_string', 'sum_avaialbe', 'product_count', 'created_at','product_sale','category','subcategory', 'ratings', 'averageRating', 'totalRatings', 'ratingCounts'));
 
     }
     public function add_cart_ajax(Request $request){
@@ -179,6 +202,7 @@ class UserController extends Controller
             'cart.productName', 'cart.product_price', 'cart.product_image', 'cart.quantity', 
             'cart.avaiable_stock', 'cart.combination')
             ->get();
+        $coupon = Coupon::all();
 
         foreach($shop_sum as $key => $shop){
             $shop_sum[$key]->product_cart = DB::table('cart')
@@ -192,7 +216,8 @@ class UserController extends Controller
                 ->get();
         }
         // dd($shop_sum);
-        return view('user.cart', compact('shop_sum', 'product_cart'));
+        return view('user.cart', compact('shop_sum', 'product_cart',
+        'coupon'));
     }
     public function view_shop($shop_id){
         $shop_info = DB::table('shop')
@@ -415,5 +440,6 @@ class UserController extends Controller
             'status' => true
         ]);
     }
+
     
 } 

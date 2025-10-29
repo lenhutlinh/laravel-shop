@@ -29,40 +29,158 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Chating</title>
     <style type="text/css">
-    	/* body{margin-top:20px;} */
-.content{
-    margin-bottom: 100px;
-    /* padding-bottom:40px; */
+    	/* Modern Chat Show UI Styles */
+body {
+    background: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
 }
+
+.content {
+    margin-bottom: 100px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 20px;
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+}
+
 .chat-online {
-    color: #34ce57
+    color: #34ce57;
+    animation: pulse 2s infinite;
 }
 
 .chat-offline {
-    color: #e4606d
+    color: #e4606d;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
 }
 
 .chat-messages {
     display: flex;
     flex-direction: column;
-    max-height: 550px;
-    min-height: 450px;
-    overflow-y: scroll
+    max-height: 600px;
+    min-height: 500px;
+    overflow-y: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    margin: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border: 1px solid #e9ecef;
+}
+
+/* Custom Scrollbar */
+.chat-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
 }
 
 .chat-message-left,
 .chat-message-right {
     display: flex;
-    flex-shrink: 0
+    flex-shrink: 0;
+    margin-bottom: 15px;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .chat-message-left {
-    margin-right: auto
+    margin-right: auto;
+    justify-content: flex-start;
 }
 
 .chat-message-right {
     flex-direction: row-reverse;
-    margin-left: auto
+    margin-left: auto;
+    justify-content: flex-end;
+}
+
+/* Message Bubble Styles */
+.chat-message-left .flex-shrink-0 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px 20px 20px 5px;
+    padding: 12px 18px;
+    max-width: 70%;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    position: relative;
+}
+
+.chat-message-right .flex-shrink-0 {
+    background: linear-gradient(135deg, #ee4d2d 0%, #ff6b35 100%);
+    color: white;
+    border-radius: 20px 20px 5px 20px;
+    padding: 12px 18px;
+    max-width: 70%;
+    box-shadow: 0 4px 15px rgba(238, 77, 45, 0.3);
+    position: relative;
+}
+
+/* Message Time */
+.message-time {
+    font-size: 11px;
+    opacity: 0.7;
+    margin-top: 5px;
+    text-align: right;
+}
+
+/* Typing Indicator */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background: #f8f9fa;
+    border-radius: 20px;
+    margin: 10px 0;
+    max-width: 80px;
+}
+
+.typing-indicator span {
+    height: 8px;
+    width: 8px;
+    background: #999;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+    animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+    0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+    40% { transform: scale(1); opacity: 1; }
 }
 .py-3 {
     padding-top: 1rem!important;
@@ -78,8 +196,151 @@
 .border-top {
     border-top: 1px solid #dee2e6!important;
 }
-.form_send{
- 
+/* Input Area Styles */
+.form_send {
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 15px 20px;
+    margin: 15px;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.form_send:focus-within {
+    border-color: #667eea;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+}
+
+.form_send input {
+    border: none;
+    outline: none;
+    background: transparent;
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+.form_send input::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+.send-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.send-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.send-button:active {
+    transform: scale(0.95);
+}
+
+/* Chat Header Styles */
+.chat-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.shop-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255,255,255,0.3);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.shop-info h6 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.shop-info small {
+    opacity: 0.9;
+    font-size: 12px;
+}
+
+.online-indicator {
+    width: 12px;
+    height: 12px;
+    background: #34ce57;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-left: auto;
+    animation: pulse 2s infinite;
+}
+
+/* Shop List Visibility */
+.shop-item {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.shop-section-header {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content {
+        margin: 10px;
+        border-radius: 15px;
+    }
+    
+    .chat-messages {
+        max-height: 400px;
+        min-height: 300px;
+        padding: 15px;
+    }
+    
+    .form_send {
+        margin: 10px;
+        padding: 10px 15px;
+    }
+    
+    .send-button {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .chat-header {
+        padding: 15px;
+    }
+    
+    .shop-avatar {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .shop-item {
+        display: block !important;
+    }
 }
     </style>
 </head>
@@ -91,46 +352,110 @@
     </header>
     <main class="content">
         <div class="container p-0">
+            <!-- Modern Chat Header -->
+            <div class="chat-header">
+                <div class="shop-avatar">
+                    <img src="{{asset('storage/'.$shop_chat->shopImg)}}" alt="{{$shop_chat->shopname}}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                </div>
+                <div class="shop-info">
+                    <h6>{{$shop_chat->shopname}}</h6>
+                    <small><span class="fas fa-circle chat-online"></span> Online</small>
+                </div>
+                <div class="online-indicator"></div>
+            </div>
 
-            <!-- <h1 class="h3 mb-3">Nhắn tin với các cửa hàng</h1> -->
-
-            <div class="card">
+            <div class="card" style="border: 1px solid #e9ecef; border-radius: 0 0 20px 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); background: white;">
                 <div class="row g-0">
-                    <div class="col-12 col-lg-5 col-xl-3 border-right">
+                    <div class="col-12 col-lg-5 col-xl-3 border-right" style="background: white; border-right: 1px solid #e9ecef;">
 
-                        <div class="px-4 d-none d-md-block">
-                            <div class="d-flex align-items-center">
-                                <div class="flex-grow-1">
-                                    <input type="text" class="form-control my-3" placeholder="Search...">
-                                </div>
+                        <!-- Shop List with Unread Messages -->
+                        <div class="shop-list-container" style="padding: 20px;">
+                            @if($shop_list_unread)
+                            <div class="shop-section-header" style="padding: 15px 0 10px 0; border-bottom: 2px solid #e9ecef; margin-bottom: 15px;">
+                                <h6 style="color: #ee4d2d; font-weight: 700; margin: 0; font-size: 16px;">
+                                    <i class="fas fa-exclamation-circle" style="margin-right: 8px;"></i>
+                                    Tin nhắn chưa đọc
+                                </h6>
+                                <small style="color: #999; font-size: 12px;">Có {{count($shop_list_unread)}} cửa hàng có tin nhắn mới</small>
                             </div>
-                        </div>
-                        @foreach($shop_list_unread as $shop)
-                        <a href="{{route('show_chat',$shop->id)}}" class="list-group-item list-group-item-action border-0">
-                            @if($shop->unread > 0)
-                            <div class="badge bg-success float-right">{{$shop->unread }}</div>
+                            @foreach($shop_list_unread as $shop)
+                            <a href="{{route('show_chat',$shop->id)}}" class="shop-item" 
+                               style="display: block; padding: 15px; margin-bottom: 10px; background: white; 
+                                      border-radius: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); 
+                                      text-decoration: none; color: inherit; transition: all 0.3s ease;
+                                      border-left: 4px solid #ee4d2d; border: 1px solid #e9ecef;"
+                               onmouseover="this.style.transform='translateX(5px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)'"
+                               onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.08)'">
+                                <div class="d-flex align-items-center">
+                                    <div class="shop-avatar" style="position: relative;">
+                                        <img src="{{asset('storage/'.$shop->shopImg)}}" 
+                                             style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; 
+                                                    border: 3px solid #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                                        <div class="online-indicator" style="position: absolute; bottom: 2px; right: 2px; 
+                                                                          width: 12px; height: 12px; background: #34ce57; 
+                                                                          border-radius: 50%; border: 2px solid white;"></div>
+                                    </div>
+                                    <div class="shop-info" style="flex: 1; margin-left: 15px;">
+                                        <h6 style="margin: 0; font-weight: 700; color: #1a1a1a; font-size: 16px;">
+                                            {{$shop->shopname}}
+                                        </h6>
+                                        <div style="display: flex; align-items: center; margin-top: 5px;">
+                                            <span class="fas fa-circle chat-online" style="font-size: 8px; margin-right: 5px;"></span>
+                                            <span style="font-size: 12px; color: #34ce57; font-weight: 600;">Online</span>
+                                        </div>
+                                    </div>
+                                    @if($shop->unread > 0)
+                                    <div class="unread-badge" style="background: linear-gradient(135deg, #ee4d2d 0%, #ff6b35 100%); 
+                                                                   color: white; border-radius: 50%; width: 25px; height: 25px; 
+                                                                   display: flex; align-items: center; justify-content: center; 
+                                                                   font-size: 12px; font-weight: bold; animation: pulse 2s infinite;">
+                                        {{$shop->unread}}
+                                    </div>
+                                    @endif
+                                </div>
+                            </a>
+                            @endforeach
                             @endif
-                            <div class="d-flex align-items-start">
-                                <img src="{{asset('storage/'.$shop->shopImg)}}" class="rounded-circle mr-1" alt="Vanessa Tucker" width="40" height="40">
-                                <div class="flex-grow-1 ml-3">
-                                    {{$shop->shopname}}
-                                    <div class="small"><span class="fas fa-circle chat-online"></span> Online</div>
-                                </div>
+                            
+                            @if($shop_list)
+                            <div class="shop-section-header" style="padding: 15px 0 10px 0; border-bottom: 2px solid #e9ecef; margin-bottom: 15px;">
+                                <h6 style="color: #667eea; font-weight: 700; margin: 0; font-size: 16px;">
+                                    <i class="fas fa-store" style="margin-right: 8px;"></i>
+                                    Tất cả cửa hàng
+                                </h6>
+                                <small style="color: #999; font-size: 12px;">Chọn cửa hàng để bắt đầu trò chuyện</small>
                             </div>
-                        </a>
-                        @endforeach
-                        @foreach($shop_list as $shop)
-                        <a href="{{route('show_chat',$shop->id)}}" class="list-group-item list-group-item-action border-0">
-                            <div class="badge bg-success float-right"></div>
-                            <div class="d-flex align-items-start">
-                                <img src="{{asset('storage/'.$shop->shopImg)}}" class="rounded-circle mr-1" alt="Vanessa Tucker" width="40" height="40">
-                                <div class="flex-grow-1 ml-3">
-                                    {{$shop->shopname}}
-                                    <div class="small"><span class="fas fa-circle chat-online"></span> Online</div>
+                            @foreach($shop_list as $shop)
+                            <a href="{{route('show_chat',$shop->id)}}" class="shop-item" 
+                               style="display: block; padding: 15px; margin-bottom: 10px; background: white; 
+                                      border-radius: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); 
+                                      text-decoration: none; color: inherit; transition: all 0.3s ease;
+                                      border-left: 4px solid #667eea; border: 1px solid #e9ecef;"
+                               onmouseover="this.style.transform='translateX(5px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)'"
+                               onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.08)'">
+                                <div class="d-flex align-items-center">
+                                    <div class="shop-avatar" style="position: relative;">
+                                        <img src="{{asset('storage/'.$shop->shopImg)}}" 
+                                             style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; 
+                                                    border: 3px solid #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                                        <div class="online-indicator" style="position: absolute; bottom: 2px; right: 2px; 
+                                                                          width: 12px; height: 12px; background: #34ce57; 
+                                                                          border-radius: 50%; border: 2px solid white;"></div>
+                                    </div>
+                                    <div class="shop-info" style="flex: 1; margin-left: 15px;">
+                                        <h6 style="margin: 0; font-weight: 700; color: #1a1a1a; font-size: 16px;">
+                                            {{$shop->shopname}}
+                                        </h6>
+                                        <div style="display: flex; align-items: center; margin-top: 5px;">
+                                            <span class="fas fa-circle chat-online" style="font-size: 8px; margin-right: 5px;"></span>
+                                            <span style="font-size: 12px; color: #34ce57; font-weight: 600;">Online</span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                        @endforeach
+                            </a>
+                            @endforeach
+                            @endif
+                        </div>
                         
                         <!-- <a href="#" class="list-group-item list-group-item-action border-0">
                             <div class="d-flex align-items-start">
@@ -307,6 +632,53 @@
                 container.scrollTop = container.scrollHeight;
                 
             }
+        });
+        
+        // Enhanced UI Interactions
+        $(document).ready(function() {
+            // Add hover effects to shop items
+            $('.shop-item').hover(
+                function() {
+                    $(this).css('transform', 'translateX(5px)');
+                    $(this).css('box-shadow', '0 6px 20px rgba(0,0,0,0.15)');
+                    $(this).find('.shop-info h6').css('color', '#667eea');
+                },
+                function() {
+                    $(this).css('transform', 'translateX(0)');
+                    $(this).css('box-shadow', '0 4px 15px rgba(0,0,0,0.08)');
+                    $(this).find('.shop-info h6').css('color', '#1a1a1a');
+                }
+            );
+            
+            // Add click animation to shop items
+            $('.shop-item').on('click', function() {
+                $(this).css('transform', 'scale(0.98)');
+                setTimeout(() => {
+                    $(this).css('transform', 'translateX(5px)');
+                }, 150);
+            });
+            
+            
+            // Add loading animation
+            $('.shop-item').on('click', function() {
+                var $this = $(this);
+                $this.css('opacity', '0.7');
+                $this.find('.shop-info h6').html('<i class="fas fa-spinner fa-spin"></i> Đang kết nối...');
+                $this.find('.online-indicator').css('background', '#ffc107');
+                $this.find('.online-indicator').css('animation', 'pulse 1s infinite');
+            });
+            
+            // Auto-scroll to bottom on page load
+            setTimeout(function() {
+                var chatContainer = document.getElementById('chat_message');
+                if (chatContainer) {
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
+                }
+            }, 100);
+            
+            // Ensure all shops are visible on page load
+            $('.shop-item').show();
+            $('.shop-section-header').show();
         });
     </script>
                     

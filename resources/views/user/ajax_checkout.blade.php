@@ -150,13 +150,43 @@ $("#form-checkout").validate({
     $("#province").change(() => {
         callApiDistrict(host + "p/" + $("#province").val() + "?depth=2");
         printResult();
+        // Gọi tính phí ship khi thay đổi tỉnh
+        console.log('🚚 Province changed, calling calculateShipping...');
+        setTimeout(() => {
+            if (typeof window.calculateShipping === 'function') {
+                console.log('🚚 Gọi calculateShipping từ province change...');
+                window.calculateShipping();
+            } else {
+                console.log('❌ calculateShipping function không tồn tại!');
+            }
+        }, 500);
     });
     $("#district").change(() => {
         callApiWard(host + "d/" + $("#district").val() + "?depth=2");
         printResult();
+        // Gọi tính phí ship khi thay đổi huyện
+        console.log('🚚 District changed, calling calculateShipping...');
+        setTimeout(() => {
+            if (typeof window.calculateShipping === 'function') {
+                console.log('🚚 Gọi calculateShipping từ province change...');
+                window.calculateShipping();
+            } else {
+                console.log('❌ calculateShipping function không tồn tại!');
+            }
+        }, 500);
     });
     $("#ward").change(() => {
         printResult();
+        // Gọi tính phí ship khi thay đổi xã
+        console.log('🚚 Ward changed, calling calculateShipping...');
+        setTimeout(() => {
+            if (typeof window.calculateShipping === 'function') {
+                console.log('🚚 Gọi calculateShipping từ province change...');
+                window.calculateShipping();
+            } else {
+                console.log('❌ calculateShipping function không tồn tại!');
+            }
+        }, 500);
     })
 
     var printResult = () => {
@@ -168,9 +198,35 @@ $("#form-checkout").validate({
 
             let address = `<option  value="${result}">${result}</option>` ;
             document.querySelector("#address").innerHTML = address
+            
+            // Gọi tính phí ship khi có đầy đủ thông tin địa chỉ
+            console.log('🚚 printResult: Full address available, calling calculateShipping...');
+            setTimeout(() => {
+                if (typeof window.calculateShipping === 'function') {
+                    console.log('🚚 Gọi calculateShipping từ printResult...');
+                    window.calculateShipping();
+                } else {
+                    console.log('❌ calculateShipping function không tồn tại!');
+                }
+            }, 500);
         }
 
     }
+    
+    // Thêm sự kiện cho input địa chỉ chi tiết
+    $(document).ready(function() {
+        // Đợi một chút để đảm bảo calculateShipping đã được định nghĩa
+        setTimeout(function() {
+            $('input[name="detail_address"]').on('input', function() {
+                console.log('🚚 Gọi calculateShipping từ detail address input...');
+                if (typeof window.calculateShipping === 'function') {
+                    window.calculateShipping();
+                } else {
+                    console.log('❌ calculateShipping function không tồn tại!');
+                }
+            });
+        }, 1000);
+    });
 </script>
 
 <script>
@@ -185,7 +241,12 @@ $("#form-checkout").validate({
         $('.choose_coupon_now').change(function(){
             var coupon_code = $(this).val();
             var total_price = $(this).data('total_price');
-            total_price = total_price-30000;
+            // Sử dụng phí ship động thay vì cố định 30,000đ
+            if (typeof window.currentShippingCost !== 'undefined') {
+                total_price = total_price - window.currentShippingCost;
+            } else {
+                total_price = total_price - 30000; // Fallback
+            }
             console.log(total_price);
             var _token = $('input[name="_token"]').val();
             if (coupon_code != "") {
@@ -195,6 +256,7 @@ $("#form-checkout").validate({
                         data:{
                             coupon_code: coupon_code,
                             total_price: total_price,
+                            shipping_cost: window.currentShippingCost || 30000,
                             _token: _token,
                         },error(data) {
         
@@ -208,6 +270,10 @@ $("#form-checkout").validate({
                             if($status == true){
                                 $('.coupon_number_display').html($html);
                                 $('.table-right-info-totalPrice').html($total_price_display);
+                                // Gọi hàm cập nhật tổng tiền
+                                if (typeof window.refreshTotalPrice === 'function') {
+                                    window.refreshTotalPrice();
+                                }
                             }
                             else{ 
                                 swal("Thất bại!", $message, "error");
@@ -227,7 +293,12 @@ $("#form-checkout").validate({
         $('.choose_coupon').change(function(){
             var coupon_code = $(this).val();
             var total_price = $(this).data('total_price');
-            total_price = total_price-30000;
+            // Sử dụng phí ship động thay vì cố định 30,000đ
+            if (typeof window.currentShippingCost !== 'undefined') {
+                total_price = total_price - window.currentShippingCost;
+            } else {
+                total_price = total_price - 30000; // Fallback
+            }
             console.log(total_price);
             var _token = $('input[name="_token"]').val();
             if (coupon_code != "") {
@@ -237,6 +308,7 @@ $("#form-checkout").validate({
                         data:{
                             coupon_code: coupon_code,
                             total_price: total_price,
+                            shipping_cost: window.currentShippingCost || 30000,
                             _token: _token,
                         },error(data) {
         
@@ -250,6 +322,10 @@ $("#form-checkout").validate({
                             if($status == true){
                                 $('.coupon_number_display').html($html);
                                 $('.table-right-info-totalPrice').html($total_price_display);
+                                // Gọi hàm cập nhật tổng tiền
+                                if (typeof window.refreshTotalPrice === 'function') {
+                                    window.refreshTotalPrice();
+                                }
                             }
                             else{ 
                                 swal("Thất bại!", $message, "error");
@@ -269,7 +345,7 @@ $("#form-checkout").validate({
         $('#import_coupon_now').click(function(){
             var coupon_code = $('input[name="input_coupon"]').val()
             var total_price = $(this).data('total_price');
-            total_price = total_price-30000;
+            // total_price là giá sản phẩm gốc, không cần trừ shipping cost
             console.log(coupon_code);
             var _token = $('input[name="_token"]').val();
             if (coupon_code != "") {
@@ -279,6 +355,7 @@ $("#form-checkout").validate({
                         data:{
                             coupon_code: coupon_code,
                             total_price: total_price,
+                            shipping_cost: window.currentShippingCost || 30000,
                             _token: _token,
                         },error(data) {
         
@@ -312,7 +389,12 @@ $("#form-checkout").validate({
         $('#import_coupon').click(function(){
             var coupon_code = $('input[name="input_coupon"]').val()
             var total_price = $(this).data('total_price');
-            total_price = total_price-30000;
+            // Sử dụng phí ship động thay vì cố định 30,000đ
+            if (typeof window.currentShippingCost !== 'undefined') {
+                total_price = total_price - window.currentShippingCost;
+            } else {
+                total_price = total_price - 30000; // Fallback
+            }
             console.log(coupon_code);
             var _token = $('input[name="_token"]').val();
             if (coupon_code != "") {
@@ -322,6 +404,7 @@ $("#form-checkout").validate({
                         data:{
                             coupon_code: coupon_code,
                             total_price: total_price,
+                            shipping_cost: window.currentShippingCost || 30000,
                             _token: _token,
                         },error(data) {
         
@@ -360,3 +443,4 @@ $("#form-checkout").validate({
         });
     });
 </script>
+

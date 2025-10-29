@@ -19,7 +19,7 @@
                         <img data-src="https://media3.scdn.vn/img4/2020/12_16/j5C6IQz7gIXPgjFJxmRz.png" src="https://media3.scdn.vn/img4/2020/12_16/j5C6IQz7gIXPgjFJxmRz.png" alt="Siêu tiện lợi" class="conmeno-img lazyloaded">
                         <div class="d7ed-fdSIZS d7ed-Bwn8O5 d7ed-UkcyG6">
                             <span class="d7ed-oz4bcc d7ed-AHa8cD d7ed-mzOLVa">Siêu tiện lợi</span>
-                            <span class="d7ed-oz4bcc d7ed-bjQW4F d7ed-JAhcuC">Mang thế giới mua sắm của Kenji trong tầm tay bạn</span>
+                            <span class="d7ed-oz4bcc d7ed-bjQW4F d7ed-JAhcuC">Mang thế giới mua sắm của VieS trong tầm tay bạn</span>
                         </div>
                     </a>
                     <a class="conmeno a258-DO4HOc d7ed-fdSIZS d7ed-d4keTB d7ed-OoK3wU d7ed-Bwn8O5 d7ed-UkcyG6 d7ed-ZfrH5c d7ed-GgWJaN d7ed-d2C3_E" href="">
@@ -35,7 +35,7 @@
                 <div class="d7ed-IB_g3V vaicailz">
                     <div class="d7ed-fdSIZS d7ed-OoK3wU d7ed-Bwn8O5 d7ed-JyJa1G">
                         <span class="a258-DKZyJU d7ed-oz4bcc d7ed-AHa8cD d7ed-mzOLVa">VỀ CHÚNG TÔI</span>
-                        <a class="a258-ynyK1p a258-lAQS_H d7ed-oz4bcc d7ed-bjQW4F d7ed-mzOLVa" href="">Giới thiệu Kenji.vn</a>
+                        <a class="a258-ynyK1p a258-lAQS_H d7ed-oz4bcc d7ed-bjQW4F d7ed-mzOLVa" href="">Giới thiệu VieS.vn</a>
                         <a class="a258-ynyK1p a258-lAQS_H d7ed-oz4bcc d7ed-bjQW4F d7ed-mzOLVa" href="">Giới thiệu SenMall</a>
                         <a class="a258-ynyK1p a258-lAQS_H d7ed-oz4bcc d7ed-bjQW4F d7ed-mzOLVa" href="">Quy chế hoạt động</a>
                         <a class="a258-ynyK1p a258-lAQS_H d7ed-oz4bcc d7ed-bjQW4F d7ed-mzOLVa" href="">Chính sách bảo mật</a>
@@ -46,14 +46,14 @@
                         <a class="a258-ynyK1p a258-lAQS_H d7ed-oz4bcc d7ed-bjQW4F d7ed-mzOLVa" href="">Giải quyết khiếu nại</a>
                         <a class="a258-ynyK1p a258-lAQS_H d7ed-oz4bcc d7ed-bjQW4F d7ed-mzOLVa" href="">Hướng dẫn mua hàng</a>
                         <a class="a258-ynyK1p a258-lAQS_H d7ed-oz4bcc d7ed-bjQW4F d7ed-mzOLVa" href="">Chính sách đổi trả</a>
-                        <a class="a258-ynyK1p a258-lAQS_H d7ed-oz4bcc d7ed-bjQW4F d7ed-mzOLVa" href="">Chăm sóc khách hàng</a>
+                        <a class="a258-ynyK1p a258-lAQS_H d7ed-oz4bcc d7ed-bjQW4F d7ed-mzOLVa" href="{{ route('support') }}">Chăm sóc khách hàng</a>
                         <a class="a258-ynyK1p a258-lAQS_H d7ed-oz4bcc d7ed-bjQW4F d7ed-mzOLVa" href="">Nạp tiền điện thoại</a></div><div class="d7ed-fdSIZS d7ed-OoK3wU d7ed-Bwn8O5 d7ed-JyJa1G">
                             <span class="a258-DKZyJU d7ed-oz4bcc d7ed-AHa8cD d7ed-mzOLVa">DÀNH CHO NGƯỜI BÁN</span>
                             <a class="a258-ynyK1p a258-lAQS_H d7ed-oz4bcc d7ed-bjQW4F d7ed-mzOLVa" href="">Quy định đối với người bán</a>
                             <a class="a258-ynyK1p a258-lAQS_H d7ed-oz4bcc d7ed-bjQW4F d7ed-mzOLVa" href="">Chính sách bán hàng</a>
                             <a class="a258-ynyK1p a258-lAQS_H d7ed-oz4bcc d7ed-bjQW4F d7ed-mzOLVa" href="">Hệ thống tiêu chí kiểm duyệt</a>
-                            <a class="a258-ynyK1p a258-lAQS_H d7ed-oz4bcc d7ed-bjQW4F d7ed-mzOLVa" href="">Mở shop trên Kenji</a></div><div class="d7ed-fdSIZS d7ed-OoK3wU d7ed-Bwn8O5 d7ed-JyJa1G">
-                                <span class="a258-DKZyJU d7ed-oz4bcc d7ed-AHa8cD d7ed-mzOLVa">TẢI ỨNG DỤNG Kenji</span><span class="a258-ynyK1p d7ed-oz4bcc d7ed-bjQW4F d7ed-mzOLVa">Mang thế giới mua sắm của Kenji trong tầm tay bạn</span>
+                            <a class="a258-ynyK1p a258-lAQS_H d7ed-oz4bcc d7ed-bjQW4F d7ed-mzOLVa" href="{{ route('register_shop') }}">Mở shop trên VieS</a></div><div class="d7ed-fdSIZS d7ed-OoK3wU d7ed-Bwn8O5 d7ed-JyJa1G">
+                                <span class="a258-DKZyJU d7ed-oz4bcc d7ed-AHa8cD d7ed-mzOLVa">TẢI ỨNG DỤNG VieS</span><span class="a258-ynyK1p d7ed-oz4bcc d7ed-bjQW4F d7ed-mzOLVa">Mang thế giới mua sắm của VieS trong tầm tay bạn</span>
                                 
                             </div>
                         </div>
@@ -63,11 +63,11 @@
             <section class="a258-fvNoTN">
                 <div class="d7ed-IB_g3V">
                     <div class="d7ed-fdSIZS d7ed-OoK3wU d7ed-Bwn8O5 d7ed-hNprrG">
-                        <span class="a258-pBVzm0 d7ed-oz4bcc d7ed-AHa8cD d7ed-p5UgTj">Công ty Cổ phần Công nghệ Kenji, thành viên của Tập đoàn CTU</span>
-                        <span class="a258-sxi_fZ d7ed-oz4bcc d7ed-bjQW4F d7ed-p5UgTj">Số ĐKKD:  - Ngày cấp: 13/05/2014, được sửa đổi lần thứ 20, ngày 26/04/2022.</span><span class="a258-sxi_fZ d7ed-oz4bcc d7ed-bjQW4F d7ed-p5UgTj">Cơ quan cấp: Sở Kế hoạch và Đầu tư TPHCM.</span>
-                        <span class="a258-sxi_fZ d7ed-oz4bcc d7ed-bjQW4F d7ed-p5UgTj">Địa chỉ: Tầng 5, Tòa nhà A, Vườn Ươm Doanh Nghiệp, Lô D.01, Đường Tân Thuận, Khu chế xuất Tân Thuận, Phường Tân Thuận Đông, Quận 7, Thành phố Hồ Chí Minh, Việt Nam.</span>
+                        <span class="a258-pBVzm0 d7ed-oz4bcc d7ed-AHa8cD d7ed-p5UgTj">Công ty Cổ phần Công nghệ VieS, thành viên của Tập đoàn VLUTE</span>
+                        <span class="a258-sxi_fZ d7ed-oz4bcc d7ed-bjQW4F d7ed-p5UgTj">Số ĐKKD:  - Ngày cấp: 8/10/2025, được sửa đổi lần thứ 1, ngày 8/10/2025.</span><span class="a258-sxi_fZ d7ed-oz4bcc d7ed-bjQW4F d7ed-p5UgTj">Cơ quan cấp: Sở Kế hoạch và Đầu tư TPHCM.</span>
+                        <span class="a258-sxi_fZ d7ed-oz4bcc d7ed-bjQW4F d7ed-p5UgTj">Địa chỉ: Số 73, Nguyễn Huệ, Phường Long Châu, tỉnh Vĩnh Long.</span>
                         <span class="a258-sxi_fZ d7ed-oz4bcc d7ed-bjQW4F d7ed-p5UgTj">Email: 
-                            <a class="a258-sxi_fZ d7ed-oz4bcc d7ed-bjQW4F d7ed-p5UgTj" href="">lienhe@kenji.vn</a>
+                            <a class="a258-sxi_fZ d7ed-oz4bcc d7ed-bjQW4F d7ed-p5UgTj" href="">lienhe@vies.vn</a>
                         </span>
                         <div class="a258-FdFl_j">
                             <a href="">
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <div class="d7ed-fdSIZS d7ed-OoK3wU d7ed-Bwn8O5 d7ed-ZfrH5c">
-                        <span class="a258-gVUP7W d7ed-oz4bcc d7ed-AHa8cD d7ed-p5UgTj">Đăng ký nhận bản tin ưu đãi khủng từ Kenji</span>
+                        <span class="a258-gVUP7W d7ed-oz4bcc d7ed-AHa8cD d7ed-p5UgTj">Đăng ký nhận bản tin ưu đãi khủng từ VieS</span>
                         <form class="a258-SlW74A d7ed-fdSIZS d7ed-UkcyG6">
                             <label class="a258-tdXkrc" for="subscription-email">Email</label>
                             <div class="d7ed-OoK3wU d7ed-ZfrH5c">
@@ -99,3 +99,6 @@
                 </div>
             </section>
        </div>
+
+{{-- VieS Chatbot Widget --}}
+@include('chatbot')

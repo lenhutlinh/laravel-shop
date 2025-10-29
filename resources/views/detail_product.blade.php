@@ -36,10 +36,571 @@
         display: none;
     }
     input[type="radio"]:checked + label {
-        color: #FBBC05;
-        color: var(--theme-color, #FBBC05);
-        border-color: #FBBC05;
-        border-color: var(--theme-color, #FBBC05);
+    color: #0b4f6c;
+    color: var(--theme-color, #0b4f6c);
+    border-color: #0b4f6c;
+    border-color: var(--theme-color, #0b4f6c);
+    }
+    
+    /* Star rating styles */
+    .fa-star-o {
+        color: #ddd !important;
+    }
+    
+    .fa-star-half-o {
+        color: #ffc107 !important;
+    }
+    
+    .product-detail-rate .fa {
+        font-size: 16px;
+        margin-right: 2px;
+    }
+    
+    
+    /* Comment Section Styles */
+    .comment-section-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .comment-section {
+        background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+        border-radius: 20px;
+        padding: 30px;
+        margin: 20px 0;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        width: 100%;
+        max-width: 900px;
+        border: 1px solid rgba(238, 77, 45, 0.1);
+        position: relative;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .comment-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #ee4d2d 0%, #ff6b35 50%, #ee4d2d 100%);
+    }
+    
+    .comment-section-header {
+        font-size: 24px;
+        font-weight: 800;
+        color: #1a1a1a;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 3px solid #ee4d2d;
+        text-align: center;
+        position: relative;
+        background: linear-gradient(135deg, #1a1a1a 0%, #ee4d2d 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .comment-section-header::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #ee4d2d 0%, #ff6b35 100%);
+        border-radius: 2px;
+    }
+    
+    .comment-item {
+        background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+        border: 1px solid #e9ecef;
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-left: 5px solid #ee4d2d;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .comment-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background: linear-gradient(180deg, #ee4d2d 0%, #ff6b35 100%);
+    }
+    
+    .comment-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    
+    .comment-user-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .comment-user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 15px;
+        object-fit: cover;
+        border: 3px solid #fff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .comment-user-name {
+        font-weight: 700;
+        color: #1a1a1a;
+        font-size: 15px;
+        margin-right: 15px;
+    }
+    
+    .comment-date {
+        color: #666;
+        font-size: 13px;
+        background: #f8f9fa;
+        padding: 4px 8px;
+        border-radius: 10px;
+    }
+    
+    .comment-content {
+        color: #333;
+        line-height: 1.6;
+        font-size: 15px;
+        margin-top: 10px;
+        padding-left: 55px;
+    }
+    
+    .no-comments {
+        text-align: center;
+        padding: 60px 30px;
+        color: #666;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 15px;
+        border: 2px dashed #ccc;
+        margin: 20px 0;
+    }
+    
+    .no-comments-icon {
+        font-size: 64px;
+        margin-bottom: 20px;
+        opacity: 0.6;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+    
+    .no-comments-text {
+        font-size: 18px;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+    
+    .no-comments-subtext {
+        font-size: 15px;
+        color: #999;
+    }
+    
+    /* Responsive Design for Comment Section */
+    @media (max-width: 768px) {
+        .comment-section-container {
+            padding: 0 15px;
+            margin: 30px auto;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        .comment-section {
+            padding: 20px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .comment-section-header {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .comment-item {
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .comment-user-avatar {
+            width: 35px;
+            height: 35px;
+            margin-right: 12px;
+        }
+        
+        .comment-user-name {
+            font-size: 14px;
+            margin-right: 12px;
+        }
+        
+        .comment-content {
+            font-size: 14px;
+            padding-left: 47px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .comment-section-container {
+            padding: 0 10px;
+            margin: 20px auto;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        .comment-section {
+            padding: 15px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .comment-section-header {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .comment-item {
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .comment-user-avatar {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        
+        .comment-user-name {
+            font-size: 13px;
+            margin-right: 10px;
+        }
+        
+        .comment-content {
+            font-size: 13px;
+            padding-left: 40px;
+        }
+    }
+    
+    /* Additional centering for all screen sizes */
+    @media (min-width: 1200px) {
+        .comment-section-container {
+            max-width: 1000px;
+        }
+        
+        .comment-section {
+            max-width: 1000px;
+        }
+    }
+    
+    @media (min-width: 1400px) {
+        .comment-section-container {
+            max-width: 1200px;
+        }
+        
+        .comment-section {
+            max-width: 1200px;
+        }
+    }
+    
+    /* Rating Filter Styles */
+    .rating-filters {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 25px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    
+    .filter-btn {
+        padding: 12px 20px;
+        border: 2px solid #e9ecef;
+        background: #fff;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        font-size: 14px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        overflow: hidden;
+        min-width: 100px;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .filter-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: left 0.5s;
+    }
+    
+    .filter-btn:hover::before {
+        left: 100%;
+    }
+    
+    .filter-btn:hover {
+        border-color: #ee4d2d;
+        color: #ee4d2d;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(238, 77, 45, 0.3);
+    }
+    
+    .filter-btn.active {
+        background: linear-gradient(135deg, #ee4d2d 0%, #ff6b35 100%);
+        color: white;
+        border-color: #ee4d2d;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(238, 77, 45, 0.4);
+    }
+    
+    .filter-btn .star-icon {
+        font-size: 16px;
+        filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+    }
+    
+    .filter-btn .count {
+        background: rgba(255,255,255,0.25);
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 700;
+        margin-left: 6px;
+        min-width: 20px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+    }
+    
+    .filter-btn:not(.active) .count {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        color: #666;
+        border: 1px solid #dee2e6;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .rating-filters {
+            gap: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .filter-btn {
+            padding: 10px 16px;
+            font-size: 13px;
+            min-width: 80px;
+        }
+        
+        .filter-btn .star-icon {
+            font-size: 14px;
+        }
+        
+        .filter-btn .count {
+            padding: 3px 6px;
+            font-size: 11px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .rating-filters {
+            gap: 6px;
+            padding: 12px;
+        }
+        
+        .filter-btn {
+            padding: 8px 12px;
+            font-size: 12px;
+            min-width: 70px;
+        }
+        
+        .filter-btn .star-icon {
+            font-size: 12px;
+        }
+        
+        .filter-btn .count {
+            padding: 2px 5px;
+            font-size: 10px;
+        }
+    }
+    
+    /* Zoom scaling */
+    @media (min-resolution: 1.5dppx) {
+        .rating-filters {
+            transform: scale(0.95);
+        }
+    }
+    
+    @media (min-resolution: 2dppx) {
+        .rating-filters {
+            transform: scale(0.9);
+        }
+    }
+    
+    /* Enhanced Rating Items */
+    .rating-item {
+        background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+        border: 1px solid #e9ecef;
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .rating-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(180deg, #ee4d2d 0%, #ff6b35 100%);
+    }
+    
+    .rating-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    
+    .rating-user {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .user-avatar {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid #fff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .user-info {
+        flex: 1;
+    }
+    
+    .user-name {
+        font-weight: 700;
+        color: #1a1a1a;
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+    
+    .rating-stars {
+        display: flex;
+        gap: 3px;
+        margin-bottom: 5px;
+    }
+    
+    .rating-stars span {
+        font-size: 16px;
+        filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+    }
+    
+    .rating-date {
+        color: #999;
+        font-size: 12px;
+        background: #f8f9fa;
+        padding: 3px 8px;
+        border-radius: 8px;
+    }
+    
+    .rating-comment {
+        color: #333;
+        line-height: 1.6;
+        font-size: 15px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 15px;
+        border-radius: 10px;
+        border-left: 4px solid #ee4d2d;
+        margin-top: 10px;
+    }
+    
+    /* Responsive for Rating Items */
+    @media (max-width: 768px) {
+        .rating-item {
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .user-name {
+            font-size: 14px;
+        }
+        
+        .rating-stars span {
+            font-size: 14px;
+        }
+        
+        .rating-comment {
+            font-size: 14px;
+            padding: 12px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .rating-item {
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .user-avatar {
+            width: 35px;
+            height: 35px;
+        }
+        
+        .user-name {
+            font-size: 13px;
+        }
+        
+        .rating-stars span {
+            font-size: 12px;
+        }
+        
+        .rating-comment {
+            font-size: 13px;
+            padding: 10px;
+        }
     }
 </style>
 <body>
@@ -82,16 +643,29 @@
                             </div>
                             <div class="product-detail-proper">
                                 <div class="product-detail-rate">
-                                    <span class="checked" style="font-size: 16px"><u>5</u></span> 
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
+                                    @if($totalRatings > 0)
+                                        <span class="checked" style="font-size: 16px"><u>{{number_format($averageRating, 1)}}</u></span> 
+                                        @for($i = 1; $i <= 5; $i++)
+                                            @if($i <= $averageRating)
+                                                <span class="fa fa-star checked"></span>
+                                            @elseif($i - 0.5 <= $averageRating)
+                                                <span class="fa fa-star-half-o checked"></span>
+                                            @else
+                                                <span class="fa fa-star-o"></span>
+                                            @endif
+                                        @endfor
+                                    @else
+                                        <span class="checked" style="font-size: 16px"><u>0.0</u></span> 
+                                        <span class="fa fa-star-o"></span>
+                                        <span class="fa fa-star-o"></span>
+                                        <span class="fa fa-star-o"></span>
+                                        <span class="fa fa-star-o"></span>
+                                        <span class="fa fa-star-o"></span>
+                                    @endif
                                 </div>
                                 <div class="product-detail-number-review">
                                     <div style="font-size: 17px; margin-right: 5px;">
-                                        <u>100 </u>
+                                        <u>{{$totalRatings}}</u>
                                     </div>
                                     <div style="color:darkgrey; ">
                                         Đánh Giá
@@ -184,7 +758,7 @@
                                             <input type="hidden"  value="{{$products->productName }}" class="productName{{$products -> id }}">
                                             <input type="hidden"  value="{{ $products -> previewImage}}" class="previewImage{{$products -> id }}">
                                             <input type="hidden"  value="{{$products->price}}" class="price{{$products -> id }}">
-                                            
+                                                
                                             <span>Thêm Vào Giỏ Hàng</span>
                                         </button>
                                         <span type="button" class="btn btn-solid-primary btn--l iFo-rx " id="buy_now" aria-disabled="false" data-id_product="{{$products->id }}" >Mua Ngay
@@ -273,6 +847,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="page-product__content">
                 <div class="page-product__content--left colum-7-5">
                     <div class="product-detail page-product__detail">
@@ -282,7 +857,7 @@
                                 <div class="dR8kXc">
                                     <label class="zquA4o">Danh Mục</label>
                                     <div class="flex items-center RnKf-X">
-                                        <a class="akCPfg KvmvO1" href="{{route('index')}}">Kenji</a>
+                                        <a class="akCPfg KvmvO1" href="{{route('index')}}">VieS</a>
                                         <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon xprSzi icon-arrow-right">
                                             <path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path>
                                         </svg>
@@ -296,21 +871,69 @@
                                 </div>
                                 <!-- <div class="dR8kXc">
                                     <label class="zquA4o">Địa chỉ tổ chức chịu trách nhiệm sản xuất</label>
-                                    <div>Đang cập nhật</div>
-                                </div>
-                                <div class="dR8kXc">
-                                    <label class="zquA4o">Chất liệu</label>
-                                    <div>Nỉ, Da</div>
-                                </div> -->
-                                <div class="dR8kXc">
-                                    <label class="zquA4o">Tồn kho</label>
-                                    <div>{{$sum_avaialbe}}</div>
-                                </div>
-                                <div class="dR8kXc">
-                                    <label class="zquA4o">Mô tả</label>
-                                    <div>{{$products->description}}</div>
-                                </div>
-                               
+                                        <div>Đang cập nhật</div>
+                                    </div>
+                                    <div class="dR8kXc">
+                                        <label class="zquA4o">Chất liệu</label>
+                                        <div>Nỉ, Da</div>
+                                    </div>
+                                    <div class="dR8kXc">
+                                        <label class="zquA4o">Xuất xứ</label>
+                                        <div>Việt Nam</div>
+                                    </div>
+                                    <div class="dR8kXc">
+                                        <label class="zquA4o">Thương hiệu</label>
+                                        <div>Đang cập nhật</div>
+                                    </div>
+                                    <div class="dR8kXc">
+                                        <label class="zquA4o">Dòng sản phẩm</label>
+                                        <div>Đang cập nhật</div>
+                                    </div>
+                                    <div class="dR8kXc">
+                                        <label class="zquA4o">Năm sản xuất</label>
+                                        <div>Đang cập nhật</div>
+                                    </div>
+                                    <div class="dR8kXc">
+                                        <label class="zquA4o">Model</label>
+                                        <div>Đang cập nhật</div>
+                                    </div>
+                                    <div class="dR8kXc">
+                                        <label class="zquA4o">Kích thước</label>
+                                        <div>Đang cập nhật</div>
+                                    </div>
+                                    <div class="dR8kXc">
+                                        <label class="zquA4o">Màu sắc</label>
+                                        <div>Đang cập nhật</div>
+                                    </div>
+                                    <div class="dR8kXc">
+                                        <label class="zquA4o">Trọng lượng</label>
+                                        <div>Đang cập nhật</div>
+                                    </div>
+                                    <div class="dR8kXc">
+                                        <label class="zquA4o">Bảo hành</label>
+                                        <div>Đang cập nhật</div>
+                                    </div>
+                                    <div class="dR8kXc">
+                                        <label class="zquA4o">Hướng dẫn sử dụng</label>
+                                        <div>Đang cập nhật</div>
+                                    </div>
+                                    <div class="dR8kXc">
+                                        <label class="zquA4o">Hướng dẫn bảo quản</label>
+                                        <div>Đang cập nhật</div>
+                                    </div>
+                                    <div class="dR8kXc">
+                                        <label class="zquA4o">Lưu ý khác</label>
+                                        <div>Đang cập nhật</div>
+                                    </div> -->
+                                    <div class="dR8kXc">
+                                        <label class="zquA4o">Tồn kho</label>
+                                        <div>{{$sum_avaialbe}}</div>
+                                    </div>
+                                    <div class="dR8kXc">
+                                        <label class="zquA4o">Mô tả</label>
+                                        <div>{{$products->description}}</div>
+                                    </div>
+                                   
                     </div>
                 </div>
                 <div class="page-product__content--right colum-2-5">
@@ -319,8 +942,147 @@
             </div>
         
         </div>
+        
+        
+        </div>
+        
+
+        <!-- Comment Section - Inside main, at the bottom -->
+        <div class="comment-section-container">
+            <div class="comment-section">
+                <div class="comment-section-header">Đánh giá và bình luận sản phẩm</div>
+                
+                <!-- Rating Summary -->
+                @if($totalRatings > 0)
+                <div class="rating-summary" style="display: flex; align-items: center; gap: 20px; margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+                    <div class="average-rating" style="display: flex; align-items: center; gap: 10px;">
+                        <div class="rating-stars" style="display: flex; gap: 2px;">
+                            @for($i = 1; $i <= 5; $i++)
+                                @if($i <= $averageRating)
+                                    <span style="color: #ffc107; font-size: 20px;">★</span>
+                                @elseif($i - 0.5 <= $averageRating)
+                                    <span style="color: #ffc107; font-size: 20px;">☆</span>
+                                @else
+                                    <span style="color: #ddd; font-size: 20px;">★</span>
+                                @endif
+                            @endfor
+                        </div>
+                        <span style="font-size: 18px; font-weight: 600; color: #1a1a1a;">{{number_format($averageRating, 1)}}</span>
+                    </div>
+                    <div class="rating-count" style="color: #666; font-size: 14px;">
+                        Dựa trên {{$totalRatings}} đánh giá
+                    </div>
+                </div>
+                
+                <!-- Rating Distribution -->
+                <div class="rating-distribution" style="margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+                    <h4 style="margin: 0 0 15px 0; color: #1a1a1a; font-size: 16px;">Phân phối đánh giá</h4>
+                    @for($star = 5; $star >= 1; $star--)
+                    <div class="rating-bar" style="display: flex; align-items: center; margin-bottom: 8px;">
+                        <span style="width: 20px; font-size: 14px; color: #666;">{{$star}}★</span>
+                        <div style="flex: 1; height: 8px; background: #e9ecef; border-radius: 4px; margin: 0 10px; overflow: hidden;">
+                            <div style="height: 100%; background: #ffc107; width: {{$totalRatings > 0 ? ($ratingCounts[$star] / $totalRatings) * 100 : 0}}%; transition: width 0.3s ease;"></div>
+                        </div>
+                        <span style="width: 30px; font-size: 12px; color: #666; text-align: right;">{{$ratingCounts[$star]}}</span>
+                    </div>
+                    @endfor
+                </div>
+                @endif
+                
+                <!-- Rating Filters -->
+                @if($totalRatings > 0)
+                <div class="rating-filters">
+                    <button class="filter-btn active" data-rating="all">
+                        Tất cả
+                        <span class="count">{{$totalRatings}}</span>
+                    </button>
+                    <button class="filter-btn" data-rating="5">
+                        <span class="star-icon">★</span> 5 sao
+                        <span class="count">{{$ratingCounts[5]}}</span>
+                    </button>
+                    <button class="filter-btn" data-rating="4">
+                        <span class="star-icon">★</span> 4 sao
+                        <span class="count">{{$ratingCounts[4]}}</span>
+                    </button>
+                    <button class="filter-btn" data-rating="3">
+                        <span class="star-icon">★</span> 3 sao
+                        <span class="count">{{$ratingCounts[3]}}</span>
+                    </button>
+                    <button class="filter-btn" data-rating="2">
+                        <span class="star-icon">★</span> 2 sao
+                        <span class="count">{{$ratingCounts[2]}}</span>
+                    </button>
+                    <button class="filter-btn" data-rating="1">
+                        <span class="star-icon">★</span> 1 sao
+                        <span class="count">{{$ratingCounts[1]}}</span>
+                    </button>
+                </div>
+                @endif
+                
+                <!-- Ratings List -->
+                @if($totalRatings > 0)
+                <div class="ratings-list" id="ratings-list" style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 30px;">
+                    @foreach($ratings as $rating)
+                    <div class="rating-item" data-rating="{{$rating->rating}}" style="background: #fff; border: 1px solid #e9ecef; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                        <div class="rating-user" style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                            <div class="user-avatar" style="width: 40px; height: 40px; border-radius: 50%; overflow: hidden;">
+                                @if($rating->userImg)
+                                    <img src="{{asset('storage/'.$rating->userImg)}}" alt="User" style="width: 100%; height: 100%; object-fit: cover;">
+                                @else
+                                    <img src="{{asset('storage/users_img/user.png')}}" alt="User" style="width: 100%; height: 100%; object-fit: cover;">
+                                @endif
+                            </div>
+                            <div class="user-info">
+                                <div class="user-name" style="font-weight: 600; color: #1a1a1a; font-size: 14px;">{{$rating->firstname}} {{$rating->lastname}}</div>
+                                <div class="rating-stars" style="display: flex; gap: 2px; margin-top: 2px;">
+                                    @for($i = 1; $i <= 5; $i++)
+                                        @if($i <= $rating->rating)
+                                            <span style="color: #ffc107; font-size: 14px;">★</span>
+                                        @else
+                                            <span style="color: #ddd; font-size: 14px;">★</span>
+                                        @endif
+                                    @endfor
+                                </div>
+                            </div>
+                            <div class="rating-date" style="margin-left: auto; color: #999; font-size: 12px;">
+                                {{date('d/m/Y', strtotime($rating->created_at))}}
+                            </div>
+                        </div>
+                        @if($rating->comment)
+                        <div class="rating-comment" style="color: #333; line-height: 1.6; font-size: 14px; background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #ee4d2d;">
+                            {{$rating->comment}}
+                        </div>
+                        @endif
+                        @if(isset($rating->image) && $rating->image)
+                        <div class="rating-image" style="margin-top: 10px;">
+                            <img src="{{asset('storage/'.$rating->image)}}" alt="Rating image" style="max-width: 200px; max-height: 200px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer;" onclick="openImageModal('{{asset('storage/'.$rating->image)}}')">
+                        </div>
+                        @endif
+                    </div>
+                    @endforeach
+                </div>
+                @else
+                <div class="no-ratings-message" style="text-align: center; padding: 60px 20px; color: #999; background: #f8f9fa; border-radius: 12px; margin-bottom: 30px;">
+                    <div style="font-size: 48px; margin-bottom: 16px; opacity: 0.5;">⭐</div>
+                    <div style="font-size: 16px;">Chưa có đánh giá nào cho sản phẩm này</div>
+                    <div style="font-size: 14px; margin-top: 8px;">Hãy là người đầu tiên đánh giá sản phẩm!</div>
+                </div>
+                @endif
+                
+        
+            </div>
+        </div>
 
     </main>
+    
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8);">
+        <div class="modal-content" style="position: relative; margin: auto; padding: 0; width: 90%; max-width: 800px; top: 50%; transform: translateY(-50%);">
+            <span class="close" onclick="closeImageModal()" style="position: absolute; top: 15px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 10000;">&times;</span>
+            <img id="modalImage" src="" alt="Rating image" style="width: 100%; height: auto; border-radius: 8px;">
+        </div>
+    </div>
+    
     <footer>
         @include('footer')
     </footer>

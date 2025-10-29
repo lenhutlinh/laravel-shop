@@ -1,4 +1,4 @@
-<ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #FBBC05;">
+<ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #0b4f6c;">
 
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('index_shop')}}">

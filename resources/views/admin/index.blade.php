@@ -19,6 +19,420 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}"  rel="stylesheet">
+    
+    <!-- Custom Dashboard Styles -->
+    <style>
+        /* Page Header Styles */
+        .page-header-content {
+            color: #2c3e50;
+        }
+        
+        .page-title {
+            color: #2c3e50 !important;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .btn-gradient {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(78, 115, 223, 0.4);
+        }
+        
+        /* Stats Cards Styles */
+        .stats-card {
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 120px;
+            padding: 1.5rem;
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stats-card .card-body {
+            padding: 1.5rem;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        
+        .stats-card .text-xs {
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            color: white !important;
+        }
+        
+        .stats-card .h5 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1;
+            color: white !important;
+        }
+        
+        /* Force all text in stats cards to be white */
+        .stats-card * {
+            color: white !important;
+        }
+        
+        .stats-card .card-body * {
+            color: white !important;
+        }
+        
+        .stats-card .text-xs,
+        .stats-card .h5,
+        .stats-card .text-primary,
+        .stats-card .text-success,
+        .stats-card .text-info,
+        .stats-card .text-warning {
+            color: white !important;
+        }
+        
+        .icon-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.2);
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+        
+        .stats-card:hover .icon-circle {
+            transform: scale(1.1);
+        }
+        
+        .border-left-primary {
+            border-left: 4px solid #4e73df !important;
+        }
+        
+        .border-left-success {
+            border-left: 4px solid #1cc88a !important;
+        }
+        
+        .border-left-info {
+            border-left: 4px solid #36b9cc !important;
+        }
+        
+        .border-left-warning {
+            border-left: 4px solid #f6c23e !important;
+        }
+        
+        /* Text color improvements for better contrast */
+        .text-primary {
+            color: #4e73df !important;
+        }
+        
+        .text-success {
+            color: #1cc88a !important;
+        }
+        
+        .text-info {
+            color: #36b9cc !important;
+        }
+        
+        .text-warning {
+            color: #f6c23e !important;
+        }
+        
+        /* Chart Card Styles */
+        .chart-card {
+            border-radius: 15px;
+            overflow: hidden;
+            border: none;
+            background: #ffffff;
+        }
+        
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%) !important;
+        }
+        
+        .chart-card .card-body {
+            background: #ffffff;
+        }
+        
+        .chart-area {
+            position: relative;
+            height: 400px;
+            padding: 1rem;
+            background: #ffffff;
+        }
+        
+        #myAreaChart {
+            display: block !important;
+            width: 100% !important;
+            height: 100% !important;
+        }
+        
+        /* Animation Effects */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stats-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .stats-card:nth-child(1) { animation-delay: 0.1s; }
+        .stats-card:nth-child(2) { animation-delay: 0.2s; }
+        .stats-card:nth-child(3) { animation-delay: 0.3s; }
+        .stats-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-header-content {
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            
+            .stats-card {
+                margin-bottom: 1rem;
+            }
+            
+            .icon-circle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #3d5bb8 0%, #1e3a8a 100%);
+        }
+        
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .notification-dropdown {
+            border-radius: 15px;
+            border: none;
+            min-width: 350px;
+        }
+        
+        .notification-item {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 2px 8px;
+        }
+        
+        .notification-item:hover {
+            background: linear-gradient(135deg, #f8f9fc 0%, #e3e6f0 100%);
+            transform: translateX(5px);
+        }
+        
+        .notification-footer {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+            color: white !important;
+            border-radius: 8px;
+            margin: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .notification-footer:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .user-dropdown {
+            transition: all 0.3s ease;
+        }
+        
+        .user-dropdown:hover {
+            transform: scale(1.05);
+        }
+        
+        .user-avatar {
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+        
+        .user-dropdown:hover .user-avatar {
+            border-color: #4e73df;
+            box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.2);
+        }
+        
+        .user-dropdown-menu {
+            border-radius: 15px;
+            border: none;
+            min-width: 280px;
+        }
+        
+        .user-menu-item {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 2px 8px;
+        }
+        
+        .user-menu-item:hover {
+            background: linear-gradient(135deg, #f8f9fc 0%, #e3e6f0 100%);
+            transform: translateX(5px);
+        }
+        
+        .user-menu-item.text-danger:hover {
+            background: linear-gradient(135deg, #fee 0%, #fdd 100%);
+            color: #dc3545 !important;
+        }
+        
+        /* Sidebar Enhancement Styles */
+        .sidebar {
+            background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%) !important;
+        }
+        
+        .sidebar-brand {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%) !important;
+            border-radius: 10px;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-brand:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(78, 115, 223, 0.3);
+        }
+        
+        .sidebar-brand-text {
+            color: #ffffff !important;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .sidebar-brand-icon {
+            color: #ffffff !important;
+        }
+        
+        .sidebar-heading {
+            color: #bdc3c7 !important;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-link {
+            color: #ecf0f1 !important;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 2px 8px;
+        }
+        
+        .nav-link:hover {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%) !important;
+            color: #ffffff !important;
+            transform: translateX(5px);
+        }
+        
+        .nav-link.active {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%) !important;
+            color: #ffffff !important;
+            box-shadow: 0 3px 10px rgba(78, 115, 223, 0.3);
+        }
+        
+        .nav-link i {
+            color: #bdc3c7 !important;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover i,
+        .nav-link.active i {
+            color: #ffffff !important;
+        }
+        
+        .sidebar-divider {
+            border-color: #34495e !important;
+            margin: 1rem 0;
+        }
+        
+        /* Dark theme for dropdown content - không can thiệp vào behavior */
+        .sidebar .collapse-inner {
+            background: #2c3e50 !important;
+            border-radius: 8px !important;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .sidebar .collapse-item {
+            color: #ecf0f1 !important;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+            margin: 2px 8px;
+        }
+        
+        .sidebar .collapse-item:hover {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%) !important;
+            color: #ffffff !important;
+            transform: translateX(5px);
+        }
+        
+        .sidebar .collapse-item.active {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%) !important;
+            color: #ffffff !important;
+        }
+        
+        
+        #sidebarToggle {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%) !important;
+            color: #ffffff !important;
+            border: none !important;
+            transition: all 0.3s ease;
+        }
+        
+        #sidebarToggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 3px 10px rgba(78, 115, 223, 0.3);
+        }
+    </style>
 
 </head>
 
@@ -46,91 +460,112 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Trang Quản Trị Hệ Thống </h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <div class="page-header-content">
+                            <h1 class="h3 mb-0 text-gray-800 page-title">
+                                <i class="fas fa-tachometer-alt text-primary mr-2"></i>
+                                Trang Quản Trị Hệ Thống
+                            </h1>
+                            <p class="text-muted mb-0">Tổng quan về hoạt động của hệ thống</p>
+                        </div>
+                        <a href="{{ route('generate_report') }}" class="d-none d-sm-inline-block btn btn-primary shadow-sm btn-gradient">
+                            <i class="fas fa-download fa-sm text-white-50"></i> 
+                            Generate Report
+                        </a>
                     </div>
 
                     <!-- Content Row -->
                     <div class="row">
 
-                        <!-- Earnings (Monthly) Card Example -->
+                        <!-- Total Orders Card -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card stats-card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Tổng Đơn Hàng </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$total_order}} </div>
+                                                Tổng Đơn Hàng
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$total_order}}</div>
+                                            <div class="text-xs text-success">
+                                                <i class="fas fa-arrow-up"></i> 12% so với tháng trước
+                                            </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <div class="icon-circle bg-primary">
+                                                <i class="fas fa-shopping-cart text-white"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Earnings (Monthly) Card Example -->
+                        <!-- Total Revenue Card -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card stats-card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            Tổng Doanh Thu    </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"> {{number_format($total_money, 0, ',', '.')}}đ</div>
+                                                Tổng Hoa Hồng Sàn
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{number_format($total_money, 0, ',', '.')}}đ</div>
+                                            <div class="text-xs text-success">
+                                                <i class="fas fa-arrow-up"></i> 8% so với tháng trước
+                                            </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            <div class="icon-circle bg-success">
+                                                <i class="fas fa-dollar-sign text-white"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Earnings (Monthly) Card Example -->
+                        <!-- Total Shops Card -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card stats-card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Số Sửa Hàng
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                                Số Cửa Hàng
                                             </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$total_shop}}</div>
-                                                </div>
-                                                <!-- <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </div> -->
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$total_shop}}</div>
+                                            <div class="text-xs text-info">
+                                                <i class="fas fa-arrow-up"></i> 5% so với tháng trước
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-clipboard fa-2x text-gray-300"></i>
+                                            <div class="icon-circle bg-info">
+                                                <i class="fas fa-store text-white"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Pending Requests Card Example -->
+                        <!-- Total Users Card -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
+                            <div class="card stats-card border-left-warning shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Số Người Dùng</div>
+                                                Số Người Dùng
+                                            </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$total_user}}</div>
+                                            <div class="text-xs text-warning">
+                                                <i class="fas fa-arrow-up"></i> 15% so với tháng trước
+                                            </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                                            <div class="icon-circle bg-warning">
+                                                <i class="fas fa-users text-white"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -142,25 +577,27 @@
 
                     <div class="row">
 
-                        <!-- Area Chart -->
+                        <!-- Revenue Chart -->
                         <div class="col-xl-12 col-lg-12">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Biểu đồ doanh số</h6>
+                            <div class="card shadow mb-4 chart-card">
+                                <!-- Card Header -->
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-gradient-primary text-white">
+                                    <h6 class="m-0 font-weight-bold">
+                                        <i class="fas fa-chart-line mr-2"></i>
+                                        Biểu Đồ Doanh Số Theo Tháng
+                                    </h6>
                                     <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                        <a class="dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                             aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-header">Tùy chọn:</div>
+                                            <a class="dropdown-item" href="{{ route('generate_report') }}"><i class="fas fa-download mr-2"></i>Generate Report</a>
+                                            <a class="dropdown-item" href="#"><i class="fas fa-print mr-2"></i>In biểu đồ</a>
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Cài đặt</a>
                                         </div>
                                     </div>
                                 </div>
@@ -188,7 +625,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Your Website 2025</span>
                     </div>
                 </div>
             </footer>
@@ -374,6 +811,39 @@
         }
         });
 
+    </script>
+
+    <!-- Generate Report JavaScript -->
+    <script>
+        $(document).ready(function() {
+            // Xử lý click nút Generate Report
+            $('.btn-gradient').on('click', function(e) {
+                // Thêm hiệu ứng loading
+                $(this).html('<i class="fas fa-spinner fa-spin fa-sm text-white-50"></i> Đang tạo báo cáo...');
+                $(this).prop('disabled', true);
+                
+                // Sau 1 giây, chuyển hướng
+                setTimeout(function() {
+                    window.location.href = "{{ route('generate_report') }}";
+                }, 1000);
+            });
+
+            // Xử lý click dropdown Generate Report
+            $('.dropdown-item[href="{{ route('generate_report') }}"]').on('click', function(e) {
+                e.preventDefault();
+                
+                // Thêm hiệu ứng loading cho dropdown
+                $(this).html('<i class="fas fa-spinner fa-spin mr-2"></i>Đang tạo báo cáo...');
+                
+                // Sau 1 giây, chuyển hướng
+                setTimeout(function() {
+                    window.location.href = "{{ route('generate_report') }}";
+                }, 1000);
+            });
+
+            // Thêm tooltip cho các nút
+            $('[data-toggle="tooltip"]').tooltip();
+        });
     </script>
 </body>
 

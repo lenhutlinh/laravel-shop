@@ -22,6 +22,8 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/search-suggestions.css')}}">
+    <script src="{{asset('js/search-suggestions.js')}}"></script>
     <title>Trang Chủ</title>
 </head>
 <body>
@@ -36,13 +38,13 @@
                         </a>
                     </div>
                     <div class="nav-bar-top-left-select colum-3">
-                        <a href="#" class="nav-bar-top-left-select-a">
+                        <a href="{{ route('support') }}" class="nav-bar-top-left-select-a">
                             Chăm sóc khách hàng
                         </a>
                     </div>
                     <div class="nav-bar-top-left-select colum-3">
-                        <a href="#" class="nav-bar-top-left-select-a">
-                            Về Kenji
+                        <a href="{{ route('about') }}" class="nav-bar-top-left-select-a">
+                            Về VieS
                         </a>
                     </div>
                 </div>
@@ -118,7 +120,7 @@
                         </div>
                         <div class="nav-bar-bottom-center-search colum-9-5">
                             <div class="colum-9">
-                                <input type="text" name="keyword" class="input-search" placeholder=" Tìm kiếm trên Kenji...">
+                                <input type="text" name="keyword" class="input-search" placeholder=" Tìm kiếm trên VieS...">
                             </div>
                             <div class="colum-1">
                                 <button type="submit" value="Submit" aria-label="button submit" class="button-icon-search">
@@ -160,10 +162,10 @@
                         <div class="swiper mySwiper">
                             <div class="swiper-wrapper">
                               <div class="swiper-slide">
-                                <img class="img-banner-left"  src="https://brandinfo.biz/images/companies//engq1salesstaffchocngtynhtmithnhlplngupto100020190620145357-16194213920321657467488.jpg" alt="">
+                                <img class="img-banner-left"  src="{{ asset('img/banner4.jpg') }}" alt="Banner4">
                               </div>
                               <div class="swiper-slide">
-                                <img class="img-banner-left" src="https://www.lec4you.com/wp-content/uploads/2019/11/US-New-Home-Sales-See-an-Unexpected-Increase.jpg" alt="">
+                                <img class="img-banner-left" src="{{ asset('img/Banner5.jpg') }}" alt="Banner5">
                               </div>
                               
                             </div>
@@ -174,10 +176,10 @@
                     </div>
                     <div class="body-banner-detail-right">
                         <div class="body-banner-detail-right-top">
-                            <img class="img-banner-right" src="https://hrchannels.com/uptalent/attachments/images/20211129/083646562_sales-la-gi-1.png" alt="" >
+                            <img class="img-banner-right" src="{{ asset('img/banner2.png') }}" alt="Banner2">
                         </div>
                         <div class="body-banner-detail-right-bot">
-                            <img class="img-banner-right" src="https://hrchannels.com/uptalent/attachments/images/20211201/101637165_vi-tri-cong-viec-nganh-sales-7.png" alt="">
+                            <img class="img-banner-right" src="{{ asset('img/banner3.jpg') }}" alt="Banner3">
                         </div>
                     </div>
                 </div>
@@ -238,7 +240,7 @@
                                 </div>
                                 <div class="body-index-products-detail-sold">
                                     <div id="body-index-products-detail-sold-span">
-                                        @if($product->sales_quantity > 1)
+                                        @if($product->sales_quantity >0)
                                             Đã bán {{$product->sales_quantity}}
                                         @else
                                             Đã bán 0

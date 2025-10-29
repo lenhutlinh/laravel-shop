@@ -1,0 +1,283 @@
+============================================
+DỮ LIỆU SẢN PHẨM - VIES ECOMMERCE
+Trích xuất từ database và models Laravel
+============================================
+
+=== CẤU TRÚC BẢNG PRODUCTS ===
+
+Table: products
+Columns:
+- id: ID sản phẩm (auto increment)
+- shop_id: ID của shop bán sản phẩm (foreign key → shop)
+- category_id: ID danh mục (foreign key → categories)
+- subcategory_id: ID danh mục con (foreign key → subcategories)
+- productName: Tên sản phẩm (string)
+- price: Giá sản phẩm (float)
+- description: Mô tả chi tiết (string)
+- categoryName: Tên danh mục (string)
+- subCategoryName: Tên danh mục con (string)
+- previewImage: Ảnh đại diện (string, nullable)
+- status: Trạng thái (1: đang bán, 0: ngừng bán)
+- created_at: Ngày tạo
+- updated_at: Ngày cập nhật
+
+=== DANH MỤC SẢN PHẨM CHÍNH ===
+
+1. DANH MỤC: ĐIỆN THOẠI
+   Mô tả: Điện thoại di động, smartphone các hãng
+   Icon: fas fa-mobile-alt
+   Sản phẩm tiêu biểu:
+   - iPhone 15 Pro Max 256GB
+   - Samsung Galaxy S24 Ultra
+   - Xiaomi Redmi Note 13 Pro
+   - OPPO Reno 11
+   - Vivo V30 Pro
+   
+   Phụ kiện:
+   - Ốp lưng
+   - Cường lực
+   - Sạc dự phòng
+   - Tai nghe bluetooth
+   - Cáp sạc
+
+2. DANH MỤC: THỜI TRANG
+   Mô tả: Quần áo, giày dép, phụ kiện thời trang
+   Icon: fas fa-tshirt
+   Sản phẩm tiêu biểu:
+   - Áo thun nam/nữ
+   - Quần jean
+   - Váy đầm
+   - Giày sneaker
+   - Túi xách
+   - Đồng hồ
+   - Trang sức
+   
+   Phân loại:
+   - Size: S, M, L, XL, XXL
+   - Màu sắc: Đen, Trắng, Xanh, Đỏ, Vàng...
+   - Chất liệu: Cotton, Kaki, Jean, Da...
+
+3. DANH MỤC: ĐỒ GIA DỤNG
+   Mô tả: Đồ dùng nhà bếp, đồ trang trí, điện gia dụng
+   Icon: fas fa-home
+   Sản phẩm tiêu biểu:
+   - Nồi cơm điện
+   - Máy xay sinh tố
+   - Bộ nồi chảo
+   - Bình đun siêu tốc
+   - Chảo chống dính
+   - Dao nhà bếp
+   - Thớt gỗ/nhựa
+   - Hộp đựng thực phẩm
+   - Đèn trang trí
+   - Gối ôm, gối ngủ
+
+4. DANH MỤC: LAPTOP
+   Mô tả: Laptop, máy tính xách tay, phụ kiện
+   Icon: fas fa-laptop
+   Sản phẩm tiêu biểu:
+   - MacBook Air M2 2024
+   - Dell XPS 13
+   - HP Pavilion 15
+   - Asus TUF Gaming A15
+   - Lenovo ThinkPad X1
+   - Acer Aspire 5
+   
+   Phụ kiện:
+   - Chuột không dây
+   - Bàn phím cơ
+   - Balo laptop
+   - Túi chống sốc
+   - Đế tản nhiệt
+   - USB Hub
+
+5. DANH MỤC: SÁCH
+   Mô tả: Sách văn học, kinh tế, kỹ năng sống
+   Icon: fas fa-book
+   Sản phẩm tiêu biểu:
+   - Đắc Nhân Tâm
+   - Nhà Giả Kim
+   - Sapiens - Lược sử loài người
+   - Tuổi trẻ đáng giá bao nhiêu
+   - Sách giáo khoa lớp 1-12
+   - Truyện tranh Conan
+   - Manga One Piece
+   - Sách tô màu
+
+=== THÔNG TIN CHI TIẾT SẢN PHẨM MẪU ===
+
+SẢN PHẨM 1:
+Tên: iPhone 15 Pro Max 256GB
+Danh mục: Điện thoại
+Giá: 28.990.000đ
+Mô tả: iPhone 15 Pro Max với chip A17 Pro mạnh mẽ, camera 48MP, màn hình Super Retina XDR 6.7 inch, pin trâu, hỗ trợ 5G
+Phân loại:
+- Màu: Titan Tự nhiên, Titan Xanh, Titan Trắng, Titan Đen
+- Dung lượng: 256GB, 512GB, 1TB
+Bảo hành: 12 tháng chính hãng Apple Việt Nam
+Tình trạng: Mới 100%, nguyên seal
+
+SẢN PHẨM 2:
+Tên: Áo thun nam basic cotton
+Danh mục: Thời trang
+Giá: 149.000đ
+Mô tả: Áo thun nam form rộng, chất cotton 100%, thoáng mát, co giãn nhẹ, phù hợp đi chơi, đi làm
+Phân loại:
+- Size: S, M, L, XL, XXL
+- Màu: Đen, Trắng, Xanh navy, Xám
+Chất liệu: Cotton 100%
+Xuất xứ: Việt Nam
+
+SẢN PHẨM 3:
+Tên: Nồi cơm điện Panasonic 1.8L
+Danh mục: Đồ gia dụng
+Giá: 890.000đ
+Mô tả: Nồi cơm điện Panasonic dung tích 1.8L, lòng nồi chống dính, nấu cơm ngon, giữ nóng tốt, tiết kiệm điện
+Dung tích: 1.8 lít (đủ cho 4-6 người)
+Công suất: 700W
+Bảo hành: 12 tháng
+Tặng kèm: Muỗng xới cơm, cốc đong gạo
+
+SẢN PHẨM 4:
+Tên: Laptop Dell XPS 13 9320
+Danh mục: Laptop
+Giá: 32.990.000đ
+Mô tả: Laptop Dell XPS 13 với thiết kế sang trọng, màn hình InfinityEdge 13.4", chip Intel Core i7 thế hệ 12, RAM 16GB, SSD 512GB
+Cấu hình:
+- CPU: Intel Core i7-1260P
+- RAM: 16GB LPDDR5
+- Ổ cứng: 512GB SSD NVMe
+- VGA: Intel Iris Xe Graphics
+- Màn hình: 13.4" FHD+ (1920x1200)
+- Hệ điều hành: Windows 11 Home
+Bảo hành: 24 tháng chính hãng Dell
+Trọng lượng: 1.27 kg
+
+SẢN PHẨM 5:
+Tên: Đắc Nhân Tâm - Dale Carnegie
+Danh mục: Sách
+Giá: 86.000đ
+Mô tả: Cuốn sách kinh điển về kỹ năng giao tiếp, ứng xử và thành công trong cuộc sống. Bản dịch tiếng Việt, bìa mềm
+Tác giả: Dale Carnegie
+Nhà xuất bản: NXB Tổng hợp TP.HCM
+Năm xuất bản: 2024
+Số trang: 320
+Kích thước: 14.5 x 20.5 cm
+
+=== PHÂN LOẠI SẢN PHẨM (VARIATIONS) ===
+
+Table: products_variations_options
+- variation_id: ID phân loại
+- product_id: ID sản phẩm
+- variationName: Tên phân loại (Màu sắc, Kích thước, Dung lượng...)
+- variation_value: Giá trị (Đỏ, Size M, 256GB...)
+
+Table: products_combinations
+- id: ID tổ hợp
+- product_id: ID sản phẩm
+- combination_string: Chuỗi tổ hợp (ví dụ: "Đỏ-Size M")
+- avaiable_stock: Số lượng tồn kho
+- created_at: Ngày tạo
+
+VÍ DỤ PHI LOẠI:
+
+Sản phẩm: Áo thun nam
+Phân loại 1: Màu sắc
+- Đen (tồn kho: 50)
+- Trắng (tồn kho: 30)
+- Xanh (tồn kho: 20)
+
+Phân loại 2: Size
+- S (tồn kho: 15)
+- M (tồn kho: 40)
+- L (tồn kho: 30)
+- XL (tồn kho: 25)
+
+Tổ hợp:
+- Đen-S: 5 sp
+- Đen-M: 15 sp
+- Đen-L: 20 sp
+- Đen-XL: 10 sp
+- Trắng-S: 5 sp
+- Trắng-M: 10 sp
+- Trắng-L: 10 sp
+- Trắng-XL: 5 sp
+(và các tổ hợp khác...)
+
+=== HÌNH ẢNH SẢN PHẨM ===
+
+Table: products_images
+- id: ID hình ảnh
+- product_id: ID sản phẩm
+- imageProduct: Đường dẫn ảnh
+- created_at: Ngày tạo
+
+Mỗi sản phẩm có thể có:
+- 1 ảnh đại diện (previewImage)
+- Nhiều ảnh chi tiết (products_images)
+- Ảnh theo phân loại (màu sắc khác nhau)
+
+Định dạng ảnh hỗ trợ: JPG, PNG, WEBP
+Kích thước tối đa: 5MB/ảnh
+Số lượng ảnh tối đa: 10 ảnh/sản phẩm
+
+=== SẢN PHẨM BÁN CHẠY ===
+
+Top sản phẩm được tính theo:
+- Tổng số lượng đã bán (từ bảng order_detail)
+- Số lượt đánh giá
+- Điểm đánh giá trung bình
+
+Query mẫu:
+SELECT products.id, products.productName, products.price, 
+       SUM(order_detail.product_quantity) as sales_quantity
+FROM products
+LEFT JOIN order_detail ON products.id = order_detail.product_id
+WHERE products.status = 1
+GROUP BY products.id
+ORDER BY sales_quantity DESC
+
+=== TRẠNG THÁI SẢN PHẨM ===
+
+status = 1: Đang bán (hiển thị trên trang chủ)
+status = 0: Ngừng bán (không hiển thị, không mua được)
+
+Sản phẩm bị ẩn khi:
+- Shop tạm dừng bán
+- Hết hàng (avaiable_stock = 0)
+- Bị admin khóa do vi phạm
+
+=== GIÁ SẢN PHẨM ===
+
+Giá lưu dưới dạng: float (VNĐ)
+Ví dụ: 
+- 50.000đ → 50000
+- 1.500.000đ → 1500000
+- 28.990.000đ → 28990000
+
+Hiển thị: Tự động format với dấu chấm ngăn cách hàng nghìn
+
+=== TÌM KIẾM & LỌC SẢN PHẨM ===
+
+Các tiêu chí lọc:
+1. Theo danh mục (categoryName)
+2. Theo danh mục con (subCategoryName)
+3. Theo khoảng giá (price)
+4. Theo shop (shop_id)
+5. Theo từ khóa (productName, description)
+
+Sắp xếp:
+- Mới nhất (created_at DESC)
+- Bán chạy (sales_quantity DESC)
+- Giá cao → thấp (price DESC)
+- Giá thấp → cao (price ASC)
+- Phổ biến (views, ratings)
+
+============================================
+Dữ liệu được trích xuất từ:
+- app/Models/Products.php
+- database/migrations/2025_02_24_103513_products.php
+- app/Http/Controllers/UserController.php
+Ngày tạo: 2025
+============================================
+

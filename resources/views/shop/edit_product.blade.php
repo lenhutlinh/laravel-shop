@@ -79,8 +79,47 @@
                         </div>                        
                         <div class="card-body">
                             
-                            <!-- <div class="add_product_info"> 
-                                <p class="text-gray-900 p-3 m-0">Hình ảnh sản phẩm (tối đa 5 hình)</p>
+                            <div class="add_product_info"> 
+                                <p class="text-gray-900 p-3 m-0">Hình ảnh sản phẩm hiện tại</p>
+                                <div class="row mb-3">
+                                    @if($product->previewImage)
+                                        <div class="col-md-3 mb-2">
+                                            <div class="position-relative">
+                                                <img src="{{asset('storage/'.$product->previewImage)}}" 
+                                                     class="img-thumbnail" 
+                                                     style="width: 150px; height: 150px; object-fit: cover;">
+                                                <small class="text-muted d-block">Ảnh chính</small>
+                                                <button type="button" class="btn btn-sm btn-danger position-absolute" 
+                                                        style="top: 5px; right: 5px;" 
+                                                        onclick="deletePreviewImage({{$product->id}})" 
+                                                        title="Xóa ảnh chính">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    @php
+                                        $productImages = DB::table('products_images')->where('product_id', $product->id)->get();
+                                    @endphp
+                                    @foreach($productImages as $index => $image)
+                                        <div class="col-md-3 mb-2">
+                                            <div class="position-relative">
+                                                <img src="{{asset('storage/'.$image->imageProduct)}}" 
+                                                     class="img-thumbnail" 
+                                                     style="width: 150px; height: 150px; object-fit: cover;">
+                                                <small class="text-muted d-block">Ảnh {{$index + 1}}</small>
+                                                <button type="button" class="btn btn-sm btn-danger position-absolute" 
+                                                        style="top: 5px; right: 5px;" 
+                                                        onclick="deleteProductImage({{$image->id}})" 
+                                                        title="Xóa ảnh">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                
+                                <p class="text-gray-900 p-3 m-0">Cập nhật hình ảnh sản phẩm (tối đa 5 hình)</p>
                                 <div id="upfile">
                                     <div class="upfile" >
                                         <div class="uploadfile" id="uploadfile">
@@ -98,8 +137,8 @@
                                             </div>
                                     
                                         </div>
-                                        <span onclick="defaultBtnActive()" class="custom-btn" id="custom-btn">Chọn Hình Ảnh</span>
-                                        <input id="default-btn" type="file" multiple="multiple" name="product_img" accept="image/jpeg, image/png, image/jpg" required hidden>
+                                        <span onclick="defaultBtnActive()" class="custom-btn" id="custom-btn">Chọn Hình Ảnh Mới</span>
+                                        <input id="default-btn" type="file" multiple="multiple" name="product_img[]" accept="image/jpeg, image/png, image/jpg" hidden>
                                     </div>
                                     <div class="upfile" >
                                         <div class="uploadfile" id="uploadfile1">
@@ -259,7 +298,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Your Website 2025</span>
                     </div>
                 </div>
             </footer>
@@ -361,6 +400,86 @@ $("#edit_quantity_product").validate({
     }
 
 });
+
+// Function to delete preview image
+function deletePreviewImage(productId) {
+    swal({
+        title: "Xác nhận xóa ảnh chính?",
+        text: "Bạn có chắc chắn muốn xóa ảnh chính của sản phẩm?",
+        icon: "warning",
+        buttons: {
+            cancel: "Không",
+            confirm: {
+                text: "Xác nhận xóa",
+                value: true
+            }
+        },
+        dangerMode: true,
+    })
+    .then((willDelete) => {
+        if (willDelete) {
+            $.ajax({
+                url: '{{route("delete_preview_image")}}',
+                method: 'POST',
+                data: {
+                    product_id: productId,
+                    _token: $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(data) {
+                    if(data.status == true) {
+                        swal("Thành công!", "Đã xóa ảnh chính", "success");
+                        location.reload();
+                    } else {
+                        swal("Thất bại!", data.message || "Có lỗi xảy ra", "error");
+                    }
+                },
+                error: function(xhr) {
+                    swal("Thất bại!", "Có lỗi xảy ra khi xóa ảnh", "error");
+                }
+            });
+        }
+    });
+}
+
+// Function to delete product image
+function deleteProductImage(imageId) {
+    swal({
+        title: "Xác nhận xóa ảnh?",
+        text: "Bạn có chắc chắn muốn xóa ảnh này?",
+        icon: "warning",
+        buttons: {
+            cancel: "Không",
+            confirm: {
+                text: "Xác nhận xóa",
+                value: true
+            }
+        },
+        dangerMode: true,
+    })
+    .then((willDelete) => {
+        if (willDelete) {
+            $.ajax({
+                url: '{{route("delete_product_image")}}',
+                method: 'POST',
+                data: {
+                    image_id: imageId,
+                    _token: $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(data) {
+                    if(data.status == true) {
+                        swal("Thành công!", "Đã xóa ảnh", "success");
+                        location.reload();
+                    } else {
+                        swal("Thất bại!", data.message || "Có lỗi xảy ra", "error");
+                    }
+                },
+                error: function(xhr) {
+                    swal("Thất bại!", "Có lỗi xảy ra khi xóa ảnh", "error");
+                }
+            });
+        }
+    });
+}
 </script>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -381,7 +500,35 @@ $("#edit_quantity_product").validate({
                 },
             });
         });
+        
+        // Image upload functionality using jQuery
+        $('#custom-btn').on('click', function() {
+            $('#default-btn').click();
+        });
+        
+        $('#default-btn').on('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function() {
+                    $('#fileup').attr('src', reader.result);
+                    $('#uploadfile').addClass('active');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        $('#cancel-btn').on('click', function() {
+            $('#fileup').attr('src', '');
+            $('#uploadfile').removeClass('active');
+            $('#default-btn').val('');
+        });
     })
+    
+    // Global function for image upload (similar to add_product)
+    function defaultBtnActive() {
+        document.getElementById("default-btn").click();
+    }
 </script>
 </body>
 

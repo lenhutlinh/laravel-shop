@@ -31,7 +31,6 @@ class SendMessageUser implements ShouldBroadcast
         $this->created_at = date('H:i  ', strtotime(now()));
     }
 
-    
     public function broadcastOn()
     {
         // return new PrivateChannel('sendMessageToUser.'.$this->user_id);

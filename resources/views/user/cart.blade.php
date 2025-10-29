@@ -165,11 +165,10 @@
                                         Mã giảm giá
                                     </span>
                                 </div>
-                                <div class="cart-table-right-coupon-choice">
-                                    <span>
-                                        Chọn mã
-                                    </span>
+                                <div class="cart-table-right-coupon-choice" data-bs-toggle="modal" data-bs-target="#cartCouponModal">
+                                    <span id="cart-table-right-coupon-choice">Chọn/nhập mã</span>
                                 </div>
+
                             </div>  
                         </div>
                         <div class="cart-table-right-bot">
@@ -223,6 +222,33 @@
     </footer>
 
 @include('user.ajax_cart')
+<!-- Modal chọn mã giảm giá cho giỏ hàng -->
+<div class="modal fade" id="cartCouponModal" tabindex="-1" role="dialog" aria-labelledby="cartCouponModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartCouponModalLabel">Chọn hoặc nhập mã giảm giá</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <select class="form-control choose_coupon_cart" data-total_price="{{ $total_cart_price ?? 0 }}">
+            <option value="">Chọn mã giảm giá</option>
+            @foreach($coupon ?? [] as $item)
+              <option value="{{ $item->coupon_code }}">{{ $item->coupon_name }}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="modal-footer">
+          <input type="text" class="form-control" name="input_coupon_cart" placeholder="Nhập mã giảm giá" id="input_coupon_cart">
+          <button type="button" class="btn btn-primary" id="apply_coupon_cart" data-total_price="{{ $total_cart_price ?? 0 }}">
+            Áp dụng
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 
 </body>
 </html>

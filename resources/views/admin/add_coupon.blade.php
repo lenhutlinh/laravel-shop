@@ -30,6 +30,99 @@
 
     <input type = "hidden" name = "_token" value = '<?php echo csrf_token(); ?>'>
     <style>
+        /* Sidebar Dark Theme */
+        .sidebar {
+            background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%) !important;
+        }
+        
+        .sidebar-brand {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%) !important;
+            border-radius: 10px;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-brand:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(78, 115, 223, 0.3);
+        }
+        
+        .sidebar-brand-text {
+            color: #ffffff !important;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .sidebar-brand-icon {
+            color: #ffffff !important;
+        }
+        
+        .sidebar-heading {
+            color: #bdc3c7 !important;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-link {
+            color: #ecf0f1 !important;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 2px 8px;
+        }
+        
+        .nav-link:hover {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%) !important;
+            color: #ffffff !important;
+            transform: translateX(5px);
+        }
+        
+        .nav-link.active {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%) !important;
+            color: #ffffff !important;
+        }
+        
+        .nav-link i {
+            color: #bdc3c7 !important;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover i,
+        .nav-link.active i {
+            color: #ffffff !important;
+        }
+        
+        .sidebar-divider {
+            border-color: #34495e !important;
+            margin: 1rem 0;
+        }
+        
+        /* Dark theme for dropdown content */
+        .sidebar .collapse-inner {
+            background: #2c3e50 !important;
+            border-radius: 8px !important;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .sidebar .collapse-item {
+            color: #ecf0f1 !important;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+            margin: 2px 8px;
+        }
+        
+        .sidebar .collapse-item:hover {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%) !important;
+            color: #ffffff !important;
+            transform: translateX(5px);
+        }
+        
+        .sidebar .collapse-item.active {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%) !important;
+            color: #ffffff !important;
+        }
+        
 		label.error{
 			color: red;
             font-size: 14px;
@@ -165,7 +258,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Your Website 2025</span>
                     </div>
                 </div>
             </footer>

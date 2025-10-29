@@ -14,5 +14,6 @@ class Categories extends Model
     public $fillable = [
         'categoryName',
         'categoryIcon',
+        'description',
     ];
 }

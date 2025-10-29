@@ -9,30 +9,46 @@ use App\Models\Categories;
 use App\Models\SubCategories;
 use App\Models\ProductsImages;
 use App\Models\ProductCombination;
+use App\Models\CommissionRate;
+use App\Services\CommissionSyncService;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Console\View\Components\Alert;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
 use Session;
-session_start();
 class ShopController extends Controller
 {
     public function index_shop(){
         $shop_id = Session::get('shop_id');
-        $total_order = DB::table('orders')->where('shop_id',$shop_id)->count();        
-        // dd($total_order);
-        $total_sale = DB::table('orders')
-            ->where('shop_id',$shop_id)
-            ->where("order_status",'1')
-            ->sum('order_total');
-        $pending_order = DB::table('orders')
-            ->where('shop_id',$shop_id)
-            ->where("order_status",'0')
+        
+        // Sử dụng CommissionSyncService để tự động đồng bộ
+        $syncService = new CommissionSyncService();
+        $syncService->syncShopCommission($shop_id);
+        
+        // Đếm tổng đơn hàng (tất cả trạng thái trừ hủy)
+        $total_order = DB::table('orders')
+            ->where('shop_id', $shop_id)
+            ->whereIn('order_status', [0, 1, 3, 4, 5])
             ->count();
+            
+        // Tổng doanh thu từ tất cả trạng thái (xác nhận, vận chuyển, giao hàng, hoàn thành)
+        $total_sale = (int) DB::table('orders')
+            ->where('shop_id', $shop_id)
+            ->whereIn('order_status', [1, 3, 4, 5])
+            ->sum('order_total');
+            
+        // Đơn hàng chờ xử lý (status = 0)
+        $pending_order = DB::table('orders')
+            ->where('shop_id', $shop_id)
+            ->where("order_status", '0')
+            ->count();
+            
+        // Đơn hàng đã xác nhận (status = 1)
         $accept_order = DB::table('orders')
-            ->where('shop_id',$shop_id)
-            ->where("order_status",'1')
+            ->where('shop_id', $shop_id)
+            ->where("order_status", '1')
             ->count();
 
         $updated_at = DB::table('orders')
@@ -51,65 +67,103 @@ class ShopController extends Controller
         // dd($month_11);
         $earning_month_1 = DB::table('orders')
             ->where('shop_id',$shop_id)
-            ->where("order_status",'1')
-            ->whereMonth('updated_at', date('m',strtotime('2023-01-01')))
+            ->where("order_status",'5')
+            ->whereMonth('updated_at', date('m',strtotime('2025-01-01')))
             ->sum('order_total');
         $earning_month_2 = DB::table('orders')
             ->where('shop_id',$shop_id)
-            ->where("order_status",'1')
-            ->whereMonth('updated_at', date('m',strtotime('2023-02-01')))
+            ->where("order_status",'5')
+            ->whereMonth('updated_at', date('m',strtotime('2025-02-01')))
             ->sum('order_total');
         $earning_month_3 = DB::table('orders')
             ->where('shop_id',$shop_id)
-            ->where("order_status",'1')
-            ->whereMonth('updated_at', date('m',strtotime('2023-03-01')))
+            ->where("order_status",'5')
+            ->whereMonth('updated_at', date('m',strtotime('2025-03-01')))
             ->sum('order_total');
         $earning_month_4 = DB::table('orders')
             ->where('shop_id',$shop_id)
-            ->where("order_status",'1')
-            ->whereMonth('updated_at', date('m',strtotime('2023-04-01')))
+            ->where("order_status",'5')
+            ->whereMonth('updated_at', date('m',strtotime('2025-04-01')))
             ->sum('order_total');
         $earning_month_5 = DB::table('orders')
             ->where('shop_id',$shop_id)
-            ->where("order_status",'1')
-            ->whereMonth('updated_at', date('m',strtotime('2023-05-01')))
+            ->where("order_status",'5')
+            ->whereMonth('updated_at', date('m',strtotime('2025-05-01')))
             ->sum('order_total');
         $earning_month_6 = DB::table('orders')
             ->where('shop_id',$shop_id)
-            ->where("order_status",'1')
-            ->whereMonth('updated_at', date('m',strtotime('2023-06-01')))
+            ->where("order_status",'5')
+            ->whereMonth('updated_at', date('m',strtotime('2025-06-01')))
             ->sum('order_total');
         $earning_month_7 = DB::table('orders')
             ->where('shop_id',$shop_id)
-            ->where("order_status",'1')
-            ->whereMonth('updated_at', date('m',strtotime('2023-07-01')))
+            ->where("order_status",'5')
+            ->whereMonth('updated_at', date('m',strtotime('2025-07-01')))
             ->sum('order_total');
         $earning_month_8 = DB::table('orders')
             ->where('shop_id',$shop_id)
-            ->where("order_status",'1')
-            ->whereMonth('updated_at', date('m',strtotime('2023-08-01')))
+            ->where("order_status",'5')
+            ->whereMonth('updated_at', date('m',strtotime('2025-08-01')))
             ->sum('order_total');
         $earning_month_9 = DB::table('orders')
             ->where('shop_id',$shop_id)
-            ->where("order_status",'1')
-            ->whereMonth('updated_at', date('m',strtotime('2023-09-01')))
+            ->where("order_status",'5')
+            ->whereMonth('updated_at', date('m',strtotime('2025-09-01')))
             ->sum('order_total');
         $earning_month_10 = DB::table('orders')
             ->where('shop_id',$shop_id)
-            ->where("order_status",'1')
-            ->whereMonth('updated_at', date('m',strtotime('2023-10-01')))
+            ->where("order_status",'5')
+            ->whereMonth('updated_at', date('m',strtotime('2025-10-01')))
             ->sum('order_total');
         $earning_month_11 = DB::table('orders')
             ->where('shop_id',$shop_id)
-            ->where("order_status",'1')
-            ->whereMonth('updated_at', date('m',strtotime('2023-11-01')))
+            ->where("order_status",'5')
+            ->whereMonth('updated_at', date('m',strtotime('2025-11-01')))
             ->sum('order_total');
         $earning_month_12 = DB::table('orders')
             ->where('shop_id',$shop_id)
-            ->where("order_status",'1')
-            ->whereMonth('updated_at', date('m',strtotime('2023-12-01')))
+            ->where("order_status",'5')
+            ->whereMonth('updated_at', date('m',strtotime('2025-12-01')))
             ->sum('order_total');
-      return view('shop.index',compact('total_order','total_sale','pending_order','accept_order','earning_month_1','earning_month_2','earning_month_3','earning_month_4','earning_month_5','earning_month_6','earning_month_7','earning_month_8','earning_month_9','earning_month_10','earning_month_11','earning_month_12'));
+        // Tính thực nhận (sau khi trừ hoa hồng từ đơn hàng hoàn thành)
+        $commissionRate = CommissionRate::where('shop_id', $shop_id)->first();
+        if ($commissionRate) {
+            $total_commission = $commissionRate->total_commission;
+            $paid_commission = $commissionRate->paid_commission; // Hoa hồng đã thu từ đơn hoàn thành
+            
+            // Tính thực nhận đúng: cộng tất cả "Shop nhận" từ đơn hàng hoàn thành
+            // Logic giống như trong manage_order: shop_revenue = net_price - commission_amount
+            $completed_orders = DB::table('orders')
+                ->where('shop_id', $shop_id)
+                ->where("order_status", '5')
+                ->get();
+            
+            $actual_earning = 0;
+            foreach ($completed_orders as $order) {
+                // Lấy order_detail
+                $orderDetail = DB::table('order_detail')->where('order_id', $order->id)->first();
+                
+                if ($orderDetail) {
+                    $product_price = $orderDetail->product_price * $orderDetail->product_quantity;
+                    $coupon_discount = $orderDetail->coupon_discount ?? 0;
+                    
+                    // Tính shop_revenue giống như trong manage_order
+                    $net_price = $product_price - $coupon_discount;
+                    $commission_rate = 0.04; // 4%
+                    $commission_amount = $net_price * $commission_rate;
+                    $shop_revenue = $net_price - $commission_amount;
+                    
+                    // Cộng vào tổng thực nhận
+                    $actual_earning += $shop_revenue;
+                }
+            }
+        } else {
+            $total_commission = 0;
+            $paid_commission = 0;
+            $actual_earning = 0;
+        }
+        
+      return view('shop.index',compact('total_order','total_sale','actual_earning','total_commission','pending_order','accept_order','earning_month_1','earning_month_2','earning_month_3','earning_month_4','earning_month_5','earning_month_6','earning_month_7','earning_month_8','earning_month_9','earning_month_10','earning_month_11','earning_month_12'));
         
     }
     public function add_product(){
@@ -135,7 +189,7 @@ class ShopController extends Controller
             'subcategory_id' => $subcategory_id,
             'productName' =>request('product_name'),
             'price' => request('product_price'),
-            'description' => request('description'),
+            'description' => request('description') ?: '',
             'categoryName' => $category->categoryName,
             'subCategoryName' => $subcategory->subCategoryName,
             'status' => 1,
@@ -242,6 +296,16 @@ class ShopController extends Controller
     }
     public function add_product_quantitys(Request $request){
         $products = Session::get('products');
+        
+        // Debug: Log session data
+        \Log::info('Session products data:', ['products' => $products]);
+        
+        // Check if products data exists in session
+        if (!$products || !is_array($products)) {
+            \Log::error('Products session data is missing or invalid', ['products' => $products]);
+            return redirect()->back()->with('error', 'Không tìm thấy thông tin sản phẩm. Vui lòng thử lại.');
+        }
+        
         $product_id= DB::table('products')->insertGetId($products);
         
         #insert product_image
@@ -522,6 +586,32 @@ class ShopController extends Controller
         );
         DB::table('products')->where('id',$product_id)->update($product);
         
+        // Handle image uploads if provided
+        if($request->hasFile('product_img')){
+            $images = $request->file('product_img');
+            $imageCount = 0;
+            
+            foreach($images as $index => $image){
+                if($imageCount >= 5) break; // Limit to 5 images
+                
+                // Store the image
+                $imagePath = $image->store('images_product','public');
+                
+                // Create new product image record
+                $productImage = new ProductsImages();
+                $productImage->product_id = $product_id;
+                $productImage->imageProduct = $imagePath;
+                $productImage->save();
+                
+                // Set first image as preview image
+                if($index == 0){
+                    DB::table('products')->where('id',$product_id)->update(['previewImage' => $imagePath]);
+                }
+                
+                $imageCount++;
+            }
+        }
+        
         $combination_string = Session::get('combination_string');
         $avaiable_stock=$request->avaiable_stock;
         foreach($avaiable_stock as $key => $value){
@@ -534,6 +624,56 @@ class ShopController extends Controller
         }
         return redirect()->route('manage_product')->with('success','Cập nhật sản phẩm thành công');
     }
+    
+    public function delete_preview_image(Request $request){
+        $product_id = $request->product_id;
+        $product = DB::table('products')->where('id', $product_id)->first();
+        
+        if(!$product){
+            return response()->json([
+                'status' => false,
+                'message' => 'Sản phẩm không tồn tại'
+            ]);
+        }
+        
+        // Delete preview image file
+        if($product->previewImage && file_exists('storage/'.$product->previewImage)){
+            unlink('storage/'.$product->previewImage);
+        }
+        
+        // Update product to remove preview image
+        DB::table('products')->where('id', $product_id)->update(['previewImage' => null]);
+        
+        return response()->json([
+            'status' => true,
+            'message' => 'Đã xóa ảnh chính thành công'
+        ]);
+    }
+    
+    public function delete_product_image(Request $request){
+        $image_id = $request->image_id;
+        $image = DB::table('products_images')->where('id', $image_id)->first();
+        
+        if(!$image){
+            return response()->json([
+                'status' => false,
+                'message' => 'Ảnh không tồn tại'
+            ]);
+        }
+        
+        // Delete image file
+        if($image->imageProduct && file_exists('storage/'.$image->imageProduct)){
+            unlink('storage/'.$image->imageProduct);
+        }
+        
+        // Delete image record from database
+        DB::table('products_images')->where('id', $image_id)->delete();
+        
+        return response()->json([
+            'status' => true,
+            'message' => 'Đã xóa ảnh thành công'
+        ]);
+    }
     public function manage_order(){
         $shop_id = Session::get('shop_id');
         $order = DB::table('orders')
@@ -541,8 +681,9 @@ class ShopController extends Controller
             ->join('payment', 'payment.id', '=', 'orders.payment_id')
             ->where('orders.shop_id', $shop_id)
             ->where('orders.order_status', '!=', '2')
-            ->select('orders.id','orders.updated_at','orders.order_status','orders.order_total','users.firstname','users.lastname','payment.payment_method','payment.payment_status')
-            ->orderBy('orders.id', 'desc')
+            ->select('orders.id','orders.updated_at','orders.order_status','orders.order_total','orders.shipping_id','users.firstname','users.lastname','payment.payment_method','payment.payment_status')
+            ->orderBy('orders.order_status', 'asc')  // Sắp xếp theo trạng thái trước (0, 1, 3, 4, 5)
+            ->orderBy('orders.id', 'desc')           // Sau đó sắp xếp theo ID giảm dần
             ->get();
         
         $product_order = DB::table('order_detail')
@@ -604,11 +745,39 @@ class ShopController extends Controller
     }
     public function cancel_order(Request $request){
         $order_id = $request->order_id;
+        
+        // Kiểm tra trạng thái đơn hàng trước khi hủy
+        $order = DB::table('orders')->where('id', $order_id)->first();
+        
+        if (!$order) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Không tìm thấy đơn hàng'
+            ]);
+        }
+        
+        // Không cho phép hủy đơn hàng đã hoàn thành (status = 5)
+        if ($order->order_status == 5) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Không thể hủy đơn hàng đã hoàn thành'
+            ]);
+        }
+        
+        // Không cho phép hủy đơn hàng đã hủy (status = 2)
+        if ($order->order_status == 2) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Đơn hàng đã được hủy trước đó'
+            ]);
+        }
+        
         $order = DB::table('orders')
             ->where('id', $order_id)
             ->update(['order_status' => 2]);
         return response()->json([
-            'status' => true
+            'status' => true,
+            'message' => 'Hủy đơn hàng thành công'
         ]);
     }
     public function view_order_detail($order_id){
@@ -624,8 +793,42 @@ class ShopController extends Controller
             ->where('orders.id', $order_id)
             ->select('ship_name','ship_email','ship_address','ship_phonenumber','note')
             ->first();
+        $order_status = DB::table('orders')
+            ->where('id', $order_id)
+            ->value('order_status');
         // dd($order_detail);
-        return view('shop.view_order_detail',compact('order_detail','ship_info'));
+        return view('shop.view_order_detail',compact('order_detail','ship_info','order_status','order_id'));
+    }
+    public function update_order_status(Request $request){
+        $shop_id = Session::get('shop_id');
+        $order_id = $request->order_id;
+        $status = (int)$request->order_status;
+        // chỉ cho phép các trạng thái hợp lệ
+        if(!in_array($status, [3,4,5])){
+            return redirect()->back()->with('error','Trạng thái không hợp lệ');
+        }
+        // đảm bảo đơn thuộc shop hiện tại
+        $order = DB::table('orders')->where('id',$order_id)->where('shop_id',$shop_id)->first();
+        if(!$order){
+            return redirect()->back()->with('error','Không tìm thấy đơn hàng');
+        }
+        // Đảm bảo tổng tiền đơn hàng đồng bộ theo chi tiết đơn
+        $order_total = DB::table('order_detail')
+            ->where('order_id', $order_id)
+            ->select(DB::raw('SUM(product_price * product_quantity) as total'))
+            ->value('total');
+        DB::table('orders')->where('id',$order_id)->update([
+            'order_status'=>$status,
+            'order_total'=> $order_total ?? 0,
+            'updated_at'=>now()
+        ]);
+
+        // Tính hoa hồng khi đơn hàng chuyển sang các trạng thái có hoa hồng (status = 1,3,4,5)
+        if(in_array($status, [1, 3, 4, 5])) {
+            $this->calculateOrderCommission($order_id, $shop_id, $order_total ?? 0, $status);
+        }
+
+    return redirect()->back()->with('message','Đã cập nhật thành công');
     }
     public function manage_order_cancel(){
         $shop_id = Session::get('shop_id');
@@ -634,7 +837,8 @@ class ShopController extends Controller
             ->join('payment', 'payment.id', '=', 'orders.payment_id')
             ->where('orders.shop_id', $shop_id)
             ->where('orders.order_status', '=', '2')
-            ->select('orders.id','orders.updated_at','orders.created_at','orders.order_status','orders.order_total','users.firstname','users.lastname','payment.payment_method','payment.payment_status')
+            ->select('orders.id','orders.updated_at','orders.created_at','orders.order_status','orders.order_total','orders.shipping_id','users.firstname','users.lastname','payment.payment_method','payment.payment_status')
+            ->orderBy('orders.id', 'desc')  // Sắp xếp đơn hủy theo ID giảm dần
             ->get();
         // dd($order);
         return view('shop.manage_order_cancel',compact('order'));
@@ -647,47 +851,106 @@ class ShopController extends Controller
         return view('shop.shop_profile',compact('shop'));
     }
     public function change_profile_shop(Request $request){
-        $shop_id = Session::get('shop_id');
-        $shop_img= DB::table('shop')
-            ->select('shopImg')
-            ->where('id', $shop_id)
-            ->first();
-        // dd($shop_img);
-        $email_all= DB::table('shop')
-            ->select('email')
-            ->where('id', '!=', $shop_id)
-            ->get();
-        $email = $request->email;
-        foreach($email_all as $key => $value){
-            if($email == $value->email){
-                return redirect()->route('shop_profile')->with('error','Email đã tồn tại');
+        try {
+            \Log::info('change_profile_shop called', [
+                'request_data' => $request->all(),
+                'shop_id' => Session::get('shop_id')
+            ]);
+            
+            $shop_id = Session::get('shop_id');
+            
+            if (!$shop_id) {
+                \Log::error('No shop_id in session');
+                return response()->json(['error' => 'Không tìm thấy shop_id'], 400);
             }
-        }
-        $shop_name_all= DB::table('shop')
-            ->select('shopname')
-            ->where('id', '!=', $shop_id)
-            ->get();
-        $shop_name= $request->shopname;
-        foreach($shop_name_all as $key => $value){
-            if($shop_name == $value->shopname){
-                return redirect()->route('shop_profile')->with('error','Tên shop đã tồn tại');
+            
+            $shop_img= DB::table('shop')
+                ->select('shopImg')
+                ->where('id', $shop_id)
+                ->first();
+            
+            // Kiểm tra email nếu có
+            if($request->email) {
+                $email_all= DB::table('shop')
+                    ->select('email')
+                    ->where('id', '!=', $shop_id)
+                    ->get();
+                $email = $request->email;
+                foreach($email_all as $key => $value){
+                    if($email == $value->email){
+                        return response()->json(['error' => 'Email đã tồn tại'], 400);
+                    }
+                }
             }
-        }
-        $data = array();
-        $data['shopname'] = $request->shopname;
-        $data['email'] = $request->email;
-        $data['updated_at'] = now();
-        if(request()->hasFile('shop_img')){
-            $file = request()->file('shop_img')->store('logo_shop','public');
-            if($shop_img != null){
-                unlink('storage/'.$shop_img->shopImg);
+            
+            // Kiểm tra tên shop nếu có
+            if($request->shopname) {
+                $shop_name_all= DB::table('shop')
+                    ->select('shopname')
+                    ->where('id', '!=', $shop_id)
+                    ->get();
+                $shop_name= $request->shopname;
+                foreach($shop_name_all as $key => $value){
+                    if($shop_name == $value->shopname){
+                        return response()->json(['error' => 'Tên shop đã tồn tại'], 400);
+                    }
+                }
             }
-            $data['shopImg'] = $file;
-            Session::put('shopImg',$file);
+            
+            $data = array();
+            $data['updated_at'] = now();
+            
+            // Chỉ cập nhật các field có giá trị
+            if($request->shopname) {
+                $data['shopname'] = $request->shopname;
+            }
+            if($request->email) {
+                $data['email'] = $request->email;
+            }
+            
+            // Cập nhật địa chỉ và tọa độ
+            if($request->address) {
+                $data['address'] = $request->address;
+                \Log::info('Adding address to data', ['address' => $request->address]);
+            }
+            if($request->latitude) {
+                $data['latitude'] = $request->latitude;
+                \Log::info('Adding latitude to data', ['latitude' => $request->latitude]);
+            }
+            if($request->longitude) {
+                $data['longitude'] = $request->longitude;
+                \Log::info('Adding longitude to data', ['longitude' => $request->longitude]);
+            }
+            
+            if(request()->hasFile('shop_img')){
+                $file = request()->file('shop_img')->store('logo_shop','public');
+                if ($shop_img && $shop_img->shopImg) {
+                    Storage::disk('public')->delete($shop_img->shopImg);
+                }
+                $data['shopImg'] = $file;
+                Session::put('shopImg',$file);
+            }
+            
+            if($request->shopname) {
+                Session::put('shop_name',$request->shopname);
+            }
+            
+            \Log::info('Updating shop with data', ['data' => $data]);
+            
+            $result = DB::table('shop')->where('id',$shop_id)->update($data);
+            
+            \Log::info('Update result', ['result' => $result]);
+            
+            return response()->json(['success' => 'Cập nhật thông tin thành công']);
+            
+        } catch (\Exception $e) {
+            \Log::error('Error in change_profile_shop', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return response()->json(['error' => 'Có lỗi xảy ra: ' . $e->getMessage()], 500);
         }
-        Session::put('shop_name',$request->shopname);
-        DB::table('shop')->where('id',$shop_id)->update($data);
-        return redirect()->route('shop_profile')->with('message','Cập nhật thông tin thành công');
     }
     public function shop_password(){
         return view('shop.shop_password');
@@ -707,6 +970,110 @@ class ShopController extends Controller
             return redirect()->route('shop_password')->with('message','Cập nhật thành công');
         }
         return redirect()->route('shop_password')->with('error','Mật khẩu cũ không đúng');
+    }
+
+    /**
+     * Tính hoa hồng cho đơn hàng dựa trên trạng thái
+     */
+    private function calculateOrderCommission($orderId, $shopId, $orderTotal, $status)
+    {
+        $syncService = new CommissionSyncService();
+        return $syncService->calculateOrderCommission($orderId, $shopId, $orderTotal, $status);
+    }
+
+    /**
+     * Đồng bộ dữ liệu hoa hồng cho một shop cụ thể
+     */
+    private function syncShopCommissionData($shopId)
+    {
+        try {
+            $orders = DB::table('orders')
+                ->where('shop_id', $shopId)
+                ->whereIn('order_status', [0, 1, 3, 4, 5])
+                ->get();
+            
+            $commissionRate = CommissionRate::where('shop_id', $shopId)->first();
+            if (!$commissionRate) {
+                $commissionRate = CommissionRate::create([
+                    'shop_id' => $shopId,
+                    'rate' => 4.00,
+                    'total_commission' => 0.00,
+                    'pending_commission' => 0.00,
+                    'paid_commission' => 0.00,
+                    'status' => 'active'
+                ]);
+            }
+            
+            $totalCommission = 0;
+            $pendingCommission = 0;
+            $paidCommission = 0;
+            
+            foreach ($orders as $order) {
+                // Tính hoa hồng chính xác (order_total đã là giá gốc)
+                $correctCommissionAmount = $order->order_total * 0.04;
+                
+                $orderCommission = DB::table('order_commissions')
+                    ->where('order_id', $order->id)
+                    ->first();
+                
+                if (!$orderCommission) {
+                    DB::table('order_commissions')->insert([
+                        'order_id' => $order->id,
+                        'shop_id' => $shopId,
+                        'commission_amount' => $correctCommissionAmount,
+                        'status' => $order->order_status == 5 ? 'completed' : 'pending',
+                        'created_at' => now(),
+                        'updated_at' => now()
+                    ]);
+                    
+                    $orderCommission = (object)[
+                        'commission_amount' => $correctCommissionAmount,
+                        'status' => $order->order_status == 5 ? 'completed' : 'pending'
+                    ];
+                } else {
+                    $needsUpdate = false;
+                    $updateData = [];
+                    
+                    if (abs($orderCommission->commission_amount - $correctCommissionAmount) > 0.01) {
+                        $updateData['commission_amount'] = $correctCommissionAmount;
+                        $needsUpdate = true;
+                    }
+                    
+                    $correctStatus = $order->order_status == 5 ? 'completed' : 'pending';
+                    if ($orderCommission->status != $correctStatus) {
+                        $updateData['status'] = $correctStatus;
+                        $needsUpdate = true;
+                    }
+                    
+                    if ($needsUpdate) {
+                        $updateData['updated_at'] = now();
+                        DB::table('order_commissions')
+                            ->where('order_id', $order->id)
+                            ->update($updateData);
+                        
+                        $orderCommission->commission_amount = $updateData['commission_amount'] ?? $orderCommission->commission_amount;
+                        $orderCommission->status = $updateData['status'] ?? $orderCommission->status;
+                    }
+                }
+                
+                $totalCommission += $orderCommission->commission_amount;
+                
+                if ($orderCommission->status == 'completed') {
+                    $paidCommission += $orderCommission->commission_amount;
+                } else {
+                    $pendingCommission += $orderCommission->commission_amount;
+                }
+            }
+            
+            $commissionRate->update([
+                'total_commission' => $totalCommission,
+                'pending_commission' => $pendingCommission,
+                'paid_commission' => $paidCommission
+            ]);
+            
+        } catch (\Exception $e) {
+            \Log::error("Error syncing commission data for shop #{$shopId}: " . $e->getMessage());
+        }
     }
 }
  

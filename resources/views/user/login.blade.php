@@ -57,7 +57,12 @@
                         </div>   
                         
                         <div class="form-outline mb-4">
-                          <input type="password"  class="form-control form-control-lg" placeholder="Nhập Mật Khẩu" style="font-size: 17px;" required name="password"/>
+                          <div class="input-group">
+                            <input type="password"  class="form-control form-control-lg" placeholder="Nhập Mật Khẩu" style="font-size: 17px;" required name="password" id="user_password"/>
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-secondary" type="button" id="toggle_user_password">Hiển thị</button>
+                            </div>
+                          </div>
                         </div>
                         <div class="form-check d-flex  mb-5">
                           <input
@@ -94,6 +99,23 @@
     </main>
     @include('footer')
 </body>
+<script>
+  (function(){
+    var btn = document.getElementById('toggle_user_password');
+    var input = document.getElementById('user_password');
+    if(btn && input){
+      btn.addEventListener('click', function(){
+        if(input.type === 'password'){
+          input.type = 'text';
+          btn.textContent = 'Ẩn';
+        }else{
+          input.type = 'password';
+          btn.textContent = 'Hiển thị';
+        }
+      });
+    }
+  })();
+</script>
 </html>
 
 
